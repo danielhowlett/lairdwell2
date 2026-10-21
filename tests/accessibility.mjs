@@ -1,22 +1,13 @@
 import assert from 'node:assert/strict';
-import { createServer } from 'node:http';
-import { readFile, access } from 'node:fs/promises';
-import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
+import { serveProduction, launchBrowser } from './browser-helpers.mjs';
 
-// Serve the actual production build; API responses below are explicitly mocked.
-const html = await readFile(new URL('../public/index.html', import.meta.url));
-const server = createServer((req, res) => {
-  if (req.url !== '/' && req.url !== '/index.html') { res.writeHead(404); res.end(); return; }
-  res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }); res.end(html);
-});
-await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
-const url = `http://127.0.0.1:${server.address().port}/`;
-let executablePath = process.env.CHROMIUM_PATH;
-if (!executablePath) { try { await access('/usr/bin/chromium'); executablePath = '/usr/bin/chromium'; } catch {} }
+// Serve the production build and local font assets; API responses are explicitly mocked.
+const site = await serveProduction();
+const url = site.url;
 let browser;
 try {
-  browser = await chromium.launch({ executablePath, args: ['--no-sandbox'] });
+  browser = await launchBrowser('chromium');
   for (const [name, options] of [
     ['desktop', { viewport: { width: 1440, height: 1000 } }],
     ['tablet', { viewport: { width: 1024, height: 768 } }],
@@ -28,6 +19,7 @@ try {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(url);
+    await page.evaluate(()=>document.fonts.ready);
     async function scan(state) {
       const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
       assert.deepEqual(result.violations.map(v => ({ rule: v.id, elements: v.nodes.map(n => n.target) })), [], `${name}: ${state}`);
@@ -114,7 +106,7 @@ try {
   await motionPage.goto(url);
   await motionPage.locator('[data-step-label="1"]').click();
   await motionPage.waitForFunction(()=>Math.abs(document.querySelector('#story-step-2').getBoundingClientRect().top-116)<5);
-  assert.match(await motionPage.evaluate(()=>getComputedStyle(document.documentElement).scrollSnapType),/^y(?: proximity)?$/);
+  assert.equal(await motionPage.evaluate(()=>getComputedStyle(document.documentElement).scrollSnapType),'none');
   await motionPage.locator('[data-step-label="2"]').click();
   await motionPage.waitForFunction(()=>document.querySelector('[data-step-label="2"]').getAttribute('aria-current')==='step'&&Math.abs(document.querySelector('#story-step-3').getBoundingClientRect().top-116)<5);
   await motionPage.evaluate(()=>window.scrollTo({top:document.querySelector('#cases').offsetTop,behavior:'instant'}));
@@ -124,9 +116,9 @@ try {
   await motionPage.waitForFunction(()=>document.getAnimations().some(a=>a.effect.target.matches('.plan-card')&&a.playState==='running'));
   await motionPage.emulateMedia({reducedMotion:'reduce'});
   await motionPage.waitForFunction(()=>!document.getAnimations().some(a=>a.effect?.target.matches('.plan-card')&&a.playState==='running'));
-  console.log('PASS desktop motion: smooth card alignment, proximity snapping, section exit, reveal animation and live reduced-motion cancellation');
+  console.log('PASS desktop motion: smooth card alignment, native scrolling, section exit, reveal animation and live reduced-motion cancellation');
   await motionContext.close();
 } finally {
   await browser?.close();
-  await new Promise(resolve => server.close(resolve));
+  await site.close();
 }

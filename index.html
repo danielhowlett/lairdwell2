@@ -1481,10 +1481,24 @@
   }
 }
 </style>
-<!-- Nonblocking font loading; preconnect avoids extra connection setup. -->
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<!-- Self-hosted Inter: one preloaded Latin variable font, no external connection. -->
+<link rel="preload" href="assets/fonts/inter-latin-3100e775e861.woff2" as="font" type="font/woff2" crossorigin/>
+<style data-purpose="local-fonts">@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(assets/fonts/inter-latin-3100e775e861.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(assets/fonts/inter-latin-ext-34b9c504cab7.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}</style>
 <!-- Lairdwell Tailwind utilities bundled locally for fast, reliable rendering -->
 <!-- BEGIN: Custom Styles -->
 <style data-purpose="custom-typography">
@@ -1519,92 +1533,107 @@
   </style>
 <!-- END: Custom Styles -->
 <meta content="Lairdwell designs practical AI agents, custom automation, and connected workflows that help businesses spend less time on manual work." name="description"/><meta content="#171B1B" name="theme-color"/><style>
-html{scroll-padding-top:88px}button,a,input,textarea,select{outline-offset:3px}
+:root{--header-height:calc(80px + env(safe-area-inset-top,0px));--anchor-offset:calc(var(--header-height) + 24px)}
+html{scroll-padding-top:var(--anchor-offset)}button,a,input,textarea,select{outline-offset:3px}
 @media(max-width:767px){header .max-w-\[1240px\] > .flex.items-center:last-child a{padding:10px 13px;font-size:11px} #home h1{font-size:clamp(3.1rem,12vw,5rem)} .watermark-text{letter-spacing:0.01em}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style><style data-purpose="aligned-story-scroll">
-/* Coordinated story: two continuous columns, no empty checkerboard placeholders */
-.story-section{background:#F3F4F2;color:#171d1b;padding:112px 0 116px;overflow:clip}
-.story-shell,.cases-shell{max-width:1240px;margin:0 auto;padding:0 24px}
-.story-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,94px);align-items:start}
-.story-left{position:relative;align-self:stretch;min-width:0}
-.story-sticky{position:sticky;top:115px;padding:18px 0 24px;max-width:520px}
-.story-eyebrow,.cases-eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.04em;color:#4c5853;font-weight:500}
-.story-dot{width:8px;height:8px;flex:none;background:#33572f;border-radius:50%}
-.story-sticky h2{margin:40px 0 25px;font-weight:350;font-size:clamp(36px,3.7vw,58px);line-height:1.13;letter-spacing:-.055em;max-width:550px}
-.story-sticky h2 em,.cases-heading h2 em{font-style:normal;color:#61815b}
-.story-intro{font-size:14px;line-height:1.85;color:#66716c;max-width:410px;margin-bottom:43px}
-.story-step-list{display:grid;gap:0;margin-top:22px;border-top:1px solid #d2d8d1}
-.story-step-label{display:grid;grid-template-columns:35px 1fr 18px;align-items:center;gap:14px;min-height:69px;border-bottom:1px solid #d2d8d1;color:#858c87;font-size:13px;transition:color .35s,padding-left .35s}
-.story-step-no{font-size:12px;font-variant-numeric:tabular-nums}
-.story-step-marker{font-size:17px;transform:rotate(0deg);opacity:.25;transition:transform .35s,opacity .35s}
-.story-step-label.is-current{color:#183f30;font-weight:600;padding-left:8px}
-.story-step-label.is-current .story-step-marker{opacity:1;transform:rotate(45deg)}
-.story-progress{margin-top:23px;height:3px;background:#d4ded0;border-radius:5px;overflow:hidden}
-.story-progress>span{display:block;height:100%;width:33.333%;background:#325830;border-radius:5px;transition:width .65s cubic-bezier(.22,1,.36,1)}
-.story-progress-caption{font-size:11px;letter-spacing:.09em;font-weight:600;color:#315235;margin-top:12px;display:flex;gap:3px}
-.story-scroll-hint{margin-left:auto;letter-spacing:0;color:#738078;font-weight:400}
-.story-frames{display:grid;gap:30px;min-width:0;padding-top:0}
-.story-frame{min-height:565px;position:relative;overflow:hidden;border-radius:4px;padding:35px 39px 40px;display:flex;flex-direction:column;justify-content:space-between;opacity:.82;filter:saturate(.86);transform:translateY(26px) scale(.975);transition:opacity .68s ease,transform .8s cubic-bezier(.22,1,.36,1),filter .6s,box-shadow .6s}
-.story-frame.is-current,.story-frame.is-visible{opacity:1;filter:saturate(1);transform:translateY(0) scale(1);box-shadow:0 18px 50px rgba(15,39,33,.10)}
-.story-frame-one{color:#eef7ee;background:linear-gradient(145deg,#15342c,#102822 65%,#0b1e1b)}
-.story-frame-two{color:#172f27;background:#e4eddf;border:1px solid #d1dfcb}
-.story-frame-three{color:#e8f7dc;background:radial-gradient(circle at 75% 27%,#245546 0%,#12382f 33%,#09231f 90%)}
-.story-frame-head{display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:600;letter-spacing:.18em;opacity:.78}
-.story-frame-symbol{font-size:21px;letter-spacing:0;font-weight:400}
-.story-frame-copy{position:relative;z-index:2}
-.story-frame-copy h3{font-size:clamp(27px,2.65vw,36px);font-weight:350;letter-spacing:-.045em;line-height:1.14;max-width:430px;margin:0 0 16px}
-.story-frame-copy p{font-size:13px;line-height:1.82;max-width:355px;opacity:.72;margin:0}
-.story-inline-cta{margin-top:19px;display:inline-flex;align-items:center;gap:18px;text-decoration:none;font-size:12px;font-weight:600;color:#cbf3b2;border-bottom:1px solid rgba(203,243,178,.45);padding-bottom:6px}
-.story-inline-cta:hover{color:white}
-.story-flow-graphic{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:286px;padding:14px 5px 0}
-.workflow-node{border:1px solid rgba(203,242,168,.17);background:rgba(255,255,255,.055);border-radius:10px;min-height:57px;padding:0 17px;max-width:332px;width:90%;display:flex;align-items:center;gap:13px;font-size:12px;letter-spacing:-.01em;box-shadow:0 12px 30px rgba(1,10,9,.13)}
-.workflow-middle{width:84%;border-style:dashed;opacity:.72}
-.workflow-bottom{border-color:#bdeca1;background:#B5C9BC;color:#123225;width:93%}
-.workflow-symbol{font-size:18px;width:20px;text-align:center;flex:none}
-.workflow-node-tag{margin-left:auto;font-size:9px;letter-spacing:.12em;opacity:.68}
-.workflow-path{height:22px;display:flex;align-items:center;justify-content:center;gap:4px;flex-direction:column}
-.workflow-path span{display:block;width:2px;height:3px;border-radius:2px;background:#8bad7c;opacity:.7}
-.connection-graphic{height:286px;position:relative;margin:18px auto 6px;max-width:370px;width:100%}
-.connection-core{position:absolute;left:50%;top:51%;width:126px;height:126px;transform:translate(-50%,-50%);background:#173d2c;color:#d2f8bb;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;z-index:2;box-shadow:0 12px 30px rgba(26,62,42,.13)}
-.connection-core-icon{font-size:25px;line-height:1}
-.connection-core>span:last-child{text-align:center;font-size:8px;letter-spacing:.15em;line-height:1.65}
-.connection-chip{position:absolute;background:white;color:#294335;box-shadow:0 9px 22px rgba(41,85,50,.08);border:1px solid #d4dfce;padding:12px 15px;border-radius:8px;font-size:11px;white-space:nowrap;z-index:3;display:flex;align-items:center;gap:8px}
-.chip-icon{font-size:16px;color:#37613e}
-.chip-top{top:3px;left:50%;transform:translateX(-50%)}
-.chip-left{left:0;top:61%}
-.chip-right{right:0;top:61%}
-.connection-spoke{position:absolute;border:1px dashed #7ba174;opacity:.7;z-index:1}
-.spoke-top{left:50%;top:35px;height:105px;border-left-width:1px;border-top:0;border-right:0;border-bottom:0}
-.spoke-left{width:43%;left:12%;top:62%;border-top-width:1px;border-left:0;border-right:0;border-bottom:0;transform:rotate(-18deg);transform-origin:right center}
-.spoke-right{width:43%;right:12%;top:62%;border-top-width:1px;border-left:0;border-right:0;border-bottom:0;transform:rotate(18deg);transform-origin:left center}
-.results-graphic{position:relative;min-height:310px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:19px;text-align:center;isolation:isolate}
-.results-shine{position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(151,230,143,.08);filter:blur(6px);z-index:-1}
-.results-icon{color:#B5C9BC;opacity:.94}
-.results-phrase{font-size:clamp(23px,2.3vw,32px);font-weight:350;line-height:1.22;letter-spacing:-.05em}
-.results-phrase em{font-style:normal;color:#B5C9BC}
-.results-bars{width:210px;display:flex;flex-direction:column;gap:6px;margin-top:2px}
-.results-bars span{display:block;width:var(--bar-width);height:5px;background:#8bcf85;border-radius:2px;opacity:.32;transition:width .8s ease}
-.story-frame-three.is-current .results-bars span{opacity:.65}
-.cases-section{padding:92px 0 104px;background:#fff}
-.cases-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,94px);align-items:stretch}
-.cases-heading{padding:17px 0;display:flex;flex-direction:column;align-items:start}
-.cases-heading h2{font-size:clamp(34px,3.5vw,52px);line-height:1.16;letter-spacing:-.055em;font-weight:350;margin:35px 0 20px;max-width:470px}
-.cases-heading>p{font-size:14px;color:#66716c;line-height:1.85;max-width:390px}
-.cases-controls{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:40px}
-.case-arrow{width:44px;height:44px;background:#202525;border:1px solid #202525;border-radius:50%;color:#fff;cursor:pointer;display:inline-grid;place-items:center;font-size:18px;transition:background .2s,transform .2s}
-.case-arrow:hover{background:#5B7664;transform:translateY(-2px)}
-#case-position{margin-left:15px;font-size:11px;letter-spacing:.12em;color:#718078}
-.cases-panel{background:#F3F4F2;min-height:365px;padding:38px 42px 32px;display:flex;flex-direction:column;justify-content:space-between;border-left:3px solid #5B7664;transition:background .3s ease}
-.cases-panel-top,.cases-panel-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}
-[data-case-title]{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5B7664;font-weight:650}
-.cases-spark{font-size:28px;color:#789776}
-[data-case-quote]{font-size:clamp(24px,2.5vw,35px);letter-spacing:-.045em;line-height:1.28;font-weight:350;color:#17251f;max-width:540px;margin:32px 0}
-[data-case-role]{font-size:12px;color:#68756e;line-height:1.5}
-.cases-panel-bottom>span:last-child{color:#5B7664;font-size:21px}
-@media(min-width:768px) and (max-height:760px){.story-sticky{top:94px}.story-sticky h2{margin-top:24px;margin-bottom:16px;font-size:clamp(32px,3.5vw,48px)}.story-intro{margin-bottom:20px;line-height:1.6}.story-step-label{min-height:56px}.story-progress{margin-top:15px}}
-@media(max-width:767px){.story-section{padding:76px 0 72px}.story-layout,.cases-grid{grid-template-columns:1fr;gap:36px}.story-sticky{position:static;padding:0}.story-sticky h2{margin:25px 0 17px;font-size:clamp(35px,9vw,49px)}.story-intro{margin-bottom:26px}.story-step-label{min-height:56px}.story-frames{gap:18px}.story-frame{min-height:465px;padding:26px 26px 31px;transform:none;opacity:1;filter:none;border-radius:3px}.story-frame-copy h3{font-size:29px}.story-flow-graphic,.connection-graphic{min-height:210px;height:210px}.results-graphic{min-height:205px}.connection-core{height:98px;width:98px}.connection-chip{padding:9px;font-size:10px}.connection-graphic{max-width:310px}.story-frame.is-current,.story-frame.is-visible{transform:none}.story-progress-caption{display:none}.cases-section{padding:68px 0 75px}.cases-heading{padding:0}.cases-heading h2{margin:25px 0 15px}.cases-controls{padding-top:22px}.cases-panel{min-height:315px;padding:29px 27px 25px}[data-case-quote]{font-size:clamp(23px,6vw,31px)}}
-@media(prefers-reduced-motion:reduce){.story-frame,.story-step-label,.story-progress>span,.case-arrow{transition:none!important;transform:none!important}.story-frame{opacity:1!important;filter:none!important}}
+.story-section { background: rgb(243, 244, 242); color: rgb(23, 29, 27); padding: 112px 0px 116px; overflow: clip; }
+.story-shell { max-width: 1240px; margin: 0px auto; padding: 0px 24px; }
+.story-layout { display: grid; grid-template-columns: minmax(0px, 1fr) minmax(0px, 1fr); gap: clamp(32px, 6vw, 94px); align-items: start; }
+.story-left { position: relative; align-self: stretch; min-width: 0px; }
+.story-sticky { position: sticky; top: calc(var(--anchor-offset) + 12px); padding: 18px 0px 24px; max-width: 520px; }
+.story-eyebrow { display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: 0.04em; color: rgb(76, 88, 83); font-weight: 500; }
+.story-dot { width: 8px; height: 8px; flex: 0 0 auto; background: rgb(51, 87, 47); border-radius: 50%; }
+.story-sticky h2 { margin: 40px 0px 25px; font-weight: 350; font-size: clamp(36px, 3.7vw, 58px); line-height: 1.13; letter-spacing: -0.055em; max-width: 550px; }
+.story-sticky h2 em { font-style: normal; color: rgb(97, 129, 91); }
+.story-intro { font-size: 14px; line-height: 1.85; color: rgb(102, 113, 108); max-width: 410px; margin-bottom: 43px; }
+.story-step-list { display: grid; gap: 0px; margin-top: 22px; border-top: 1px solid rgb(210, 216, 209); }
+.story-step-label { box-sizing: border-box; display: grid; grid-template-columns: 28px minmax(0px, 1fr) 18px; align-items: center; gap: 14px; min-height: 69px; border-bottom: 1px solid rgb(210, 216, 209); color: rgb(133, 140, 135); font-size: 13px; padding-inline: 8px; transition: color 0.25s, background-color 0.25s; }
+.story-step-no { font-size: 12px; font-variant-numeric: tabular-nums; }
+.story-step-marker { font-size: 17px; transform: rotate(0deg); opacity: 0.25; transition: transform 0.35s, opacity 0.35s; }
+.story-step-label.is-current { color: rgb(24, 63, 48); font-weight: 600; padding-left: 8px; }
+.story-step-label.is-current .story-step-marker { opacity: 1; transform: rotate(45deg); }
+.story-progress { margin-top: 23px; height: 3px; background: rgb(212, 222, 208); border-radius: 5px; overflow: hidden; }
+.story-progress > span { display: block; height: 100%; width: 100%; transform: scaleX(0.333333); transform-origin: left center; background: rgb(50, 88, 48); border-radius: 5px; transition: transform 0.12s linear; }
+.story-progress-caption { font-size: 11px; letter-spacing: 0.09em; font-weight: 600; color: rgb(49, 82, 53); margin-top: 12px; display: flex; gap: 3px; }
+.story-scroll-hint { margin-left: auto; letter-spacing: 0px; color: rgb(115, 128, 120); font-weight: 400; }
+.story-frames { display: grid; gap: 30px; min-width: 0px; padding-top: 0px; }
+.story-frame { min-height: 565px; position: relative; overflow: hidden; border-radius: 4px; padding: 35px 39px 40px; display: flex; flex-direction: column; justify-content: space-between; opacity: 1; transform: none; transition: box-shadow 0.35s, border-color 0.35s; }
+.story-frame.is-current { box-shadow: rgba(15, 39, 33, 0.1) 0px 18px 50px; }
+.story-frame-one { color: rgb(238, 247, 238); background: linear-gradient(145deg, rgb(21, 52, 44), rgb(16, 40, 34) 65%, rgb(11, 30, 27)); }
+.story-frame-two { color: rgb(23, 47, 39); background: rgb(228, 237, 223); border: 1px solid rgb(209, 223, 203); }
+.story-frame-three { color: rgb(232, 247, 220); background: radial-gradient(circle at 75% 27%, rgb(36, 85, 70) 0%, rgb(18, 56, 47) 33%, rgb(9, 35, 31) 90%); }
+.story-frame-head { display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 600; letter-spacing: 0.18em; opacity: 0.78; }
+.story-frame-symbol { font-size: 21px; letter-spacing: 0px; font-weight: 400; }
+.story-frame-copy { position: relative; z-index: 2; }
+.story-frame-copy h3 { font-size: clamp(27px, 2.65vw, 36px); font-weight: 350; letter-spacing: -0.045em; line-height: 1.14; max-width: 430px; margin: 0px 0px 16px; }
+.story-frame-copy p { font-size: 13px; line-height: 1.82; max-width: 355px; opacity: 0.72; margin: 0px; }
+.story-inline-cta { margin-top: 19px; display: inline-flex; align-items: center; gap: 18px; text-decoration: none; font-size: 12px; font-weight: 600; color: rgb(203, 243, 178); border-bottom: 1px solid rgba(203, 243, 178, 0.45); padding-bottom: 6px; }
+.story-inline-cta:hover { color: white; }
+.story-flow-graphic { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 286px; padding: 14px 5px 0px; }
+.workflow-node { border: 1px solid rgba(203, 242, 168, 0.17); background: rgba(255, 255, 255, 0.055); border-radius: 10px; min-height: 57px; padding: 0px 17px; max-width: 332px; width: 90%; display: flex; align-items: center; gap: 13px; font-size: 12px; letter-spacing: -0.01em; box-shadow: rgba(1, 10, 9, 0.13) 0px 12px 30px; }
+.workflow-middle { width: 84%; border-style: dashed; opacity: 0.72; }
+.workflow-bottom { border-color: rgb(189, 236, 161); background: rgb(181, 201, 188); color: rgb(18, 50, 37); width: 93%; }
+.workflow-symbol { font-size: 18px; width: 20px; text-align: center; flex: 0 0 auto; }
+.workflow-node-tag { margin-left: auto; font-size: 9px; letter-spacing: 0.12em; opacity: 0.68; }
+.workflow-path { height: 22px; display: flex; align-items: center; justify-content: center; gap: 4px; flex-direction: column; }
+.workflow-path span { display: block; width: 2px; height: 3px; border-radius: 2px; background: rgb(139, 173, 124); opacity: 0.7; }
+.connection-graphic { height: 286px; position: relative; margin: 18px auto 6px; max-width: 370px; width: 100%; }
+.connection-core { position: absolute; left: 50%; top: 51%; width: 126px; height: 126px; transform: translate(-50%, -50%); background: rgb(23, 61, 44); color: rgb(210, 248, 187); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 9px; z-index: 2; box-shadow: rgba(26, 62, 42, 0.13) 0px 12px 30px; }
+.connection-core-icon { font-size: 25px; line-height: 1; }
+.connection-core > span:last-child { text-align: center; font-size: 8px; letter-spacing: 0.15em; line-height: 1.65; }
+.connection-chip { position: absolute; background: white; color: rgb(41, 67, 53); box-shadow: rgba(41, 85, 50, 0.08) 0px 9px 22px; border: 1px solid rgb(212, 223, 206); padding: 12px 15px; border-radius: 8px; font-size: 11px; white-space: nowrap; z-index: 3; display: flex; align-items: center; gap: 8px; }
+.chip-icon { font-size: 16px; color: rgb(55, 97, 62); }
+.chip-top { top: 3px; left: 50%; transform: translateX(-50%); }
+.chip-left { left: 0px; top: 61%; }
+.chip-right { right: 0px; top: 61%; }
+.connection-spoke { position: absolute; border: 1px dashed rgb(123, 161, 116); opacity: 0.7; z-index: 1; }
+.spoke-top { left: 50%; top: 35px; height: 105px; border-width: 0px 0px 0px 1px; border-top-style: none; border-top-color: currentcolor; border-right-style: none; border-right-color: currentcolor; border-bottom-style: none; border-bottom-color: currentcolor; }
+.spoke-left { width: 43%; left: 12%; top: 62%; border-width: 1px 0px 0px; border-left-style: none; border-left-color: currentcolor; border-right-style: none; border-right-color: currentcolor; border-bottom-style: none; border-bottom-color: currentcolor; transform: rotate(-18deg); transform-origin: right center; }
+.spoke-right { width: 43%; right: 12%; top: 62%; border-width: 1px 0px 0px; border-left-style: none; border-left-color: currentcolor; border-right-style: none; border-right-color: currentcolor; border-bottom-style: none; border-bottom-color: currentcolor; transform: rotate(18deg); transform-origin: left center; }
+.results-graphic { position: relative; min-height: 310px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 19px; text-align: center; isolation: isolate; }
+.results-shine { position: absolute; width: 240px; height: 240px; border-radius: 50%; background: rgba(151, 230, 143, 0.08); filter: blur(6px); z-index: -1; }
+.results-icon { color: rgb(181, 201, 188); opacity: 0.94; }
+.results-phrase { font-size: clamp(23px, 2.3vw, 32px); font-weight: 350; line-height: 1.22; letter-spacing: -0.05em; }
+.results-phrase em { font-style: normal; color: rgb(181, 201, 188); }
+.results-bars { width: 210px; display: flex; flex-direction: column; gap: 6px; margin-top: 2px; }
+.results-bars span { display: block; width: var(--bar-width); height: 5px; background: rgb(139, 207, 133); border-radius: 2px; opacity: 0.32; transition: width 0.8s; }
+.story-frame-three.is-current .results-bars span { opacity: 0.65; }
+#case-position { margin-left: 15px; font-size: 11px; letter-spacing: 0.12em; color: rgb(113, 128, 120); }
+[data-case-title] { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(91, 118, 100); font-weight: 650; }
+[data-case-quote] { font-size: clamp(24px, 2.5vw, 35px); letter-spacing: -0.045em; line-height: 1.28; font-weight: 350; color: rgb(23, 37, 31); max-width: 540px; margin: 32px 0px; }
+[data-case-role] { font-size: 12px; color: rgb(104, 117, 110); line-height: 1.5; }
+@media (min-width: 768px) and (max-height: 760px) {
+.story-sticky { top: 94px; }
+.story-sticky h2 { margin-top: 24px; margin-bottom: 16px; font-size: clamp(32px, 3.5vw, 48px); }
+.story-intro { margin-bottom: 20px; line-height: 1.6; }
+.story-step-label { min-height: 56px; }
+.story-progress { margin-top: 15px; }
+}
+@media (max-width: 767px) {
+.story-section { padding: 76px 0px 72px; }
+.story-layout { grid-template-columns: 1fr; gap: 36px; }
+.story-sticky { position: static; padding: 0px; }
+.story-sticky h2 { margin: 25px 0px 17px; font-size: clamp(35px, 9vw, 49px); }
+.story-intro { margin-bottom: 26px; }
+.story-step-label { min-height: 56px; }
+.story-frames { gap: 18px; }
+.story-frame { min-height: 465px; padding: 26px 26px 31px; transform: none; opacity: 1; filter: none; border-radius: 3px; }
+.story-frame-copy h3 { font-size: 29px; }
+.story-flow-graphic, .connection-graphic { min-height: 210px; height: 210px; }
+.results-graphic { min-height: 205px; }
+.connection-core { height: 98px; width: 98px; }
+.connection-chip { padding: 9px; font-size: 10px; }
+.connection-graphic { max-width: 310px; }
+.story-frame.is-current, .story-frame.is-visible { transform: none; }
+.story-progress-caption { display: none; }
+[data-case-quote] { font-size: clamp(23px, 6vw, 31px); }
+}
+@media (prefers-reduced-motion: reduce) {
+.story-frame, .story-step-label, .story-progress > span { transition: none !important; transform: none !important; }
+.story-frame { opacity: 1 !important; filter: none !important; }
+}
 </style><style data-purpose="neutral-story-palette">
 /* A better way to work — architectural monochrome, scoped to this section only. */
 .story-section { background:#f3f3f2; color:#1a1b1c; }
@@ -1638,256 +1667,285 @@ html{scroll-padding-top:88px}button,a,input,textarea,select{outline-offset:3px}
 .story-section .results-bars span { background:#c0c3c1; }
 .story-section .story-inline-cta { color:#f1f1ee; border-bottom-color:rgba(241,241,238,.45); }
 .story-section .story-inline-cta:hover { color:#fff; }
-</style><style data-purpose="full-screen-hero">
-/* Hero fills the initial viewport. */
-#home.laird-hero{height:100vh;height:100svh;min-height:580px;isolation:isolate}
-@media(max-width:767px){#home.laird-hero>div.relative{padding-bottom:clamp(36px,7vh,66px)}}
-@media(max-height:610px){#home.laird-hero{min-height:520px}}
-
 </style><style data-purpose="hero-side-rays">
-/* The genuine WebGL shader fills the full hero, no fake beams or line textures. */
-#home.laird-hero{background:#080b11}
-#home .side-rays{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none}
+/* SideRays is unchanged; a full-hero scrim protects text without a text box. */
+#home.laird-hero{min-height:max(540px,100svh);height:auto;isolation:isolate;background:#080b11}
+#home .side-rays{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 #home .side-rays__canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
-#home .hero-rays-scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top, rgba(5,8,12,.69) 0%,rgba(5,8,12,.21) 24%,transparent 56%)}
-#home .hero-copy-wrap{max-width:650px}
-#home .hero-copy-wrap p{max-width:530px}
-@media(max-width:767px){#home .hero-rays-scrim{background:linear-gradient(to top,rgba(5,8,12,.82),rgba(5,8,12,.2) 45%,transparent 75%)}}
-</style><style data-purpose="laird-wintergreen-theme">
-/* THE PALETTE — chalk, charcoal, mist and just a trace of wintergreen. */
-:root{
-  --laird-ink:#1D2220;
-  --laird-charcoal:#202525;
-  --laird-night:#171B1B;
-  --laird-canvas:#FAFAF8;
-  --laird-stone:#F3F4F2;
-  --laird-line:#DDE1DD;
-  --laird-wintergreen:#819B8A;
-  --laird-wintergreen-deep:#587260;
-  --laird-wintergreen-ice:#E1E8E2;
+#home .hero-rays-scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,8,12,.82),rgba(5,8,12,.52) 60%,rgba(5,8,12,.15)),linear-gradient(0deg,rgba(5,8,12,.8),rgba(5,8,12,.24) 55%,transparent)}
+#home .hero-content{display:block;padding-top:calc(var(--header-height) + 64px);padding-bottom:calc(clamp(40px,7svh,88px) + env(safe-area-inset-bottom,0px))}
+#home .hero-copy-wrap{max-width:none;min-width:0}
+#home h1{font-size:clamp(48px,7vw,76px);line-height:1.1;letter-spacing:-.045em;overflow-wrap:normal}
+#home .hero-copy-wrap p{max-width:540px;margin-top:24px}
+#home .hero-eyebrow{margin-top:28px;text-align:left}
+@media(min-width:1024px){
+ #home h1{font-size:clamp(56px,5.3vw,82px);white-space:nowrap}
+ #home .hero-eyebrow{position:absolute;right:24px;bottom:calc(clamp(40px,7svh,88px) + env(safe-area-inset-bottom,0px));max-width:calc(100% - 620px);margin:0;text-align:right}
 }
-body{background:var(--laird-canvas);color:var(--laird-ink)}
-::selection{background:#C7D5CA;color:#171B1B}
-:focus-visible{outline:2px solid #819B8A;outline-offset:3px}
-/* Header: a near-black glass pane above the animated hero. */
-#navbar.bg-\[\#171B1B\]\/90{background-color:rgba(23,27,27,.93)}
-#navbar .group:hover span:first-child{background-color:#B5C9BC}
-#navbar .btn-arrow-hover:hover .arrow-icon{color:var(--laird-wintergreen-deep)}
-#home.laird-hero{background:#080b11}
-/* Consistent sections, fine dividers, and minimal button treatments. */
-#services,#offerings,#calculator{background:var(--laird-canvas)}
-#services{padding-bottom:46px}
-#services .text-neutral-400{color:#969B97}
-#services .text-laird-muted{color:#6F7671}
-#services .rounded-full.bg-neutral-100{background:#F0F1EF;border-color:#E0E3DF;color:#404943}
-#offerings>div>div:first-child{border-color:#E0E3DF;background:#FFFFFF;box-shadow:none}
-#offerings [data-purpose="pricing-card"]{background:#FFFFFF;transition:background-color .3s ease}
-#offerings [data-purpose="pricing-card"]:nth-child(2){background:#F7F8F6}
-#offerings [data-purpose="pricing-card"]:hover{background:#F1F4F0}
-#offerings [data-purpose="pricing-card"] li>span:first-child{color:var(--laird-wintergreen-deep)}
-#offerings [data-purpose="pricing-card"] a.btn-arrow-hover:hover{background-color:#353C39}
-#offerings .text-neutral-500{color:#6E7771}
-/* Sticky story stays monochromatic; wintergreen appears only in the tiny navigational cues. */
-.story-section{background:#F2F3F1}
-.story-section .story-dot{background:var(--laird-wintergreen)}
-.story-section .story-sticky h2 em{color:#777E78}
-.story-section .story-step-label.is-current{color:#222625}
-.story-section .story-step-label.is-current .story-step-no{color:var(--laird-wintergreen-deep)}
-.story-section .story-progress>span{background:#779183}
-.story-section .story-progress-caption{color:#566B5D}
-.story-section .story-frame-one,
-.story-section .story-frame-three{border:1px solid #333938}
-.story-section .workflow-bottom{background:#E8EAE7;color:#252B28}
-.story-section .story-inline-cta{color:#E7ECE7}
-/* Use-case editorial cards: no prominent green panel or large blocks of color. */
-.cases-section{background:var(--laird-canvas)}
-.cases-heading h2 em{color:#7E9384}
-.cases-heading .story-dot{background:var(--laird-wintergreen)}
-.cases-panel{background:#F0F2EF;border-left:2px solid #A1B5A6}
-.cases-panel [data-case-title]{color:#506C5A}
-.cases-panel .cases-spark{color:#94AB9C}
-.cases-panel .cases-panel-bottom>span:last-child{color:#738B79}
-.cases-panel [data-case-quote]{color:#1E2521}
-.case-arrow{background:#202525;border-color:#202525}
-.case-arrow:hover{background:#36453D;border-color:#36453D}
-/* FAQs: white/chalk background, a single quiet wintergreen interaction hint. */
-#calculator [id^="faq-icon-"]{color:#829789}
-#calculator a.btn-arrow-hover:hover{background-color:#363C39}
-/* Contact block: soft gray with restrained sage focus rings and a single small dot. */
-#contact{background:#F1F2F0}
-#contact>div>div>div:first-child>div:first-child .rounded-full{background:#819B8A}
-#contact .lg\:col-span-7{background:#FFF;border-color:#E0E4DF;box-shadow:0 14px 34px rgba(23,27,27,.035)}
-#contact input:focus,#contact select:focus,#contact textarea:focus{border-color:#819B8A;--tw-ring-color:#A9C0AF}
-#contact input,#contact select,#contact textarea{background:#FCFCFB}
-#contact #lead-submit{background:#202525}
-#contact #lead-submit:hover{background:#353D39}
-#contact #lead-status.text-\[\#5B7664\]{color:#506C5A}
-/* Footer: deep charcoal instead of the source template's green-black. */
-footer[data-purpose="site-footer"]{background:#171B1B;border-top-color:#343B38}
-footer .footer-cta{background:#F4F5F2;color:#171B1B}
-footer .footer-cta:hover{background:#E9EFE9}
-footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
-@media(prefers-reduced-motion:reduce){#offerings [data-purpose="pricing-card"]{transition:none}}
+</style><style data-purpose="laird-wintergreen-theme">
+:root { --laird-ink: #1D2220; --laird-charcoal: #202525; --laird-night: #171B1B; --laird-canvas: #FAFAF8; --laird-stone: #F3F4F2; --laird-line: #DDE1DD; --laird-wintergreen: #819B8A; --laird-wintergreen-deep: #587260; --laird-wintergreen-ice: #E1E8E2; }
+body { background: var(--laird-canvas); color: var(--laird-ink); }
+::selection { background: rgb(199, 213, 202); color: rgb(23, 27, 27); }
+:focus-visible { outline: rgb(129, 155, 138) solid 2px; outline-offset: 3px; }
+#navbar.bg-\[\#171B1B\]\/90 { background-color: rgba(23, 27, 27, 0.93); }
+#navbar .group:hover span:first-child { background-color: rgb(181, 201, 188); }
+#navbar .btn-arrow-hover:hover .arrow-icon { color: var(--laird-wintergreen-deep); }
+#services, #offerings, #calculator { background: var(--laird-canvas); }
+#services { padding-bottom: 46px; }
+#services .text-neutral-400 { color: rgb(150, 155, 151); }
+#services .text-laird-muted { color: rgb(111, 118, 113); }
+#services .rounded-full.bg-neutral-100 { background: rgb(240, 241, 239); border-color: rgb(224, 227, 223); color: rgb(64, 73, 67); }
+#offerings > div > div:first-child { border-color: rgb(224, 227, 223); background: rgb(255, 255, 255); box-shadow: none; }
+#offerings [data-purpose="pricing-card"] { background: rgb(255, 255, 255); transition: background-color 0.3s; }
+#offerings [data-purpose="pricing-card"]:nth-child(2) { background: rgb(247, 248, 246); }
+#offerings [data-purpose="pricing-card"]:hover { background: rgb(241, 244, 240); }
+#offerings [data-purpose="pricing-card"] li > span:first-child { color: var(--laird-wintergreen-deep); }
+#offerings [data-purpose="pricing-card"] a.btn-arrow-hover:hover { background-color: rgb(53, 60, 57); }
+#offerings .text-neutral-500 { color: rgb(110, 119, 113); }
+.story-section { background: rgb(242, 243, 241); }
+.story-section .story-dot { background: var(--laird-wintergreen); }
+.story-section .story-sticky h2 em { color: rgb(119, 126, 120); }
+.story-section .story-step-label.is-current { color: rgb(34, 38, 37); }
+.story-section .story-step-label.is-current .story-step-no { color: var(--laird-wintergreen-deep); }
+.story-section .story-progress > span { background: rgb(119, 145, 131); }
+.story-section .story-progress-caption { color: rgb(86, 107, 93); }
+.story-section .story-frame-one, .story-section .story-frame-three { border: 1px solid rgb(51, 57, 56); }
+.story-section .workflow-bottom { background: rgb(232, 234, 231); color: rgb(37, 43, 40); }
+.story-section .story-inline-cta { color: rgb(231, 236, 231); }
+#calculator [id^="faq-icon-"] { color: rgb(130, 151, 137); }
+#calculator a.btn-arrow-hover:hover { background-color: rgb(54, 60, 57); }
+#contact { background: rgb(241, 242, 240); }
+#contact > div > div > div:first-child > div:first-child .rounded-full { background: rgb(129, 155, 138); }
+#contact .lg\:col-span-7 { background: rgb(255, 255, 255); border-color: rgb(224, 228, 223); box-shadow: rgba(23, 27, 27, 0.035) 0px 14px 34px; }
+#contact input:focus, #contact select:focus, #contact textarea:focus { border-color: rgb(129, 155, 138); --tw-ring-color: #A9C0AF; }
+#contact input, #contact select, #contact textarea { background: rgb(252, 252, 251); }
+#contact #lead-submit { background: rgb(32, 37, 37); }
+#contact #lead-submit:hover { background: rgb(53, 61, 57); }
+#contact #lead-status.text-\[\#5B7664\] { color: rgb(80, 108, 90); }
+footer[data-purpose="site-footer"] { background: rgb(23, 27, 27); border-top-color: rgb(52, 59, 56); }
+footer .footer-cta { background: rgb(244, 245, 242); color: rgb(23, 27, 27); }
+footer .footer-cta:hover { background: rgb(233, 239, 233); }
+footer .watermark-text { -webkit-text-stroke: 1.5px rgba(187, 205, 190, 0.2); }
+@media (prefers-reduced-motion: reduce) {
+#offerings [data-purpose="pricing-card"] { transition: none; }
+}
 </style><style data-purpose="laird-input-details">
 #lead-form input,#lead-form select,#lead-form textarea{border:1px solid #C9D0CA;min-width:0}
 #lead-form input:focus,#lead-form select:focus,#lead-form textarea:focus{border-color:#819B8A;outline:2px solid rgba(129,155,138,.22);outline-offset:0}
 </style>
 
 <style id="laird-case-variations">
-:root{--lc-dark:#1c2221;--lc-ink:#202726;--lc-paper:#fafbf9;--lc-wash:#f2f4f1;--lc-line:#dce1dc;--lc-muted:#68746e;--lc-sage:#829988;--lc-deep:#607d69}
-.lc-container{max-width:1240px;margin-inline:auto;padding-inline:24px}
-.lc-kicker{display:flex;align-items:center;gap:11px;font-size:12px;letter-spacing:.09em;font-weight:600;color:#626f68}
-.lc-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lc-sage);flex:none}
-.lc-heading{font-size:clamp(38px,4.3vw,61px);line-height:1.09;letter-spacing:-.062em;font-weight:350;margin:26px 0 20px;color:var(--lc-ink)}
-.lc-heading em{font-style:normal;color:#809784}
-.lc-intro{color:#69766e;font-size:15px;line-height:1.82;max-width:485px}
-.lc-index{font-size:11px;letter-spacing:.14em;font-weight:650;color:#65836e}
-.lc-counter{font-size:12px;letter-spacing:.12em;color:#809088;font-variant-numeric:tabular-nums}
-.lc-button{border:0;background:transparent;cursor:pointer;font:inherit;text-align:left}
-.lc-button:focus-visible,.lc-prev:focus-visible,.lc-next:focus-visible{outline:2px solid #8fa99a;outline-offset:4px}
-.lc-prev,.lc-next{width:48px;height:48px;display:grid;place-items:center;border:1px solid #343e38;border-radius:50%;background:var(--lc-ink);color:white;cursor:pointer;transition:transform .25s,background-color .25s;font-size:19px}
-.lc-prev:hover,.lc-next:hover{background:#4a6252;transform:translateY(-2px)}
-.lc-nav{display:flex;gap:12px;align-items:center}
-
-/* 01 — Editorial panel: purposeful typography and slim numbered rail */
-.laird-cases-v1{background:#fafbf9;padding:115px 0 124px;color:var(--lc-ink);overflow:hidden}
-.lc-v1-grid{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:clamp(45px,6vw,105px);align-items:stretch;min-height:570px}
-.lc-v1-left{display:flex;flex-direction:column;align-items:flex-start;padding:15px 0 0}
-.lc-v1-left .lc-heading{max-width:540px}
-.lc-v1-selector{align-self:stretch;margin-top:auto;padding-top:52px;display:grid;border-top:1px solid #d4d9d4}
-.lc-v1-choice{display:flex;align-items:center;gap:22px;padding:17px 4px;color:#939d95;border-bottom:1px solid #d4d9d4;transition:color .28s,transform .28s}
-.lc-v1-choice span:first-child{font-size:12px;letter-spacing:.1em}
-.lc-v1-choice span:nth-child(2){font-size:15px;flex:1}
-.lc-v1-choice span:last-child{opacity:0;font-size:19px}
-.lc-v1-choice.is-active{color:#223229;transform:translateX(5px);font-weight:600}
-.lc-v1-choice.is-active span:last-child{opacity:1;color:#6d9177}
-.lc-v1-feature{position:relative;background:linear-gradient(155deg,#292f2d 0%,#171e1b 100%);border:1px solid #303a35;color:#f1f4f1;padding:49px clamp(32px,4vw,64px) 36px;min-height:570px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(15,28,20,.09)}
-.lc-v1-feature:before{content:"";position:absolute;right:-180px;top:-200px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(129,163,140,.22),transparent 67%);pointer-events:none}
-.lc-v1-feature:after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.07);pointer-events:none}
-.lc-v1-top,.lc-v1-bottom{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.lc-v1-top span{color:#b2c8b9;font-size:11px;font-weight:600;letter-spacing:.17em}
-.lc-v1-stars{font-size:26px;font-weight:200;color:#a5b9ac}
-.lc-v1-content{position:relative;z-index:1;margin:auto 0;transition:opacity .24s ease,transform .24s ease}
-.lc-v1-content.is-changing{opacity:0;transform:translateY(13px)}
-.lc-v1-watermark{font-size:clamp(80px,10vw,146px);letter-spacing:-.1em;font-weight:300;line-height:1;margin:24px 0 -1px;color:rgba(213,226,218,.14)}
-.lc-v1-quote{font-size:clamp(25px,2.35vw,35px);font-weight:350;letter-spacing:-.042em;line-height:1.33;max-width:550px;margin:0}
-.lc-v1-bottom{padding-top:25px;border-top:1px solid rgba(242,245,242,.14)}
-.lc-v1-bottom span{font-size:12px;color:#c4d0c7}
-.lc-v1-nav{display:flex;gap:10px}
-.lc-v1-nav .lc-prev,.lc-v1-nav .lc-next{width:38px;height:38px;font-size:17px;border-color:#63726b;background:transparent}
-.lc-v1-nav .lc-prev:hover,.lc-v1-nav .lc-next:hover{background:#47554d}
-
-/* 02 — Workflow visualization: three connected live steps */
-.laird-cases-v2{background:#f1f3f0;padding:112px 0 120px;color:var(--lc-ink)}
-.lc-v2-introbar{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:end;padding-bottom:53px}
-.lc-v2-introbar .lc-heading{max-width:690px;margin-bottom:0}
-.lc-v2-introbar .lc-intro{max-width:430px;margin:0 0 6px auto}
-.lc-v2-workspace{display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);gap:0;min-height:520px;border:1px solid #d6ddd5;box-shadow:0 20px 40px rgba(30,40,33,.035)}
-.lc-v2-menu{background:#fbfcfa;padding:42px 34px;display:flex;flex-direction:column;gap:10px;border-right:1px solid #dce2db}
-.lc-v2-menu>p{font-size:11px;letter-spacing:.13em;font-weight:650;color:#6d7b70;margin:0 0 22px}
-.lc-v2-choice{display:flex;align-items:center;gap:15px;border:1px solid transparent;padding:23px 18px;color:#87938a;transition:background .3s,color .3s,border-color .3s}
-.lc-v2-choice.is-active{background:#eef2ed;border-color:#dae2d9;color:#202c23}
-.lc-v2-choice .lc-v2-number{font-size:12px;color:#708777;flex:none}
-.lc-v2-choice .lc-v2-choice-label{font-size:17px;letter-spacing:-.018em;flex:1;font-weight:500}
-.lc-v2-choice .lc-v2-choice-arrow{font-size:20px;opacity:.15}
-.lc-v2-choice.is-active .lc-v2-choice-arrow{opacity:1;color:#607e67}
-.lc-v2-menu-foot{margin-top:auto;border-top:1px solid #dde4dc;padding-top:23px;display:flex;align-items:center;justify-content:space-between;color:#6c7b70;font-size:12px}
-.lc-v2-visual{background:radial-gradient(circle at 85% 16%,#fcfffc 0%,#f5f8f4 43%,#e8eee7 100%);padding:42px clamp(32px,4.3vw,67px) 40px;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.lc-v2-visual:before{content:"";position:absolute;inset:0;opacity:.38;background-image:radial-gradient(#bac7bb 0.7px,transparent 0.7px);background-size:21px 21px;mask-image:linear-gradient(to bottom,#000,transparent 85%);pointer-events:none}
-.lc-v2-visual-head{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between}
-.lc-v2-visual-head span:first-child{font-size:11px;letter-spacing:.13em;font-weight:650;color:#5e7665}
-.lc-v2-status{display:flex;align-items:center;gap:7px;color:#657c6a;font-size:10px;letter-spacing:.09em;font-weight:600}
-.lc-v2-status:before{content:"";width:7px;height:7px;background:#829d88;border-radius:50%;box-shadow:0 0 0 4px rgba(130,157,136,.13)}
-.lc-v2-flow{position:relative;z-index:1;display:flex;align-items:center;gap:0;justify-content:center;margin:auto -6px 37px;min-height:195px;transition:opacity .24s,transform .24s}
-.lc-v2-flow.is-changing{opacity:.22;transform:translateY(8px)}
-.lc-v2-node{background:#fff;border:1px solid #cbd9cd;box-shadow:0 8px 22px rgba(35,52,39,.06);padding:20px 13px;flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;z-index:2;max-width:185px}
-.lc-v2-node .lc-v2-node-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid #cbdace;color:#557864;font-size:17px}
-.lc-v2-node strong{font-size:12px;font-weight:550;line-height:1.55}
-.lc-v2-node small{font-size:10px;letter-spacing:.08em;color:#8a968b;text-transform:uppercase}
-.lc-v2-node:last-child{background:#242f28;border-color:#242f28;color:#eef2ee}
-.lc-v2-node:last-child .lc-v2-node-icon{color:#c4d8c7;border-color:#647b69}
-.lc-v2-node:last-child small{color:#b8c8ba}
-.lc-v2-link{flex:0 0 clamp(18px,4.4vw,70px);height:1px;background:#93ab99;position:relative;z-index:1}
-.lc-v2-link:after{content:"";position:absolute;top:-3px;left:0;width:100%;height:7px;background:radial-gradient(circle 3.5px at 3.5px 50%,#668d6f 98%,transparent);animation:lc-flow-travel 2.4s linear infinite}
-.lc-v2-link:nth-of-type(4):after{animation-delay:1.1s}
-@keyframes lc-flow-travel{0%{transform:translateX(0);opacity:.2}25%{opacity:1}95%{opacity:1}100%{transform:translateX(calc(100% - 7px));opacity:.2}}
-.laird-cases-v2:not(.is-visible) .lc-v2-link:after{animation-play-state:paused}
-.lc-v2-caption{position:relative;z-index:2;border-top:1px solid #d1dcd1;padding-top:30px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}
-.lc-v2-caption h3{font-size:25px;letter-spacing:-.035em;font-weight:400;margin:0 0 8px;line-height:1.25}
-.lc-v2-caption p{font-size:13px;color:#6a786c;line-height:1.7;max-width:520px;margin:0}
-.lc-v2-caption .lc-next{width:43px;height:43px}
-
-/* 03 — Stacked deck: dramatic dark section, cards have depth. */
-.laird-cases-v3{background:linear-gradient(132deg,#202624,#161b19 60%,#171c19);color:#ecf0eb;padding:112px 0 120px;overflow:hidden}
-.lc-v3-grid{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:clamp(22px,4.8vw,78px);align-items:center;min-height:594px}
-.lc-v3-left{display:flex;flex-direction:column;align-items:start;min-height:495px;padding-block:22px}
-.lc-v3-left .lc-kicker{color:#b7c4b9}
-.lc-v3-left .lc-heading{color:#f4f6f1;max-width:500px;font-size:clamp(40px,4.5vw,64px)}
-.lc-v3-left .lc-heading em{color:#9fb7a2}
-.lc-v3-left .lc-intro{color:#adbbb0;max-width:440px}
-.lc-v3-controls{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:44px}
-.lc-v3-controls .lc-prev,.lc-v3-controls .lc-next{background:#eaf0e9;color:#202b24;border:0}
-.lc-v3-controls .lc-prev:hover,.lc-v3-controls .lc-next:hover{background:#cadcce}
-.lc-v3-controls .lc-counter{color:#a7b6ab;margin-left:16px}
-.lc-v3-undertext{display:flex;gap:12px;align-items:center;margin-top:24px;font-size:11px;letter-spacing:.08em;color:#8fa295}
-.lc-v3-undertext:before{content:"";display:block;width:25px;height:1px;background:#8fa295}
-.lc-v3-deck{height:545px;position:relative;perspective:1200px;perspective-origin:50% 42%;transform-style:preserve-3d}
-.lc-v3-card{position:absolute;top:44px;left:9%;width:82%;height:440px;max-width:530px;border:1px solid #ccd7cb;background:#eef2ec;box-shadow:0 26px 50px rgba(0,0,0,.28);padding:38px clamp(26px,3.1vw,43px) 31px;display:flex;flex-direction:column;justify-content:space-between;color:#202a22;transition:transform .82s cubic-bezier(.2,.75,.18,1),opacity .55s,filter .55s,box-shadow .55s;backface-visibility:hidden;cursor:pointer;text-align:left;overflow:hidden}
-.lc-v3-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 14%,rgba(126,161,133,.17),transparent 43%);pointer-events:none}
-.lc-v3-card .lc-v3-card-kicker{display:flex;justify-content:space-between;gap:10px;font-size:11px;letter-spacing:.15em;font-weight:600;color:#667f6b}
-.lc-v3-card .lc-v3-card-index{font-size:clamp(61px,7vw,94px);font-weight:300;color:rgba(84,113,91,.18);letter-spacing:-.09em;line-height:1;margin:0 0 -10px}
-.lc-v3-card h3{font-size:clamp(25px,2.8vw,36px);font-weight:370;letter-spacing:-.05em;line-height:1.15;margin:0 0 16px;max-width:360px}
-.lc-v3-card p{font-size:13px;color:#5c6a60;line-height:1.7;margin:0;max-width:380px}
-.lc-v3-card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #cdd8cd;padding-top:22px;font-size:11px;color:#718272}
-.lc-v3-card-foot span:last-child{font-size:22px;color:#506e59}
-.lc-v3-card.is-active{z-index:4;opacity:1;filter:none;transform:translate3d(0,0,80px) rotateY(0deg) rotateZ(0deg) scale(1);box-shadow:0 35px 65px rgba(0,0,0,.37)}
-.lc-v3-card.is-next{z-index:3;opacity:.64;filter:brightness(.87);transform:translate3d(63px,37px,-75px) rotateY(-9deg) rotateZ(5deg) scale(.91)}
-.lc-v3-card.is-prev{z-index:2;opacity:.38;filter:brightness(.79);transform:translate3d(-49px,-37px,-125px) rotateY(7deg) rotateZ(-5deg) scale(.88)}
-.lc-v3-card[aria-hidden="true"]{pointer-events:auto}
-@media(hover:hover){.lc-v3-card.is-active:hover{transform:translate3d(0,-6px,80px) scale(1.008)}}
-@media(max-width:990px){.lc-v2-workspace{grid-template-columns:minmax(230px,.8fr) minmax(0,1.2fr)}.lc-v2-menu{padding:30px 16px}.lc-v2-visual{padding:38px 24px}.lc-v2-flow{gap:0}.lc-v2-link{flex-basis:24px}.lc-v1-feature{min-height:545px}.lc-v3-card{left:5%;width:87%}}
-@media(max-width:767px){
-.laird-cases-v1,.laird-cases-v2,.laird-cases-v3{padding:72px 0 80px}
-.lc-v1-grid,.lc-v3-grid{grid-template-columns:1fr;gap:34px}
-.lc-v1-grid{min-height:unset}.lc-v1-left{padding:0}.lc-v1-selector{padding-top:24px;margin-top:32px}
-.lc-heading,.lc-v3-left .lc-heading{font-size:clamp(34px,9vw,49px)}
-.lc-v1-feature{min-height:465px;padding:32px 27px 25px}
-.lc-v1-watermark{font-size:82px}.lc-v1-quote{font-size:clamp(23px,6vw,31px)}
-.lc-v2-introbar{grid-template-columns:1fr;gap:12px;padding-bottom:30px}.lc-v2-introbar .lc-intro{margin:0;max-width:500px}
-.lc-v2-workspace{grid-template-columns:1fr}.lc-v2-menu{border-right:0;border-bottom:1px solid #dce2db;gap:2px;padding:24px 22px}
-.lc-v2-menu>p{margin-bottom:10px}.lc-v2-choice{padding:13px 15px}.lc-v2-menu-foot{margin-top:12px;padding-top:15px}
-.lc-v2-visual{min-height:410px;padding:26px 23px}.lc-v2-flow{min-height:158px;margin:36px -8px 30px}.lc-v2-node{padding:13px 7px;gap:9px;min-height:109px}.lc-v2-node strong{font-size:10px}.lc-v2-node small{font-size:8px}.lc-v2-node .lc-v2-node-icon{height:28px;width:28px}.lc-v2-link{flex-basis:16px}
-.lc-v2-caption{padding-top:20px}.lc-v2-caption h3{font-size:23px}.lc-v2-caption p{font-size:12px}
-.lc-v3-left{min-height:unset;padding:0}.lc-v3-controls{padding-top:28px}.lc-v3-undertext{margin-top:17px}
-.lc-v3-deck{height:465px;perspective:950px}.lc-v3-card{top:35px;left:7%;width:86%;height:385px;padding:26px 25px 24px}
-.lc-v3-card h3{font-size:clamp(24px,6.1vw,31px)}.lc-v3-card .lc-v3-card-index{font-size:74px}
-.lc-v3-card.is-next{transform:translate3d(30px,26px,-80px) rotateY(-6deg) rotateZ(4deg) scale(.91)}
-.lc-v3-card.is-prev{transform:translate3d(-27px,-21px,-115px) rotateY(6deg) rotateZ(-4deg) scale(.88)}
+:root { --lc-dark: #1c2221; --lc-ink: #202726; --lc-paper: #fafbf9; --lc-wash: #f2f4f1; --lc-line: #dce1dc; --lc-muted: #68746e; --lc-sage: #829988; --lc-deep: #607d69; }
+.lc-container { max-width: 1240px; margin-inline: auto; padding-inline: 24px; }
+.lc-kicker { display: flex; align-items: center; gap: 11px; font-size: 12px; letter-spacing: 0.09em; font-weight: 600; color: rgb(98, 111, 104); }
+.lc-kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--lc-sage); flex: 0 0 auto; }
+.lc-heading { font-size: clamp(38px, 4.3vw, 61px); line-height: 1.09; letter-spacing: -0.062em; font-weight: 350; margin: 26px 0px 20px; color: var(--lc-ink); }
+.lc-heading em { font-style: normal; color: rgb(128, 151, 132); }
+.lc-intro { color: rgb(105, 118, 110); font-size: 15px; line-height: 1.82; max-width: 485px; }
+.lc-index { font-size: 11px; letter-spacing: 0.14em; font-weight: 650; color: rgb(101, 131, 110); }
+.lc-counter { font-size: 12px; letter-spacing: 0.12em; color: rgb(128, 144, 136); font-variant-numeric: tabular-nums; }
+.lc-button { border: 0px; background: transparent; cursor: pointer; font: inherit; text-align: left; }
+.lc-button:focus-visible, .lc-prev:focus-visible, .lc-next:focus-visible { outline: rgb(143, 169, 154) solid 2px; outline-offset: 4px; }
+.lc-prev, .lc-next { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid rgb(52, 62, 56); border-radius: 50%; background: var(--lc-ink); color: white; cursor: pointer; transition: transform 0.25s, background-color 0.25s; font-size: 19px; }
+.lc-prev:hover, .lc-next:hover { background: rgb(74, 98, 82); transform: translateY(-2px); }
+.lc-nav { display: flex; gap: 12px; align-items: center; }
+.laird-cases-v2 { background: rgb(241, 243, 240); padding: 112px 0px 120px; color: var(--lc-ink); }
+.lc-v2-introbar { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: end; padding-bottom: 53px; }
+.lc-v2-introbar .lc-heading { max-width: 690px; margin-bottom: 0px; }
+.lc-v2-introbar .lc-intro { max-width: 430px; margin: 0px 0px 6px auto; }
+.lc-v2-workspace { display: grid; grid-template-columns: minmax(300px, 0.72fr) minmax(0px, 1.28fr); gap: 0px; min-height: 520px; border: 1px solid rgb(214, 221, 213); box-shadow: rgba(30, 40, 33, 0.035) 0px 20px 40px; }
+.lc-v2-menu { background: rgb(251, 252, 250); padding: 42px 34px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid rgb(220, 226, 219); }
+.lc-v2-menu > p { font-size: 11px; letter-spacing: 0.13em; font-weight: 650; color: rgb(109, 123, 112); margin: 0px 0px 22px; }
+.lc-v2-choice { display: flex; align-items: center; gap: 15px; border: 1px solid transparent; padding: 23px 18px; color: rgb(135, 147, 138); transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.lc-v2-choice.is-active { background: rgb(238, 242, 237); border-color: rgb(218, 226, 217); color: rgb(32, 44, 35); }
+.lc-v2-choice .lc-v2-number { font-size: 12px; color: rgb(112, 135, 119); flex: 0 0 auto; }
+.lc-v2-choice .lc-v2-choice-label { font-size: 17px; letter-spacing: -0.018em; flex: 1 1 0%; font-weight: 500; }
+.lc-v2-choice .lc-v2-choice-arrow { font-size: 20px; opacity: 0.15; }
+.lc-v2-choice.is-active .lc-v2-choice-arrow { opacity: 1; color: rgb(96, 126, 103); }
+.lc-v2-menu-foot { margin-top: auto; border-top: 1px solid rgb(221, 228, 220); padding-top: 23px; display: flex; align-items: center; justify-content: space-between; color: rgb(108, 123, 112); font-size: 12px; }
+.lc-v2-visual { background: radial-gradient(circle at 85% 16%, rgb(252, 255, 252) 0%, rgb(245, 248, 244) 43%, rgb(232, 238, 231) 100%); padding: 42px clamp(32px, 4.3vw, 67px) 40px; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.lc-v2-visual::before { content: ""; position: absolute; inset: 0px; opacity: 0.38; background-image: radial-gradient(rgb(186, 199, 187) 0.7px, transparent 0.7px); background-size: 21px 21px; mask-image: linear-gradient(rgb(0, 0, 0), transparent 85%); pointer-events: none; }
+.lc-v2-visual-head { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; }
+.lc-v2-visual-head span:first-child { font-size: 11px; letter-spacing: 0.13em; font-weight: 650; color: rgb(94, 118, 101); }
+.lc-v2-status { display: flex; align-items: center; gap: 7px; color: rgb(101, 124, 106); font-size: 10px; letter-spacing: 0.09em; font-weight: 600; }
+.lc-v2-status::before { content: ""; width: 7px; height: 7px; background: rgb(130, 157, 136); border-radius: 50%; box-shadow: rgba(130, 157, 136, 0.13) 0px 0px 0px 4px; }
+.lc-v2-flow { position: relative; z-index: 1; display: flex; align-items: center; gap: 0px; justify-content: center; margin: auto -6px 37px; min-height: 195px; transition: opacity 0.24s, transform 0.24s; }
+.lc-v2-flow.is-changing { opacity: 1; transform: translateY(8px); }
+.lc-v2-node { background: rgb(255, 255, 255); border: 1px solid rgb(203, 217, 205); box-shadow: rgba(35, 52, 39, 0.06) 0px 8px 22px; padding: 20px 13px; flex: 1 1 0%; min-width: 0px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative; z-index: 2; max-width: 185px; }
+.lc-v2-node .lc-v2-node-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgb(203, 218, 206); color: rgb(85, 120, 100); font-size: 17px; }
+.lc-v2-node strong { font-size: 12px; font-weight: 550; line-height: 1.55; }
+.lc-v2-node small { font-size: 10px; letter-spacing: 0.08em; color: rgb(138, 150, 139); text-transform: uppercase; }
+.lc-v2-node:last-child { background: rgb(36, 47, 40); border-color: rgb(36, 47, 40); color: rgb(238, 242, 238); }
+.lc-v2-node:last-child .lc-v2-node-icon { color: rgb(196, 216, 199); border-color: rgb(100, 123, 105); }
+.lc-v2-node:last-child small { color: rgb(184, 200, 186); }
+.lc-v2-link { flex: 0 0 clamp(18px, 4.4vw, 70px); height: 1px; background: rgb(147, 171, 153); position: relative; z-index: 1; }
+.lc-v2-link::after { content: ""; position: absolute; top: -3px; left: 0px; width: 100%; height: 7px; background: radial-gradient(3.5px at 3.5px 50%, rgb(102, 141, 111) 98%, transparent); animation: 2.4s linear 0s infinite normal none running lc-flow-travel; }
+.lc-v2-link:nth-of-type(4)::after { animation-delay: 1.1s; }
+@keyframes lc-flow-travel {
+  0% { transform: translateX(0px); opacity: 0.2; }
+  25% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { transform: translateX(calc(100% - 7px)); opacity: 0.2; }
 }
-@media(max-width:380px){.lc-v3-card{left:5%;width:90%;height:420px}.lc-v3-deck{height:475px}.lc-v2-node{padding:11px 5px}.lc-v2-link{flex-basis:10px}}
-@media(prefers-reduced-motion:reduce){.lc-v1-content,.lc-v2-flow,.lc-v3-card,.lc-v1-choice,.lc-v2-choice,.lc-next,.lc-prev{transition:none!important}.lc-v2-link:after{animation:none}}
+.laird-cases-v2:not(.is-visible) .lc-v2-link::after { animation-play-state: paused; }
+.lc-v2-caption { position: relative; z-index: 2; border-top: 1px solid rgb(209, 220, 209); padding-top: 30px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; }
+.lc-v2-caption h3 { font-size: 25px; letter-spacing: -0.035em; font-weight: 400; margin: 0px 0px 8px; line-height: 1.25; }
+.lc-v2-caption p { font-size: 13px; color: rgb(106, 120, 108); line-height: 1.7; max-width: 520px; margin: 0px; }
+.lc-v2-caption .lc-next { width: 43px; height: 43px; }
+@media (max-width: 990px) {
+.lc-v2-workspace { grid-template-columns: minmax(230px, 0.8fr) minmax(0px, 1.2fr); }
+.lc-v2-menu { padding: 30px 16px; }
+.lc-v2-visual { padding: 38px 24px; }
+.lc-v2-flow { gap: 0px; }
+.lc-v2-link { flex-basis: 24px; }
+}
+@media (max-width: 767px) {
+.laird-cases-v2 { padding: 72px 0px 80px; }
+.lc-heading { font-size: clamp(34px, 9vw, 49px); }
+.lc-v2-introbar { grid-template-columns: 1fr; gap: 12px; padding-bottom: 30px; }
+.lc-v2-introbar .lc-intro { margin: 0px; max-width: 500px; }
+.lc-v2-workspace { grid-template-columns: 1fr; }
+.lc-v2-menu { border-right: 0px; border-bottom: 1px solid rgb(220, 226, 219); gap: 2px; padding: 24px 22px; }
+.lc-v2-menu > p { margin-bottom: 10px; }
+.lc-v2-choice { padding: 13px 15px; }
+.lc-v2-menu-foot { margin-top: 12px; padding-top: 15px; }
+.lc-v2-visual { min-height: 410px; padding: 26px 23px; }
+.lc-v2-flow { min-height: 158px; margin: 36px -8px 30px; }
+.lc-v2-node { padding: 13px 7px; gap: 9px; min-height: 109px; }
+.lc-v2-node strong { font-size: 10px; }
+.lc-v2-node small { font-size: 8px; }
+.lc-v2-node .lc-v2-node-icon { height: 28px; width: 28px; }
+.lc-v2-link { flex-basis: 16px; }
+.lc-v2-caption { padding-top: 20px; }
+.lc-v2-caption h3 { font-size: 23px; }
+.lc-v2-caption p { font-size: 12px; }
+}
+@media (max-width: 380px) {
+.lc-v2-node { padding: 11px 5px; }
+.lc-v2-link { flex-basis: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+.lc-v2-flow, .lc-v2-choice, .lc-next, .lc-prev { transition: none !important; }
+.lc-v2-link::after { animation: auto ease 0s 1 normal none running none; }
+}
 </style>
 <style data-purpose="savings-calculator">
-/* LAIRDWELL | Three isolated savings calculator directions */
-.sav-section{--sv-ink:#202625;--sv-night:#1B2220;--sv-sage:#819B8A;--sv-sage2:#617e6b;--sv-paper:#FAFBF8;--sv-muted:#758078;--sv-line:#dce2db;box-sizing:border-box;color:var(--sv-ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.sav-section *{box-sizing:border-box}.sav-section button,.sav-section input,.sav-section a{font:inherit}.sav-section h2,.sav-section h3,.sav-section p{margin:0}.sav-section a{text-decoration:none}.sav-section :focus-visible{outline:2px solid #819B8A;outline-offset:3px}
-.sav-wrap{max-width:1240px;margin:auto;padding:0 24px}.sav-topline{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.17em;font-weight:650;color:#819186;border-bottom:1px solid var(--sv-line);padding-bottom:19px}.sav-topline span:first-child{display:flex;align-items:center;gap:10px}.sav-topline i{height:7px;width:7px;background:#85a08c;border-radius:100%;display:inline-block}.sav-kicker{font-size:11px;letter-spacing:.15em;font-weight:650;color:#758b7b;margin-bottom:21px}.sav-section h2{font-weight:380;letter-spacing:-.065em;line-height:1.07;font-size:clamp(38px,4.5vw,67px)}.sav-section h2 em{font-style:normal;color:#8aa18f}.sav-input-stack{display:grid;gap:27px}.sav-input-row{min-width:0}.sav-input-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:13px}.sav-input-top label{font-size:12px;font-weight:600;letter-spacing:-.01em}.sav-input-right{display:flex;align-items:center;justify-content:flex-end;gap:6px}.sav-input-right input{width:61px;border:1px solid #d6ddd4;background:#fff;border-radius:6px;text-align:right;padding:6px 7px;font-size:15px;font-weight:600;color:#1e2922;font-variant-numeric:tabular-nums;outline:none}.sav-input-right>span{color:#738278;font-size:11px;min-width:32px;text-align:left}.sav-help{font-size:11px;color:#89938b;margin-top:10px;line-height:1.4}.sav-section input[type=range]{display:block;width:100%;height:5px;appearance:none;-webkit-appearance:none;border:0;outline:none;cursor:pointer;border-radius:20px;background:linear-gradient(to right,var(--sv-sage2) 0%,var(--sv-sage2) var(--pct,50%),#dce2dc var(--pct,50%),#dce2dc 100%);margin:0}.sav-section input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border:3px solid #fff;box-shadow:0 1px 7px #1113;border-radius:50%;background:#667f6d;cursor:pointer}.sav-section input[type=range]::-moz-range-thumb{width:13px;height:13px;border:3px solid #fff;box-shadow:0 1px 7px #1113;border-radius:50%;background:#667f6d;cursor:pointer}.sav-section input[type=number]{font-variant-numeric:tabular-nums}.sav-disclaimer{font-size:11px;line-height:1.8;color:#758177;max-width:780px}.sav-disclaimer span{font-size:13px;padding-right:6px;color:#83988b}.sav-disclaimer strong{font-weight:600}.sav-footnote{border-top:1px solid var(--sv-line);margin-top:30px;padding-top:18px;display:flex;align-items:flex-start;justify-content:space-between;gap:30px}.sav-end-note{white-space:nowrap;font-size:9px;font-weight:600;letter-spacing:.15em;color:#9ba79d;padding-top:4px}.sav-cta{display:inline-flex;align-items:center;justify-content:center;gap:20px;border-radius:100px;padding:14px 19px;font-size:12px!important;font-weight:600!important;white-space:nowrap;transition:background .25s,transform .25s}.sav-cta:hover{transform:translateY(-2px)}.sav-cta span{font-size:18px;font-weight:400}
-/* 01 / calm editorial cost-saver */
-/* 02 / dark ROI workbench */
-/* 03 / bento opportunity dashboard */
-#calculator.sav-variant-three{padding:86px 0 94px;background:#eef1ed}.sav-variant-three .sav-topline{color:#718677}.sav-3-heading{display:grid;grid-template-columns:1.4fr .6fr;align-items:end;gap:38px;margin:54px 0 45px}.sav-3-heading p{max-width:290px;color:#718074;font-size:14px;line-height:1.85;margin-bottom:10px}.sav-3-inputs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}.sav-3-inputlead{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin:0 0 5px;font-size:10px;letter-spacing:.13em;font-weight:650;color:#738779}.sav-3-inputlead strong{font-size:10px;color:#76907b}.sav-3-input{background:#fcfdfa;border:1px solid #dce4db;min-width:0;padding:20px 20px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:15px;min-height:148px}.sav-3-input>label{font-size:12px;font-weight:600;color:#536054;min-height:26px}.sav-3-number{display:flex;align-items:baseline;gap:5px}.sav-3-number input{width:100%;min-width:0;max-width:100px;font-size:30px;line-height:1;font-weight:450;letter-spacing:-.05em;color:#202725;border:0;background:transparent;padding:0;outline:none}.sav-3-number span{font-size:11px;color:#7d8f80;white-space:nowrap}.sav-3-input input[type=range]{height:4px}.sav-3-dashboard{display:grid;grid-template-columns:1.1fr .52fr 1.08fr;gap:12px;align-items:stretch}.sav-3-metric-primary{background:#202925;color:#f5f8f2;min-height:340px;padding:30px 33px;display:flex;flex-direction:column}.sav-3-cap{display:flex;align-items:center;justify-content:space-between;color:#b4c6b7;font-size:10px;letter-spacing:.14em;font-weight:600}.sav-3-cap span:last-child{font-size:23px;letter-spacing:0;font-weight:400}.sav-3-primary-inner{margin:auto 0}.sav-3-primary-inner>span{display:block;color:#bbcbba;font-size:12px}.sav-3-primary-inner strong{display:block;font-size:clamp(53px,5.1vw,74px);line-height:1.18;letter-spacing:-.075em;font-weight:360;white-space:nowrap;margin:13px 0}.sav-3-explainer{color:#a1b5a5;font-size:12px;line-height:1.7;max-width:245px}.sav-3-bottom{border-top:1px solid #4b5b50;padding-top:18px}.sav-3-bottom .sav-cta{background:#e7eee6;color:#202a21;padding:12px 17px}.sav-3-metric-small{background:#e1e8df;border:1px solid #d4ded2;padding:29px 23px;position:relative;min-width:0}.sav-3-cap-label{display:block;font-size:10px;letter-spacing:.12em;color:#657e69;font-weight:600;line-height:1.5}.sav-3-small-num{margin-top:39px}.sav-3-small-num strong{display:block;font-size:clamp(44px,4vw,63px);line-height:1.1;letter-spacing:-.075em;font-weight:400;font-variant-numeric:tabular-nums}.sav-3-small-num em{font-size:12px;color:#617362;font-style:normal}.sav-3-metric-small p{font-size:11px;color:#617162;line-height:1.7;margin-top:17px;max-width:170px}.sav-3-ring{position:absolute;bottom:22px;right:16px;width:73px;height:73px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#799a80 0% 60%,#bdcdbf 60% 100%)}.sav-3-ring:before{content:"";position:absolute;width:59px;height:59px;background:#e1e8df;border-radius:50%}.sav-3-ring span{position:relative;z-index:1;font-size:13px;font-weight:650;color:#36533e}.sav-3-chartcard{background:#fbfcf9;border:1px solid #dce2db;padding:28px 25px;display:flex;flex-direction:column;min-width:0}.sav-3-charttop{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.sav-3-charttop>div>span{display:block;font-size:10px;letter-spacing:.13em;color:#77917c;font-weight:600}.sav-3-charttop h3{font-size:21px;font-weight:450;letter-spacing:-.035em;margin-top:14px}.sav-3-switch{display:flex;border:1px solid #d3ddd3;padding:3px;border-radius:100px;gap:3px;flex-shrink:0}.sav-3-switch button{border:0;border-radius:100px;padding:7px 10px;background:transparent;color:#7a8b7b;cursor:pointer;font-size:10px;white-space:nowrap}.sav-3-switch button[aria-pressed=true]{background:#26332a;color:#f3f7f1}.sav-3-chartarea{display:grid;grid-template-columns:54px 1fr;gap:5px;flex:1;margin-top:35px;min-height:165px}.sav-3-axis{display:flex;flex-direction:column;justify-content:space-between;font-size:10px;color:#8a9a8b;padding-bottom:3px}.sav-3-chartarea svg{width:100%;height:165px;display:block;overflow:visible}.sav-3-gridline{fill:none;stroke:#dee5dc;stroke-width:1}.sav-3-months{display:flex;justify-content:space-between;margin:12px 0 0 57px;color:#8c9a8d;font-size:9px;letter-spacing:.06em;font-weight:550}.sav-variant-three .sav-footnote{margin-top:30px}
-/* responsive handling */
-@media(max-width:1050px){.sav-3-dashboard{grid-template-columns:1fr .7fr}.sav-3-chartcard{grid-column:1/-1;min-height:315px}.sav-3-input{padding:17px 13px}.sav-1-resultfooter{flex-wrap:wrap}.sav-2-moneypanel{flex-wrap:wrap}}
-@media(max-width:767px){#calculator.sav-variant-one,#calculator.sav-variant-two,#calculator.sav-variant-three{padding:64px 0 77px}.sav-wrap{padding:0 21px}.sav-topline{font-size:9px;gap:8px;letter-spacing:.08em}.sav-topline>span:last-child{font-size:9px;text-align:right}.sav-section h2{font-size:clamp(39px,9vw,55px)}.sav-kicker{font-size:10px;margin-bottom:17px}.sav-variant-one .sav-intro,.sav-2-heading,.sav-3-heading{display:block;margin:40px 0 31px}.sav-variant-one .sav-intro p,.sav-2-heading p,.sav-3-heading p{margin-top:23px;max-width:400px}.sav-1-grid,.sav-2-workbench{grid-template-columns:1fr}.sav-1-grid{min-height:0}.sav-1-controls,.sav-1-result,.sav-2-inputpanel,.sav-2-outputpanel{padding:28px 25px 32px}.sav-1-cardtop,.sav-1-resulttop{margin-bottom:30px}.sav-1-result{min-height:440px}.sav-1-big{font-size:clamp(53px,12vw,77px)}.sav-1-bars{padding-top:30px}.sav-1-resultfooter{flex-wrap:nowrap}.sav-2-heroout{margin-top:55px}.sav-2-outputpanel{min-height:460px}.sav-2-hours strong{font-size:clamp(78px,17vw,108px)}.sav-2-presetline{flex-wrap:wrap}.sav-3-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.sav-3-dashboard{grid-template-columns:1fr 1fr}.sav-3-metric-primary{grid-column:1/-1;min-height:300px}.sav-3-chartcard{grid-column:1/-1}.sav-3-metric-small{grid-column:1/-1;min-height:215px}.sav-3-ring{width:81px;height:81px;bottom:28px;right:25px}.sav-3-ring:before{width:65px;height:65px}.sav-3-small-num{margin-top:24px}.sav-3-metric-small p{max-width:210px}.sav-3-primary-inner strong{font-size:clamp(52px,11vw,70px)}.sav-footnote{display:block}.sav-end-note{display:block;margin-top:14px}.sav-3-chartarea{min-height:145px}.sav-3-chartarea svg{height:155px}}
-@media(max-width:430px){.sav-1-barrow{grid-template-columns:72px minmax(0,1fr) 40px;gap:8px}.sav-1-resultfooter{flex-wrap:wrap}.sav-1-resultfooter .sav-cta{width:100%}.sav-3-inputs{gap:7px}.sav-3-input{padding:17px 12px}.sav-3-number input{font-size:28px}.sav-3-charttop{flex-wrap:wrap}.sav-3-switch{margin-top:9px}.sav-3-charttop h3{margin-top:8px}.sav-2-moneypanel strong{font-size:39px}}
-@media(prefers-reduced-motion:reduce){.sav-section *{scroll-behavior:auto!important;transition:none!important}}
-
+.sav-section { --sv-ink: #202625; --sv-night: #1B2220; --sv-sage: #819B8A; --sv-sage2: #617e6b; --sv-paper: #FAFBF8; --sv-muted: #758078; --sv-line: #dce2db; box-sizing: border-box; color: var(--sv-ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.sav-section * { box-sizing: border-box; }
+.sav-section button, .sav-section input, .sav-section a { font: inherit; }
+.sav-section h2, .sav-section h3, .sav-section p { margin: 0px; }
+.sav-section a { text-decoration: none; }
+.sav-section :focus-visible { outline: rgb(129, 155, 138) solid 2px; outline-offset: 3px; }
+.sav-wrap { max-width: 1240px; margin: auto; padding: 0px 24px; }
+.sav-topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 10px; letter-spacing: 0.17em; font-weight: 650; color: rgb(129, 145, 134); border-bottom: 1px solid var(--sv-line); padding-bottom: 19px; }
+.sav-topline span:first-child { display: flex; align-items: center; gap: 10px; }
+.sav-topline i { height: 7px; width: 7px; background: rgb(133, 160, 140); border-radius: 100%; display: inline-block; }
+.sav-kicker { font-size: 11px; letter-spacing: 0.15em; font-weight: 650; color: rgb(117, 139, 123); margin-bottom: 21px; }
+.sav-section h2 { font-weight: 380; letter-spacing: -0.065em; line-height: 1.07; font-size: clamp(38px, 4.5vw, 67px); }
+.sav-section h2 em { font-style: normal; color: rgb(138, 161, 143); }
+.sav-section input[type="range"] { display: block; width: 100%; height: 5px; appearance: none; border: 0px; outline: none; cursor: pointer; border-radius: 20px; background: linear-gradient(to right,var(--sv-sage2) 0%,var(--sv-sage2) var(--pct,50%),#dce2dc var(--pct,50%),#dce2dc 100%); margin: 0px; }
+.sav-section input[type="range"]::-webkit-slider-thumb { appearance: none; width: 17px; height: 17px; border: 3px solid rgb(255, 255, 255); box-shadow: rgba(17, 17, 17, 0.2) 0px 1px 7px; border-radius: 50%; background: rgb(102, 127, 109); cursor: pointer; }
+.sav-section input[type="number"] { font-variant-numeric: tabular-nums; }
+.sav-disclaimer { font-size: 11px; line-height: 1.8; color: rgb(117, 129, 119); max-width: 780px; }
+.sav-disclaimer span { font-size: 13px; padding-right: 6px; color: rgb(131, 152, 139); }
+.sav-disclaimer strong { font-weight: 600; }
+.sav-footnote { border-top: 1px solid var(--sv-line); margin-top: 30px; padding-top: 18px; display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; }
+.sav-end-note { white-space: nowrap; font-size: 9px; font-weight: 600; letter-spacing: 0.15em; color: rgb(155, 167, 157); padding-top: 4px; }
+.sav-cta { display: inline-flex; align-items: center; justify-content: center; gap: 20px; border-radius: 100px; padding: 14px 19px; white-space: nowrap; transition: background 0.25s, transform 0.25s; font-size: 12px !important; font-weight: 600 !important; }
+.sav-cta:hover { transform: translateY(-2px); }
+.sav-cta span { font-size: 18px; font-weight: 400; }
+#calculator.sav-variant-three { padding: 86px 0px 94px; background: rgb(238, 241, 237); }
+.sav-variant-three .sav-topline { color: rgb(113, 134, 119); }
+.sav-3-heading { display: grid; grid-template-columns: 1.4fr 0.6fr; align-items: end; gap: 38px; margin: 54px 0px 45px; }
+.sav-3-heading p { max-width: 290px; color: rgb(113, 128, 116); font-size: 14px; line-height: 1.85; margin-bottom: 10px; }
+.sav-3-inputs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
+.sav-3-inputlead { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; margin: 0px 0px 5px; font-size: 10px; letter-spacing: 0.13em; font-weight: 650; color: rgb(115, 135, 121); }
+.sav-3-inputlead strong { font-size: 10px; color: rgb(118, 144, 123); }
+.sav-3-input { background: rgb(252, 253, 250); border: 1px solid rgb(220, 228, 219); min-width: 0px; padding: 20px 20px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; min-height: 148px; }
+.sav-3-input > label { font-size: 12px; font-weight: 600; color: rgb(83, 96, 84); min-height: 26px; }
+.sav-3-number { display: flex; align-items: baseline; gap: 5px; }
+.sav-3-number input { width: 100%; min-width: 0px; max-width: 100px; font-size: 30px; line-height: 1; font-weight: 450; letter-spacing: -0.05em; color: rgb(32, 39, 37); border: 0px; background: transparent; padding: 0px; outline: none; }
+.sav-3-number span { font-size: 11px; color: rgb(125, 143, 128); white-space: nowrap; }
+.sav-3-input input[type="range"] { height: 4px; }
+.sav-3-dashboard { display: grid; grid-template-columns: 1.1fr 0.52fr 1.08fr; gap: 12px; align-items: stretch; }
+.sav-3-metric-primary { background: rgb(32, 41, 37); color: rgb(245, 248, 242); min-height: 340px; padding: 30px 33px; display: flex; flex-direction: column; }
+.sav-3-cap { display: flex; align-items: center; justify-content: space-between; color: rgb(180, 198, 183); font-size: 10px; letter-spacing: 0.14em; font-weight: 600; }
+.sav-3-cap span:last-child { font-size: 23px; letter-spacing: 0px; font-weight: 400; }
+.sav-3-primary-inner { margin: auto 0px; }
+.sav-3-primary-inner > span { display: block; color: rgb(187, 203, 186); font-size: 12px; }
+.sav-3-primary-inner strong { display: block; font-size: clamp(53px, 5.1vw, 74px); line-height: 1.18; letter-spacing: -0.075em; font-weight: 360; white-space: nowrap; margin: 13px 0px; }
+.sav-3-explainer { color: rgb(161, 181, 165); font-size: 12px; line-height: 1.7; max-width: 245px; }
+.sav-3-bottom { border-top: 1px solid rgb(75, 91, 80); padding-top: 18px; }
+.sav-3-bottom .sav-cta { background: rgb(231, 238, 230); color: rgb(32, 42, 33); padding: 12px 17px; }
+.sav-3-metric-small { background: rgb(225, 232, 223); border: 1px solid rgb(212, 222, 210); padding: 29px 23px; position: relative; min-width: 0px; }
+.sav-3-cap-label { display: block; font-size: 10px; letter-spacing: 0.12em; color: rgb(101, 126, 105); font-weight: 600; line-height: 1.5; }
+.sav-3-small-num { margin-top: 39px; }
+.sav-3-small-num strong { display: block; font-size: clamp(44px, 4vw, 63px); line-height: 1.1; letter-spacing: -0.075em; font-weight: 400; font-variant-numeric: tabular-nums; }
+.sav-3-small-num em { font-size: 12px; color: rgb(97, 115, 98); font-style: normal; }
+.sav-3-metric-small p { font-size: 11px; color: rgb(97, 113, 98); line-height: 1.7; margin-top: 17px; max-width: 170px; }
+.sav-3-ring { position: absolute; bottom: 22px; right: 16px; width: 73px; height: 73px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(rgb(121, 154, 128) 0%, rgb(121, 154, 128) 60%, rgb(189, 205, 191) 60%, rgb(189, 205, 191) 100%); }
+.sav-3-ring::before { content: ""; position: absolute; width: 59px; height: 59px; background: rgb(225, 232, 223); border-radius: 50%; }
+.sav-3-ring span { position: relative; z-index: 1; font-size: 13px; font-weight: 650; color: rgb(54, 83, 62); }
+.sav-3-chartcard { background: rgb(251, 252, 249); border: 1px solid rgb(220, 226, 219); padding: 28px 25px; display: flex; flex-direction: column; min-width: 0px; }
+.sav-3-charttop { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.sav-3-charttop > div > span { display: block; font-size: 10px; letter-spacing: 0.13em; color: rgb(119, 145, 124); font-weight: 600; }
+.sav-3-charttop h3 { font-size: 21px; font-weight: 450; letter-spacing: -0.035em; margin-top: 14px; }
+.sav-3-switch { display: flex; border: 1px solid rgb(211, 221, 211); padding: 3px; border-radius: 100px; gap: 3px; flex-shrink: 0; }
+.sav-3-switch button { border: 0px; border-radius: 100px; padding: 7px 10px; background: transparent; color: rgb(122, 139, 123); cursor: pointer; font-size: 10px; white-space: nowrap; }
+.sav-3-switch button[aria-pressed="true"] { background: rgb(38, 51, 42); color: rgb(243, 247, 241); }
+.sav-3-chartarea { display: grid; grid-template-columns: 54px 1fr; gap: 5px; flex: 1 1 0%; margin-top: 35px; min-height: 165px; }
+.sav-3-axis { display: flex; flex-direction: column; justify-content: space-between; font-size: 10px; color: rgb(138, 154, 139); padding-bottom: 3px; }
+.sav-3-chartarea svg { width: 100%; height: 165px; display: block; overflow: visible; }
+.sav-3-gridline { fill: none; stroke: rgb(222, 229, 220); stroke-width: 1; }
+.sav-3-months { display: flex; justify-content: space-between; margin: 12px 0px 0px 57px; color: rgb(140, 154, 141); font-size: 9px; letter-spacing: 0.06em; font-weight: 550; }
+.sav-variant-three .sav-footnote { margin-top: 30px; }
+@media (max-width: 1050px) {
+.sav-3-dashboard { grid-template-columns: 1fr 0.7fr; }
+.sav-3-chartcard { grid-column: 1 / -1; min-height: 315px; }
+.sav-3-input { padding: 17px 13px; }
+}
+@media (max-width: 767px) {
+#calculator.sav-variant-three { padding: 64px 0px 77px; }
+.sav-wrap { padding: 0px 21px; }
+.sav-topline { font-size: 9px; gap: 8px; letter-spacing: 0.08em; }
+.sav-topline > span:last-child { font-size: 9px; text-align: right; }
+.sav-section h2 { font-size: clamp(39px, 9vw, 55px); }
+.sav-kicker { font-size: 10px; margin-bottom: 17px; }
+.sav-3-heading { display: block; margin: 40px 0px 31px; }
+.sav-3-heading p { margin-top: 23px; max-width: 400px; }
+.sav-3-inputs { grid-template-columns: repeat(2, minmax(0px, 1fr)); }
+.sav-3-dashboard { grid-template-columns: 1fr 1fr; }
+.sav-3-metric-primary { grid-column: 1 / -1; min-height: 300px; }
+.sav-3-chartcard { grid-column: 1 / -1; }
+.sav-3-metric-small { grid-column: 1 / -1; min-height: 215px; }
+.sav-3-ring { width: 81px; height: 81px; bottom: 28px; right: 25px; }
+.sav-3-ring::before { width: 65px; height: 65px; }
+.sav-3-small-num { margin-top: 24px; }
+.sav-3-metric-small p { max-width: 210px; }
+.sav-3-primary-inner strong { font-size: clamp(52px, 11vw, 70px); }
+.sav-footnote { display: block; }
+.sav-end-note { display: block; margin-top: 14px; }
+.sav-3-chartarea { min-height: 145px; }
+.sav-3-chartarea svg { height: 155px; }
+}
+@media (max-width: 430px) {
+.sav-3-inputs { gap: 7px; }
+.sav-3-input { padding: 17px 12px; }
+.sav-3-number input { font-size: 28px; }
+.sav-3-charttop { flex-wrap: wrap; }
+.sav-3-switch { margin-top: 9px; }
+.sav-3-charttop h3 { margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+.sav-section * { scroll-behavior: auto !important; transition: none !important; }
+}
+</style><style data-purpose="accessibility-and-responsive">
 /* Accessibility: visible focus on light/dark surfaces, keyboard skip and usable targets. */
 .skip-link{position:fixed;top:8px;left:12px;z-index:100;background:#fff;color:#17251e;padding:12px 18px;border:2px solid #17251e;transform:translateY(-160%)}
 .skip-link:focus{transform:translateY(0)}
 :where(a,button,input,textarea,select):focus-visible{outline:3px solid #174f36!important;outline-offset:3px;box-shadow:0 0 0 6px #fff!important}
 #navbar{background-color:#171b1b}
-section[id],main{scroll-margin-top:100px}
+section[id],main{scroll-margin-top:0}
 #main-content:focus{outline:none}
 .sav-3-switch button{min-height:32px;min-width:44px}
 .sav-section input[type=range]{height:24px;background-size:100% 4px;background-repeat:no-repeat;background-position:center}
@@ -1909,12 +1967,10 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 .lc-v2-node:last-child small{color:#d3dfd4}
 .story-section .workflow-middle{opacity:1}
 .story-section .workflow-node-tag{opacity:.85}
-/* Keep text contrast independent of the animated canvas behind it. */
-#home .hero-copy-wrap{background:rgba(8,11,17,.88);padding:20px;border-radius:8px}
 
 #contact input,#contact textarea,#contact select{border:1px solid #78847c}
 #contact input::placeholder,#contact textarea::placeholder{color:#59665d;opacity:1}
-:where(a,button,input,textarea,select){scroll-margin-block:110px}
+:where(a,button,input,textarea,select){scroll-margin-block:16px}
 /* Use the compact navigation before desktop links start to crowd. */
 @media(min-width:768px) and (max-width:1099px){
  #navbar nav[aria-label="Primary navigation"]{display:none}
@@ -1922,15 +1978,11 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
  #mobile-menu:not(.hidden){display:block}
 }
 
-/* Native desktop proximity snapping; the page remains freely scrollable. */
+/* Focused story navigation does not alter native wheel or touch scrolling. */
 .story-step-label{text-decoration:none;width:100%;text-align:left}
 .story-step-label:hover{background:rgba(80,97,84,.06)}
-.story-frame{scroll-margin-top:28px}
+.story-frame{scroll-margin-top:12px}
 .story-frame:focus-visible{outline:3px solid #174f36;outline-offset:5px;box-shadow:0 0 0 8px #fff}
-@media(min-width:1100px) and (prefers-reduced-motion:no-preference){
- html.story-snap-active{scroll-snap-type:y proximity}
- .story-frame{scroll-snap-align:start}
-}
 @media(max-width:430px){
  #navbar>div:first-child{padding-inline:16px}
  #navbar>div:first-child>a span.text-xl{font-size:18px}
@@ -1938,7 +1990,85 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
  #mobile-menu-toggle{margin-right:8px;flex-shrink:0}
  .watermark-text{font-size:clamp(30px,10vw,48px);letter-spacing:0}
 }
-</style></head>
+
+/* Responsive refinements, sharing one header/anchor offset across all sections. */
+#navbar{padding-top:env(safe-area-inset-top,0px)}
+#mobile-menu{max-height:calc(100dvh - var(--header-height));overflow-y:auto;overscroll-behavior:contain}
+#mobile-menu a{min-height:44px;display:flex;align-items:center}
+#services>div>div:last-child{flex-wrap:wrap;gap:12px;text-align:center}
+#services>div>div:last-child>span{margin-left:0}
+.plan-card{min-width:0}
+.plan-card .items-baseline{flex-wrap:wrap;gap:6px 12px}
+.plan-card .items-baseline>span{margin-left:0}
+.story-step-marker{justify-self:end}
+.lc-v2-visual-head{flex-wrap:wrap;gap:12px}
+.lc-v2-flow{min-width:0}
+.lc-v2-node{min-width:0}
+.lc-v2-node strong,.lc-v2-node small{overflow-wrap:anywhere}
+.lc-v2-visual{overflow:clip}
+.lc-v2-caption>div{min-width:0;min-height:var(--workflow-copy-height,0px)}
+
+.sav-3-dashboard,.sav-3-primary-inner{min-width:0}
+.sav-3-primary-inner strong{font-size:clamp(38px,5vw,74px);white-space:normal;overflow-wrap:anywhere}
+.sav-3-metric-small{padding-bottom:110px}
+.sav-3-input input{min-width:0}
+#contact input,#contact textarea,#contact select{font-size:16px}
+footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+@media(max-width:1099px){
+ .story-layout{grid-template-columns:1fr;gap:36px}
+ .story-sticky{position:static;max-width:700px;padding-top:0}
+ .story-sticky h2{font-size:clamp(35px,5vw,49px);max-width:700px}
+ .story-intro{max-width:560px;margin-bottom:24px}
+ .story-step-label{min-height:56px}
+ .story-progress-caption{display:none}
+ .story-frame{min-height:480px}
+}
+@media(min-width:1100px) and (max-height:820px){
+ .story-sticky h2{font-size:36px;margin-top:24px;margin-bottom:16px}
+ .story-intro{font-size:13px;line-height:1.7;margin-bottom:18px}
+ .story-step-label{min-height:50px}
+ .story-progress{margin-top:16px}
+}
+@media(max-height:640px){.story-sticky{position:static}}
+@media(min-width:768px) and (max-width:1023px){.plan-card{padding:28px 24px}}
+@media(min-width:768px) and (max-width:1099px){
+ .lc-v2-workspace{grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr)}
+ .lc-v2-visual{padding:32px 20px}
+ .lc-v2-menu{padding:30px 18px}
+ .lc-v2-choice{padding:18px 10px;gap:10px}
+ .lc-v2-choice .lc-v2-choice-label{font-size:15px}
+ .lc-v2-node{padding:16px 8px}
+ .lc-v2-node strong{font-size:11px}
+ .lc-v2-node small{font-size:9px}
+ .lc-v2-link{flex-basis:14px}
+}
+@media(max-width:767px){
+ #home h1{font-size:clamp(46px,12vw,64px)}
+ .story-frame{min-height:460px;padding:28px 24px}
+ .sav-3-metric-small{min-height:250px}
+
+}
+@media(max-width:380px){
+ .lc-v2-visual{padding-inline:16px}
+ .lc-v2-menu-foot{flex-wrap:wrap;gap:12px}
+ .sav-3-metric-primary{padding:26px 24px}
+}
+@supports(padding:max(0px)){
+ #navbar>div:first-child{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+ .hero-content,.story-shell,.lc-container,.sav-wrap{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+}
+
+.sav-3-number input{appearance:textfield;-moz-appearance:textfield}
+.sav-3-number input::-webkit-inner-spin-button,.sav-3-number input::-webkit-outer-spin-button{appearance:none;margin:0}
+@supports(font-size:1cqi){
+ .sav-3-primary-inner{container-type:inline-size}
+ .sav-3-primary-inner strong{font-size:clamp(28px,calc(155cqi / var(--annual-chars,7)),74px);white-space:nowrap;overflow-wrap:normal}
+}
+@media(max-width:430px){#navbar .btn-arrow-hover{font-size:11px!important}#navbar .arrow-icon{display:none}}
+</style>
+<noscript><style>
+#navbar{position:relative}#mobile-menu-toggle{display:none!important}#mobile-menu{display:block!important;max-height:none}#navbar nav[aria-label="Primary navigation"]{display:none}html{scroll-padding-top:24px}
+</style></noscript></head>
 <body class="bg-white text-neutral-900 antialiased selection:bg-[#B5C9BC] selection:text-[#202525]">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <!-- BEGIN: MainHeader -->
@@ -1956,9 +2086,9 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 <nav aria-label="Primary navigation" class="hidden md:flex items-center space-x-8 text-sm font-light text-white/90"><a class="hover:text-white transition-opacity hover:opacity-80" href="#home">Home</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#about">Our approach</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#services">Services</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#cases">Use cases</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#calculator">Calculator</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#contact">Contact</a></nav>
 <!-- CTA Book a Call Button -->
 <div class="flex items-center">
-<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="md:hidden mr-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white" id="mobile-menu-toggle" type="button"><span aria-hidden="true" class="text-xl">☰</span></button><a class="btn-arrow-hover inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-white text-[#202525] text-xs font-semibold hover:bg-neutral-100 transition-all shadow-sm" href="#contact">
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="md:hidden mr-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white" id="mobile-menu-toggle" type="button"><span aria-hidden="true" class="text-xl"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></button><a class="btn-arrow-hover inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-white text-[#202525] text-xs font-semibold hover:bg-neutral-100 transition-all shadow-sm" href="#contact">
 <span class="">Start a Conversation</span>
-<span class="arrow-icon text-sm">↗</span>
+<span class="arrow-icon text-sm"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span>
 </a>
 </div>
 </div>
@@ -1970,13 +2100,13 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 <div class="side-rays" id="hero-side-rays" aria-hidden="true"><canvas class="side-rays__canvas" id="hero-rays-canvas"></canvas></div>
 <div class="hero-rays-scrim" aria-hidden="true"></div>
 <!-- Hero Content Container -->
-<div class="relative z-10 max-w-[1240px] w-full mx-auto px-6 pb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="relative z-10 max-w-[1240px] w-full mx-auto px-6 hero-content">
 <div class="hero-copy-wrap max-w-xl">
 <h1 class="text-5xl md:text-[76px] font-light text-white leading-tight tracking-tight letter-tight">Work, made simpler.</h1>
 <p class="mt-4 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-lg">Thoughtful AI strategy, custom agents, and practical automations that take repetitive work off your team’s plate.</p>
 </div>
 <!-- Right Alignment Eyebrow -->
-<div class="text-left md:text-right">
+<div class="hero-eyebrow">
 <p class="text-xs md:text-sm text-neutral-300/80 font-light tracking-wide">AI strategy  ·  Custom automation  ·  Nationwide</p>
 </div>
 </div>
@@ -2015,10 +2145,10 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 </div>
 <a class="btn-arrow-hover w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors" data-intent="AI Opportunity Audit" href="#contact">
 <span class="">Discuss an Audit</span>
-<span class="arrow-icon text-sm">↗</span>
+<span class="arrow-icon text-sm"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span>
 </a>
 <!-- Features List -->
-<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Workflow and process review</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Identify high-impact automation opportunities</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Review of existing tools and systems</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Prioritized recommendations</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Clear next steps and project scope</span></li></ul>
+<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Workflow and process review</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Identify high-impact automation opportunities</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Review of existing tools and systems</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Prioritized recommendations</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Clear next steps and project scope</span></li></ul>
 </div>
 </div>
 <!-- CARD 2: Growth Plan -->
@@ -2032,10 +2162,10 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 </div>
 <a class="btn-arrow-hover w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors" data-intent="Custom Automation Build" href="#contact">
 <span class="">Plan a Build</span>
-<span class="arrow-icon text-sm">↗</span>
+<span class="arrow-icon text-sm"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span>
 </a>
 <!-- Features List -->
-<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Custom AI agents and assistants</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Workflow automation and integrations</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Internal knowledge and document search</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Testing, safeguards, and team training</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Launch and handoff support</span></li></ul>
+<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Custom AI agents and assistants</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Workflow automation and integrations</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Internal knowledge and document search</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Testing, safeguards, and team training</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Launch and handoff support</span></li></ul>
 </div>
 </div>
 <!-- CARD 3: Premium Plan -->
@@ -2049,10 +2179,10 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 </div>
 <a class="btn-arrow-hover w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors" data-intent="Ongoing Optimization" href="#contact">
 <span class="">Explore Support</span>
-<span class="arrow-icon text-sm">↗</span>
+<span class="arrow-icon text-sm"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span>
 </a>
 <!-- Features List -->
-<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Workflow monitoring and refinements</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Knowledge base and content updates</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Troubleshooting and adjustments</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>New use-case exploration</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Continued automation guidance</span></li></ul>
+<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Workflow monitoring and refinements</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Knowledge base and content updates</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Troubleshooting and adjustments</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>New use-case exploration</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Continued automation guidance</span></li></ul>
 </div>
 </div>
 </div>
@@ -2062,7 +2192,7 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 <div class="flex items-center justify-center space-x-3">
 <a class="btn-arrow-hover px-6 py-2.5 bg-[#202525] text-white rounded-full text-xs font-semibold hover:bg-[#363D3B] transition-colors flex items-center space-x-2" href="#contact">
 <span class="">Tell Us What You Need</span>
-<span class="arrow-icon text-sm">↗</span>
+<span class="arrow-icon text-sm"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span>
 </a>
 <a class="px-6 py-2.5 bg-white border border-neutral-300 text-neutral-800 rounded-full text-xs font-semibold hover:bg-neutral-50 transition-colors" href="#about">See Our Approach</a>
 </div>
@@ -2080,9 +2210,9 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
           <h2 id="story-title">Technology should give people <em>time back</em>—not create more work.</h2>
           <p class="story-intro">We start with how your business works, then build the right connections. Explore each step to see how it comes together.</p>
           <div class="story-step-list" role="group" aria-label="Our process">
-            <a class="story-step-label is-current" data-step-label="0" href="#story-step-1" aria-current="step"><span class="story-step-no">01</span><span>Understand the workflow</span><span class="story-step-marker">↗</span></a>
-            <a class="story-step-label" data-step-label="1" href="#story-step-2"><span class="story-step-no">02</span><span>Connect the pieces</span><span class="story-step-marker">↗</span></a>
-            <a class="story-step-label" data-step-label="2" href="#story-step-3"><span class="story-step-no">03</span><span>Give time back</span><span class="story-step-marker">↗</span></a>
+            <a class="story-step-label is-current" data-step-label="0" href="#story-step-1" aria-current="step"><span class="story-step-no">01</span><span>Understand the workflow</span><span class="story-step-marker"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a>
+            <a class="story-step-label" data-step-label="1" href="#story-step-2"><span class="story-step-no">02</span><span>Connect the pieces</span><span class="story-step-marker"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a>
+            <a class="story-step-label" data-step-label="2" href="#story-step-3"><span class="story-step-no">03</span><span>Give time back</span><span class="story-step-marker"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a>
           </div>
           <div class="story-progress" role="presentation"><span id="story-progress-fill"></span></div>
           <p class="story-progress-caption"><span id="story-current-number">01</span> / 03 <span class="story-scroll-hint">Scroll or select a step <span aria-hidden="true">↓</span></span></p>
@@ -2090,36 +2220,36 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
       </div>
       <div class="story-frames" role="group" aria-label="Our approach, step by step">
         <article class="story-frame story-frame-one is-current" data-story-frame="0" id="story-step-1" tabindex="-1" aria-label="Step one, understand the workflow">
-          <div class="story-frame-head"><span>01 / DISCOVER</span><span class="story-frame-symbol">↗</span></div>
+          <div class="story-frame-head"><span>01 / DISCOVER</span><span class="story-frame-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div>
           <div class="story-flow-graphic" aria-hidden="true">
-            <div class="workflow-node workflow-top"><span class="workflow-symbol">↙</span><span>New request</span><span class="workflow-node-tag">INBOX</span></div>
+            <div class="workflow-node workflow-top"><span class="workflow-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M18 6 6 18M6 6v12h12"/></svg></span><span>New request</span><span class="workflow-node-tag">INBOX</span></div>
             <div class="workflow-path"><span></span><span></span><span></span></div>
             <div class="workflow-node workflow-middle"><span class="workflow-symbol">⋯</span><span>Manual handoffs</span><span class="workflow-node-tag">3 STEPS</span></div>
             <div class="workflow-path"><span></span><span></span><span></span></div>
-            <div class="workflow-node workflow-bottom"><span class="workflow-symbol">✓</span><span>Clear next action</span><span class="workflow-node-tag">READY</span></div>
+            <div class="workflow-node workflow-bottom"><span class="workflow-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><span>Clear next action</span><span class="workflow-node-tag">READY</span></div>
           </div>
           <div class="story-frame-copy"><h3>Understand before you automate.</h3><p>Find the repeated tasks, bottlenecks and busywork. The best starting point is a real problem—not another tool.</p></div>
         </article>
         <article class="story-frame story-frame-two" data-story-frame="1" id="story-step-2" tabindex="-1" aria-label="Step two, connect the pieces">
-          <div class="story-frame-head"><span>02 / CONNECT</span><span class="story-frame-symbol">↗</span></div>
+          <div class="story-frame-head"><span>02 / CONNECT</span><span class="story-frame-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div>
           <div class="connection-graphic" aria-hidden="true">
-            <div class="connection-core"><span class="connection-core-icon">✳</span><span>CONNECTED<br/>WORKFLOW</span></div>
+            <div class="connection-core"><span class="connection-core-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M12 3v18M3 12h18M6 6l12 12M6 18 18 6"/></svg></span><span>CONNECTED<br/>WORKFLOW</span></div>
             <div class="connection-spoke spoke-top"></div><div class="connection-spoke spoke-left"></div><div class="connection-spoke spoke-right"></div>
-            <div class="connection-chip chip-top"><span class="chip-icon">▤</span> Documents</div>
-            <div class="connection-chip chip-left"><span class="chip-icon">▣</span> Your tools</div>
-            <div class="connection-chip chip-right"><span class="chip-icon">◎</span> Your team</div>
+            <div class="connection-chip chip-top"><span class="chip-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M4 4h16v16H4zM7 8h10M7 12h10M7 16h10"/></svg></span> Documents</div>
+            <div class="connection-chip chip-left"><span class="chip-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M3 4h18v16H3zM7 8h10v8H7z"/></svg></span> Your tools</div>
+            <div class="connection-chip chip-right"><span class="chip-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0"/></svg></span> Your team</div>
           </div>
           <div class="story-frame-copy"><h3>Make what you have work better.</h3><p>Build around your people, data and existing systems, so information moves where it should without extra effort.</p></div>
         </article>
         <article class="story-frame story-frame-three" data-story-frame="2" id="story-step-3" tabindex="-1" aria-label="Step three, give time back">
-          <div class="story-frame-head"><span>03 / IMPROVE</span><span class="story-frame-symbol">↗</span></div>
+          <div class="story-frame-head"><span>03 / IMPROVE</span><span class="story-frame-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div>
           <div class="results-graphic" aria-hidden="true">
             <div class="results-shine"></div>
             <div class="results-icon"><svg viewBox="0 0 48 48" width="58" height="58" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="6" width="30" height="36" rx="4"></rect><path d="m16 23 5 5 11-13M16 34h16"></path></svg></div>
             <div class="results-phrase">More time for<br/><em>the work that matters.</em></div>
             <div class="results-bars"><span style="--bar-width:48%"></span><span style="--bar-width:74%"></span><span style="--bar-width:93%"></span></div>
           </div>
-          <div class="story-frame-copy"><h3>Built to be used. Made to last.</h3><p>Keep the workflows simple, useful and adaptable. The best automation is one your team actually wants to use.</p><a class="story-inline-cta" href="#contact">Talk through your workflow <span aria-hidden="true">↗</span></a></div>
+          <div class="story-frame-copy"><h3>Built to be used. Made to last.</h3><p>Keep the workflows simple, useful and adaptable. The best automation is one your team actually wants to use.</p><a class="story-inline-cta" href="#contact">Talk through your workflow <span aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a></div>
         </article>
       </div>
     </div>
@@ -2127,19 +2257,20 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 </section>
 <!-- END: Coordinated Scrollytelling -->
 <section class="laird-cases-v2" id="cases" aria-labelledby="cases-title" data-case-variant="workflow"><div class="lc-container"><div class="lc-v2-introbar"><div><div class="lc-kicker">Practical possibilities</div><h2 class="lc-heading" id="cases-title">Where AI can <em>make a difference.</em></h2></div><p class="lc-intro">A few examples of the connected workflows Lairdwell can design. Every business is different.</p></div>
-<div class="lc-v2-workspace"><div class="lc-v2-menu"><p>EXPLORE A WORKFLOW</p><button class="lc-button lc-v2-choice is-active" type="button" data-lc-index="0" aria-pressed="true"><span class="lc-v2-number">01</span><span class="lc-v2-choice-label">Lead follow-up</span><span class="lc-v2-choice-arrow">↗</span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="1" aria-pressed="false"><span class="lc-v2-number">02</span><span class="lc-v2-choice-label">Internal knowledge</span><span class="lc-v2-choice-arrow">↗</span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="2" aria-pressed="false"><span class="lc-v2-number">03</span><span class="lc-v2-choice-label">Connected operations</span><span class="lc-v2-choice-arrow">↗</span></button><div class="lc-v2-menu-foot"><span>Built around the way you work</span><span class="lc-counter" data-lc-count>01 / 03</span></div></div>
+<div class="lc-v2-workspace"><div class="lc-v2-menu"><p>EXPLORE A WORKFLOW</p><button class="lc-button lc-v2-choice is-active" type="button" data-lc-index="0" aria-pressed="true"><span class="lc-v2-number">01</span><span class="lc-v2-choice-label">Lead follow-up</span><span class="lc-v2-choice-arrow"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="1" aria-pressed="false"><span class="lc-v2-number">02</span><span class="lc-v2-choice-label">Internal knowledge</span><span class="lc-v2-choice-arrow"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="2" aria-pressed="false"><span class="lc-v2-number">03</span><span class="lc-v2-choice-label">Connected operations</span><span class="lc-v2-choice-arrow"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><div class="lc-v2-menu-foot"><span>Built around the way you work</span><span class="lc-counter" data-lc-count>01 / 03</span></div></div>
 <div class="lc-v2-visual"><div class="lc-v2-visual-head"><span data-lc-eyebrow>01 / CAPTURE &amp; ROUTE</span><span class="lc-v2-status">A BETTER FLOW</span></div><div class="lc-v2-flow" data-lc-content>
-<div class="lc-v2-node"><span class="lc-v2-node-icon">↘</span><strong data-lc-node="0">New inquiry</strong><small data-lc-tag="0">Inbox</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon">⌁</span><strong data-lc-node="1">Capture &amp; qualify</strong><small data-lc-tag="1">Automated handoff</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon">✓</span><strong data-lc-node="2">Next action ready</strong><small data-lc-tag="2">Assigned</small></div>
-</div><div class="lc-v2-caption"><div><h3 data-lc-description aria-live="polite" aria-atomic="true">Turn incoming inquiries into clear, consistent next steps.</h3><p data-lc-quote>A new inquiry comes in. The right details get captured, the right person gets notified, and the next step is already in motion.</p></div><button class="lc-next" type="button" ><span class="sr-only">Next workflow</span><span aria-hidden="true">→</span></button></div></div></div></div></section>
+<div class="lc-v2-node"><span class="lc-v2-node-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 6l12 12M6 18h12V6"/></svg></span><strong data-lc-node="0">New inquiry</strong><small data-lc-tag="0">Inbox</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M2 12h4l3-6 6 12 3-6h4"/></svg></span><strong data-lc-node="1">Capture &amp; qualify</strong><small data-lc-tag="1">Automated handoff</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><strong data-lc-node="2">Next action ready</strong><small data-lc-tag="2">Assigned</small></div>
+</div><div class="lc-v2-caption"><div><h3 data-lc-description aria-live="polite" aria-atomic="true">Turn incoming inquiries into clear, consistent next steps.</h3><p data-lc-quote>A new inquiry comes in. The right details get captured, the right person gets notified, and the next step is already in motion.</p></div><button class="lc-next" type="button" ><span class="sr-only">Next workflow</span><span aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></span></button></div></div></div></div></section>
 <!-- BEGIN: SavingsCalculator -->
 <section class="sav-section sav-variant-three" id="calculator" aria-labelledby="sav-heading-three">
+<noscript><p class="sav-wrap">The calculator requires JavaScript to update. The figures below show the default example.</p></noscript>
   <div class="sav-wrap">
     <div class="sav-topline"><span><i></i> OPERATIONAL OPPORTUNITIES / EST. 2026</span><span>03 — THE IMPACT DASHBOARD</span></div>
     <div class="sav-3-heading"><div><div class="sav-kicker">THE NUMBERS BEHIND A BETTER WORKFLOW</div><h2 id="sav-heading-three">See the <em>opportunity.</em><br>Not just the work.</h2></div><p>Dial in your current process and explore a simple model of how small improvements can add up.</p></div>
     <div class="sav-3-inputs"><div class="sav-3-inputlead"><span>YOUR INPUTS</span><strong>Start here ↗</strong></div><div class="sav-3-input"><label for="sav-tasks-number">Repetitive tasks / week</label><div class="sav-3-number"><input id="sav-tasks-number" aria-label="Repetitive tasks / week" data-field="tasks" type="number" min="10" max="1000" step="5" value="120"><span>tasks</span></div><input type="range" data-field="tasks" aria-label="Adjust repetitive tasks / week" min="10" max="1000" step="5" value="120"></div><div class="sav-3-input"><label for="sav-minutes-number">Minutes per task</label><div class="sav-3-number"><input id="sav-minutes-number" aria-label="Minutes per task" data-field="minutes" type="number" min="1" max="60" step="1" value="8"><span>min</span></div><input type="range" data-field="minutes" aria-label="Adjust minutes per task" min="1" max="60" step="1" value="8"></div><div class="sav-3-input"><label for="sav-rate-number">Hourly team cost</label><div class="sav-3-number"><input id="sav-rate-number" aria-label="Hourly team cost" data-field="rate" type="number" min="15" max="150" step="5" value="35"><span>$ / hr</span></div><input type="range" data-field="rate" aria-label="Adjust hourly team cost" min="15" max="150" step="5" value="35"></div><div class="sav-3-input"><label for="sav-percent-number">Time potentially reduced</label><div class="sav-3-number"><input id="sav-percent-number" aria-label="Time potentially reduced" data-field="percent" type="number" min="10" max="90" step="5" value="60"><span>%</span></div><input type="range" data-field="percent" aria-label="Adjust time potentially reduced" min="10" max="90" step="5" value="60"></div></div>
     <p class="sr-only" id="calculator-status" role="status" aria-atomic="true"></p>
     <div class="sav-3-dashboard">
-      <div class="sav-3-metric-primary"><div class="sav-3-cap"><span>01 / ANNUAL CAPACITY VALUE</span><span>↗</span></div><div class="sav-3-primary-inner"><span>Potential staff-time value / year</span><strong data-out="annual">$16,128</strong><div class="sav-3-explainer">An estimate of productive time made available, not a cash payout.</div></div><div class="sav-3-bottom"><a class="sav-cta" href="#contact" data-discuss>Explore an opportunity <span aria-hidden="true">↗</span></a></div></div>
+      <div class="sav-3-metric-primary"><div class="sav-3-cap"><span>01 / ANNUAL CAPACITY VALUE</span><span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div><div class="sav-3-primary-inner"><span>Potential staff-time value / year</span><strong data-out="annual">$16,128</strong><div class="sav-3-explainer">An estimate of productive time made available, not a cash payout.</div></div><div class="sav-3-bottom"><a class="sav-cta" href="#contact" data-discuss>Explore an opportunity <span aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a></div></div>
       <div class="sav-3-metric-small"><span class="sav-3-cap-label">02 / HOURS RECOVERED</span><div class="sav-3-small-num"><strong data-out="annualHours">461</strong><em>h / year</em></div><p>Time your team could redirect to higher-value work.</p><div class="sav-3-ring" data-ring><span data-out="percentText">60%</span></div></div>
       <div class="sav-3-chartcard"><div class="sav-3-charttop"><div><span>03 / THE YEAR AHEAD</span><h3 data-chart-title>Cumulative time value</h3></div><div class="sav-3-switch" role="group" aria-label="Chart unit"><button type="button" data-chart-mode="value" aria-pressed="true">$ Value</button><button type="button" data-chart-mode="hours" aria-pressed="false">Hours</button></div></div><div class="sav-3-chartarea"><div class="sav-3-axis"><span data-chart-max>$16,128</span><span data-chart-half>$8,064</span><span>$0</span></div><svg data-projection viewBox="0 0 600 155" preserveAspectRatio="none" role="img" aria-label="Cumulative estimated potential staff-time value over 12 months"><defs><linearGradient id="sav3Gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#91A99A" stop-opacity=".32"/><stop offset="100%" stop-color="#91A99A" stop-opacity="0"/></linearGradient></defs><path d="M0 30 H600 M0 77 H600 M0 124 H600" class="sav-3-gridline"></path><polygon fill="url(#sav3Gradient)" data-chart-area points="0,142 600,12 600,142"></polygon><polyline data-chart-line points="0,142 600,12" fill="none" stroke="#6B8874" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></polyline><circle data-chart-end cx="600" cy="12" r="6" fill="#6B8874"></circle></svg></div><div class="sav-3-months"><span>START</span><span>MONTH 3</span><span>MONTH 6</span><span>MONTH 9</span><span>MONTH 12</span></div></div>
     </div><div class="sav-footnote"><p class="sav-disclaimer"><span aria-hidden="true">ⓘ</span> Illustrative estimate of recovered staff time valued at your hourly team cost, <strong>not guaranteed cash savings.</strong> Assumes 48 working weeks/year and excludes implementation, software, and ongoing costs.</p><span class="sav-end-note">48 WORKING WEEKS / YEAR</span></div>
@@ -2157,8 +2288,8 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 <div class="mt-10 pt-6 border-t border-neutral-300/80 max-w-md"><div class="text-xs font-semibold text-[#202525] mb-2">A good place to start</div><p class="text-xs leading-6 text-neutral-600">What is the task? What tools are involved? How would you like it to work instead? A few sentences is plenty.</p></div>
 </div>
 <div class="lg:col-span-7 bg-white border border-neutral-200 rounded-2xl p-6 sm:p-9 lg:p-11 shadow-sm">
-<div class="flex items-start justify-between gap-4 mb-8"><div><h3 class="text-xl font-medium tracking-tight text-neutral-900">Start a conversation</h3><p class="text-xs text-neutral-500 mt-2">Share a little about your business and what you need.</p></div><span aria-hidden="true" class="text-[#5B7664] text-xl">↗</span></div>
-<form action="/api/contact" id="lead-form" method="post" aria-describedby="lead-instructions" novalidate="">
+<div class="flex items-start justify-between gap-4 mb-8"><div><h3 class="text-xl font-medium tracking-tight text-neutral-900">Start a conversation</h3><p class="text-xs text-neutral-500 mt-2">Share a little about your business and what you need.</p></div><span aria-hidden="true" class="text-[#5B7664] text-xl"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div>
+<form action="/api/contact" id="lead-form" method="post" aria-describedby="lead-instructions">
 <p id="lead-instructions" class="text-xs mb-5">Fields marked * are required. Please don’t include confidential or sensitive information. Your message must contain at least 10 characters.</p>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 <label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">Your name <span aria-hidden="true">*</span></span><input autocomplete="name" class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="120" name="name" placeholder="Your name" required="" type="text"/></label>
@@ -2168,7 +2299,7 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 </div>
 <label class="block mt-5"><span class="block text-xs font-medium text-neutral-700 mb-2">What are you looking to improve? <span aria-hidden="true">*</span></span><textarea class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="4000" minlength="10" aria-describedby="lead-instructions" name="message" placeholder="Tell us about the process, tools, or idea you have in mind..." required="" rows="5"></textarea></label>
 <div aria-hidden="true" class="sr-only"><label>Leave this field blank<input autocomplete="off" name="website" tabindex="-1" type="text"/></label></div>
-<div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5"><p class="text-[11px] leading-5 text-neutral-500 max-w-[300px]">Your details will only be used to respond to your inquiry.</p><button class="btn-arrow-hover inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors disabled:opacity-60" id="lead-submit" type="submit">Send Inquiry <span class="arrow-icon">↗</span></button></div>
+<div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5"><p class="text-[11px] leading-5 text-neutral-500 max-w-[300px]">Your details will only be used to respond to your inquiry.</p><button class="btn-arrow-hover inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors disabled:opacity-60" id="lead-submit" type="submit">Send Inquiry <span class="arrow-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button></div>
 <p aria-live="polite" class="text-xs mt-5" id="lead-status" role="status" aria-atomic="true"></p>
 </form>
 </div>
@@ -2177,7 +2308,7 @@ footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
 </section></main><footer class="bg-[#171B1B] text-white pt-20 pb-10 border-t border-[#343B38]" data-purpose="site-footer">
 <div class="max-w-[1240px] mx-auto px-6">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
-<div class="lg:col-span-5 pr-8"><a class="inline-flex items-center gap-2.5 text-2xl tracking-tight font-medium" href="#home"><span class="inline-flex gap-1"><i class="w-2.5 h-5 bg-[#B5C9BC] -skew-x-12 rounded-sm"></i><i class="w-2 h-3.5 bg-white/70 -skew-x-12 rounded-sm"></i></span>lairdwell</a><p class="text-sm leading-7 text-white/55 mt-6 max-w-sm">Thoughtful AI strategy and custom automations for businesses ready to spend less time on repetitive work.</p><a class="inline-flex items-center gap-2 mt-7 rounded-full bg-[#F5F6F3] text-[#171B1B] px-5 py-2.5 text-xs font-semibold hover:bg-white transition-colors footer-cta" href="#contact">Start a Conversation ↗</a></div>
+<div class="lg:col-span-5 pr-8"><a class="inline-flex items-center gap-2.5 text-2xl tracking-tight font-medium" href="#home"><span class="inline-flex gap-1"><i class="w-2.5 h-5 bg-[#B5C9BC] -skew-x-12 rounded-sm"></i><i class="w-2 h-3.5 bg-white/70 -skew-x-12 rounded-sm"></i></span>lairdwell</a><p class="text-sm leading-7 text-white/55 mt-6 max-w-sm">Thoughtful AI strategy and custom automations for businesses ready to spend less time on repetitive work.</p><a class="inline-flex items-center gap-2 mt-7 rounded-full bg-[#F5F6F3] text-[#171B1B] px-5 py-2.5 text-xs font-semibold hover:bg-white transition-colors footer-cta" href="#contact">Start a Conversation <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
 <div class="lg:col-span-2"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Explore</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#home">Home</a></li><li><a class="hover:text-white" href="#about">Our Approach</a></li><li><a class="hover:text-white" href="#services">Services</a></li><li><a class="hover:text-white" href="#cases">Use Cases</a></li><li><a class="hover:text-white" href="#calculator">Calculator</a></li></ul></div>
 <div class="lg:col-span-3"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">What we do</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#services">AI Strategy</a></li><li><a class="hover:text-white" href="#services">Custom AI Agents</a></li><li><a class="hover:text-white" href="#services">Workflow Automation</a></li><li><a class="hover:text-white" href="#services">Tool Integrations</a></li><li><a class="hover:text-white" href="#services">Ongoing Support</a></li></ul></div>
 <div class="lg:col-span-2"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Connect</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#contact">Contact Us</a></li><li><a class="hover:text-white" href="#contact">Request a Consultation</a></li></ul></div>
@@ -2222,6 +2353,12 @@ function closeMobileMenu(){
 document.getElementById('navbar').addEventListener('keydown',event=>{
  if(event.key==='Escape'&&mobileToggle.getAttribute('aria-expanded')==='true'){closeMobileMenu();mobileToggle.focus();}
 });
+matchMedia('(min-width:1100px)').addEventListener('change',event=>{
+ if(!event.matches)return;
+ const hadFocus=mobileMenu.contains(document.activeElement)||document.activeElement===mobileToggle;
+ closeMobileMenu();
+ if(hadFocus)document.querySelector('#navbar a[href="#home"]').focus({preventScroll:true});
+});
 mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
  closeMobileMenu();
  const target=document.querySelector(a.getAttribute('href'));
@@ -2258,71 +2395,83 @@ form.addEventListener('submit',async event=>{
  finally {form.removeAttribute('aria-busy');submit.disabled=false;submit.firstChild.textContent='Send Inquiry ';}
 });
 
-// Sticky scrollytelling: bring each panel into alignment as it enters the focal area.
+// Read card geometry once per frame, then update only the active stage and progress.
 (function setupStoryScroll(){
  const section=document.getElementById('about');
- const cards=Array.from(document.querySelectorAll('[data-story-frame]'));
- const labels=Array.from(document.querySelectorAll('[data-step-label]'));
+ const cards=Array.from(section.querySelectorAll('[data-story-frame]'));
+ const labels=Array.from(section.querySelectorAll('[data-step-label]'));
  const bar=document.getElementById('story-progress-fill');
  const number=document.getElementById('story-current-number');
- if(!section||!cards.length)return;
- const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
- const desktop=window.matchMedia('(min-width: 1100px)');
- let raf=0;
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ let raf=0,lastActive=-1,lastProgress=-1;
+ let inView=false;
  function update(){
   raf=0;
-  const focusY=window.innerHeight*.47;
-  let closest=0, distance=Infinity;
-  cards.forEach((card,index)=>{
-   const rect=card.getBoundingClientRect();
-   const anchor=rect.top+Math.min(rect.height*.42,190);
-   const d=Math.abs(anchor-focusY);
-   if(d<distance){distance=d;closest=index;}
-   card.classList.toggle('is-visible',motion.matches||rect.top<window.innerHeight*.93&&rect.bottom>window.innerHeight*.10);
-  });
-  cards.forEach((card,index)=>card.classList.toggle('is-current',index===closest));
-  labels.forEach((label,index)=>{
-   label.classList.toggle('is-current',index===closest);
-   if(index===closest)label.setAttribute('aria-current','step');
-   else label.removeAttribute('aria-current');
-  });
-  const sectionRect=section.getBoundingClientRect();
-  document.documentElement.classList.toggle('story-snap-active',desktop.matches&&!motion.matches&&sectionRect.top<120&&sectionRect.bottom>window.innerHeight*.6);
-  if(bar)bar.style.width=((closest+1)/cards.length*100)+'%';
-  if(number)number.textContent=String(closest+1).padStart(2,'0');
+  const rects=cards.map(card=>card.getBoundingClientRect());
+  const focusY=80+Math.max(0,innerHeight-80)*.42;
+  const anchors=rects.map(rect=>rect.top+Math.min(rect.height/2,240));
+  let closest=0;
+  anchors.forEach((anchor,index)=>{if(Math.abs(anchor-focusY)<Math.abs(anchors[closest]-focusY))closest=index;});
+  const distance=anchors.at(-1)-anchors[0];
+  const progress=(1+Math.min(1,Math.max(0,(focusY-anchors[0])/distance))*(cards.length-1))/cards.length;
+  if(closest!==lastActive){
+   cards.forEach((card,index)=>card.classList.toggle('is-current',index===closest));
+   labels.forEach((label,index)=>{
+    label.classList.toggle('is-current',index===closest);
+    if(index===closest)label.setAttribute('aria-current','step');else label.removeAttribute('aria-current');
+   });
+   number.textContent=String(closest+1).padStart(2,'0');
+   lastActive=closest;
+  }
+  if(Math.abs(progress-lastProgress)>.001){bar.style.transform=`scaleX(${progress})`;lastProgress=progress;}
  }
- function onScroll(){if(!raf)raf=requestAnimationFrame(update)}
- window.addEventListener('scroll',onScroll,{passive:true});
- window.addEventListener('resize',onScroll,{passive:true});
- motion.addEventListener('change',onScroll);
- desktop.addEventListener('change',onScroll);
+ function schedule(){if(!raf)raf=requestAnimationFrame(update);}
+ const visibility=new IntersectionObserver(entries=>{
+  inView=entries.some(entry=>entry.isIntersecting);
+  if(inView)schedule();
+ },{rootMargin:'100px 0px'});
+ visibility.observe(section);
+ window.addEventListener('scroll',()=>{if(inView)schedule();},{passive:true});
+ window.addEventListener('resize',schedule,{passive:true});
+ const resize=new ResizeObserver(schedule);
+ cards.forEach(card=>resize.observe(card));
  labels.forEach((link,index)=>link.addEventListener('click',event=>{
   event.preventDefault();
-  const card=cards[index];
-  card.focus({preventScroll:true});
-  card.scrollIntoView({block:'start',behavior:motion.matches?'instant':'smooth'});
+  cards[index].focus({preventScroll:true});
+  cards[index].scrollIntoView({block:'start',behavior:motion.matches?'instant':'smooth'});
+  schedule();
  }));
- update();
+ motion.addEventListener('change',()=>{
+  // Abort an in-flight smooth jump when motion reduction is enabled.
+  if(motion.matches)window.scrollTo({top:scrollY,behavior:'instant'});
+  schedule();
+ });
+ window.addEventListener('pageshow',schedule);
+ schedule();
 })();
 
-// One-shot, compositor-friendly reveals. Content never depends on animation to appear.
+// Reveal once, using only transforms; fast scrolling and reversal never hide content.
 (function setupScrollReveals(){
+ if(!('IntersectionObserver' in window)||!Element.prototype.animate)return;
  const motion=matchMedia('(prefers-reduced-motion: reduce)');
- if(!('IntersectionObserver' in window))return;
- const targets=document.querySelectorAll('#services h2, .plan-card, .lc-v2-introbar, .sav-3-heading, .sav-3-dashboard > div, #contact h2, #contact .lg\\:col-span-7');
- const running=new Set();
+ const selector='#services h2, .plan-card, .lc-v2-introbar, .sav-3-heading, .sav-3-dashboard > div, #contact h2';
+ const running=new Map(),seen=new WeakSet();
  const observer=new IntersectionObserver(entries=>{
   for(const entry of entries){
-   if(!entry.isIntersecting)continue;
-   observer.unobserve(entry.target);
+   if(!entry.isIntersecting){running.get(entry.target)?.finish();continue;}
+   if(seen.has(entry.target))continue;
+   seen.add(entry.target);
    if(motion.matches)continue;
-   const animation=entry.target.animate([{transform:'translateY(18px)'},{transform:'translateY(0)'}],{duration:550,easing:'cubic-bezier(.22,1,.36,1)'});
-   running.add(animation);
-   animation.finished.catch(()=>{}).finally(()=>running.delete(animation));
+   const siblings=Array.from(entry.target.parentElement.children).filter(el=>el.matches(selector));
+   const delay=Math.min(120,Math.max(0,siblings.indexOf(entry.target))*60);
+   const animation=entry.target.animate([{transform:'translateY(12px)'},{transform:'translateY(0)'}],{duration:420,delay,easing:'cubic-bezier(.22,1,.36,1)'});
+   running.set(entry.target,animation);
+   animation.finished.catch(()=>{}).finally(()=>{running.delete(entry.target);observer.unobserve(entry.target);});
   }
- },{threshold:.12});
- targets.forEach(target=>observer.observe(target));
- motion.addEventListener('change',()=>{if(motion.matches)for(const animation of running)animation.cancel();});
+ },{threshold:0,rootMargin:'0px 0px -48px 0px'});
+ document.querySelectorAll(selector).forEach(target=>observer.observe(target));
+ motion.addEventListener('change',()=>{if(motion.matches)for(const animation of running.values())animation.finish();});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)for(const animation of running.values())animation.finish();});
 })();
 </script>
 <script data-purpose="react-bits-side-rays">
@@ -2798,9 +2947,41 @@ window.addEventListener('pagehide', () => { disposed = true; if (cleanup) cleanu
  });
  visibility.observe(root);
  const items=[{"id": "01", "label": "Lead follow-up", "eyebrow": "CAPTURE & ROUTE", "quote": "A new inquiry comes in. The right details get captured, the right person gets notified, and the next step is already in motion.", "description": "Turn incoming inquiries into clear, consistent next steps.", "short": "Capture requests. Route the details. Keep work moving.", "role": "Lead capture & routing", "nodes": ["New inquiry", "Capture & qualify", "Next action ready"], "tags": ["Inbox", "Automated handoff", "Assigned"]}, {"id": "02", "label": "Internal knowledge", "eyebrow": "FIND & ANSWER", "quote": "Instead of searching through folders and documents, your team asks a question and gets an answer grounded in the information you already trust.", "description": "Help your people find answers in the knowledge you already have.", "short": "Find reliable answers without digging through files.", "role": "Knowledge assistant", "nodes": ["Team question", "Search your knowledge", "Grounded answer"], "tags": ["Ask", "Your documents", "Respond"]}, {"id": "03", "label": "Connected operations", "eyebrow": "CONNECT & SYNC", "quote": "Updates flow between the tools your business already uses, so your team is not stuck re-entering information or chasing routine status updates.", "description": "Let your existing tools talk to each other, without extra busywork.", "short": "Keep systems in sync and eliminate duplicate updates.", "role": "Workflow integration", "nodes": ["Update made", "Systems connected", "Team stays in sync"], "tags": ["Tool A", "Automatic sync", "Tool B"]}];
+ // Reserve the tallest actual caption at this width, not an arbitrary fixed height.
+ const caption=root.querySelector('.lc-v2-caption');
+ const copy=caption?.firstElementChild;
+ let measuredWidth=0,measureFrame=0;
+ function measureCaptions(){
+  measureFrame=0;
+  const width=copy.getBoundingClientRect().width;
+  if(!width)return;
+  const probes=items.map(item=>{
+   const probe=document.createElement('div');
+   probe.className='lc-v2-caption';
+   probe.setAttribute('aria-hidden','true');
+   probe.style.cssText=`position:absolute;visibility:hidden;pointer-events:none;width:${width}px;display:block;padding:0;border:0;left:0;top:0;`;
+   const heading=document.createElement('h3'),paragraph=document.createElement('p');
+   heading.textContent=item.description;paragraph.textContent=item.quote;
+   probe.append(heading,paragraph);return probe;
+  });
+  const fragment=document.createDocumentFragment();probes.forEach(probe=>fragment.append(probe));
+  caption.append(fragment);
+  const height=Math.max(...probes.map(probe=>probe.getBoundingClientRect().height));
+  probes.forEach(probe=>probe.remove());
+  copy.style.setProperty('--workflow-copy-height',`${Math.ceil(height)}px`);
+  measuredWidth=width;
+ }
+ if(copy){
+  measureCaptions();
+  new ResizeObserver(entries=>{
+   if(Math.abs(entries[0].contentRect.width-measuredWidth)<.5)return;
+   if(!measureFrame)measureFrame=requestAnimationFrame(measureCaptions);
+  }).observe(copy);
+  document.fonts?.ready.then(measureCaptions);
+ }
  let active=0,pending=0;
  const variant=root.dataset.caseVariant;
- const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const workflowMotion=matchMedia('(prefers-reduced-motion: reduce)');
  const select=(number)=>{
   const i=(number+items.length)%items.length; if(i===active)return;
   active=i;
@@ -2829,7 +3010,7 @@ window.addEventListener('pagehide', () => { disposed = true; if (cleanup) cleanu
     root.querySelectorAll('[data-lc-tag]').forEach(el=>el.textContent=item.tags[Number(el.dataset.lcTag)]);
     if(content)content.classList.remove('is-changing');
   };
-  if(reduced)update();else pending=setTimeout(update,190);
+  if(workflowMotion.matches)update();else pending=setTimeout(update,150);
  };
  root.querySelectorAll('[data-lc-index]').forEach(btn=>btn.addEventListener('click',()=>select(Number(btn.dataset.lcIndex))));
  root.querySelectorAll('.lc-next').forEach(btn=>btn.addEventListener('click',()=>select(active+1)));
@@ -2863,6 +3044,7 @@ window.addEventListener('pagehide', () => { disposed = true; if (cleanup) cleanu
    const after=before-weekly;
    const hours=weekly*WORKWEEKS;
    const annual=hours*state.rate;
+   section.style.setProperty('--annual-chars',String(fmtMoney(annual).length));
    const formatted={annual:fmtMoney(annual),weekly:fmtHours(weekly),annualHours:Math.round(hours).toLocaleString('en-US'),before:fmtHours(before)+'h',after:fmtHours(after)+'h',percentText:state.percent+'%'};
    for(const [key,value] of Object.entries(formatted))section.querySelectorAll(`[data-out="${key}"]`).forEach(el=>el.textContent=value);
    section.querySelectorAll('[data-fill="remaining"]').forEach(el=>el.style.width=(100-state.percent)+'%');
