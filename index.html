@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laird Co. — AI Strategy &amp; Business Automation</title>
+<!-- Compiled Tailwind utilities (bundled locally) -->
+<style data-purpose="compiled-utilities">/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-neutral-50: oklch(98.5% 0 0);
+    --color-neutral-100: oklch(97% 0 0);
+    --color-neutral-200: oklch(92.2% 0 0);
+    --color-neutral-300: oklch(87% 0 0);
+    --color-neutral-400: oklch(70.8% 0 0);
+    --color-neutral-500: oklch(55.6% 0 0);
+    --color-neutral-600: oklch(43.9% 0 0);
+    --color-neutral-700: oklch(37.1% 0 0);
+    --color-neutral-800: oklch(26.9% 0 0);
+    --color-neutral-900: oklch(20.5% 0 0);
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-xs: 20rem;
+    --container-sm: 24rem;
+    --container-md: 28rem;
+    --container-lg: 32rem;
+    --container-xl: 36rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --text-8xl: 6rem;
+    --text-8xl--line-height: 1;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --tracking-tight: -0.025em;
+    --tracking-wide: 0.025em;
+    --tracking-wider: 0.05em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-xs: 0.125rem;
+    --radius-sm: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-2xl: 1rem;
+    --blur-md: 12px;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --color-laird-muted: #6B6F6E;
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .z-50 {
+    z-index: 50;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mt-7 {
+    margin-top: calc(var(--spacing) * 7);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
+  .mt-12 {
+    margin-top: calc(var(--spacing) * 12);
+  }
+  .mr-2\.5 {
+    margin-right: calc(var(--spacing) * 2.5);
+  }
+  .mr-3 {
+    margin-right: calc(var(--spacing) * 3);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+  .mb-5 {
+    margin-bottom: calc(var(--spacing) * 5);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .ml-3 {
+    margin-left: calc(var(--spacing) * 3);
+  }
+  .block {
+    display: block;
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .h-1\.5 {
+    height: calc(var(--spacing) * 1.5);
+  }
+  .h-3\.5 {
+    height: calc(var(--spacing) * 3.5);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
+  .h-full {
+    height: 100%;
+  }
+  .max-h-0 {
+    max-height: calc(var(--spacing) * 0);
+  }
+  .max-h-40 {
+    max-height: calc(var(--spacing) * 40);
+  }
+  .w-1\.5 {
+    width: calc(var(--spacing) * 1.5);
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-2\.5 {
+    width: calc(var(--spacing) * 2.5);
+  }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-\[300px\] {
+    max-width: 300px;
+  }
+  .max-w-\[1240px\] {
+    max-width: 1240px;
+  }
+  .max-w-lg {
+    max-width: var(--container-lg);
+  }
+  .max-w-md {
+    max-width: var(--container-md);
+  }
+  .max-w-sm {
+    max-width: var(--container-sm);
+  }
+  .max-w-xl {
+    max-width: var(--container-xl);
+  }
+  .max-w-xs {
+    max-width: var(--container-xs);
+  }
+  .-skew-x-12 {
+    --tw-skew-x: skewX(calc(12deg * -1));
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-baseline {
+    align-items: baseline;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-2\.5 {
+    gap: calc(var(--spacing) * 2.5);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
+  .gap-12 {
+    gap: calc(var(--spacing) * 12);
+  }
+  .space-y-3 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-3\.5 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 3.5) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 3.5) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-x-1 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 1) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .space-x-2 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .space-x-2\.5 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 2.5) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 2.5) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .space-x-3 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .space-x-8 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+  .divide-y {
+    :where(& > :not(:last-child)) {
+      --tw-divide-y-reverse: 0;
+      border-bottom-style: var(--tw-border-style);
+      border-top-style: var(--tw-border-style);
+      border-top-width: calc(1px * var(--tw-divide-y-reverse));
+      border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+    }
+  }
+  .divide-neutral-200 {
+    :where(& > :not(:last-child)) {
+      border-color: var(--color-neutral-200);
+    }
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
+  .rounded-xs {
+    border-radius: var(--radius-xs);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-\[\#343B38\] {
+    border-color: #343B38;
+  }
+  .border-neutral-200 {
+    border-color: var(--color-neutral-200);
+  }
+  .border-neutral-300 {
+    border-color: var(--color-neutral-300);
+  }
+  .border-neutral-300\/80 {
+    border-color: color-mix(in srgb, oklch(87% 0 0) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-neutral-300) 80%, transparent);
+    }
+  }
+  .border-white\/5 {
+    border-color: color-mix(in srgb, #fff 5%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+    }
+  }
+  .border-white\/10 {
+    border-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .border-white\/40 {
+    border-color: color-mix(in srgb, #fff 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 40%, transparent);
+    }
+  }
+  .bg-\[\#5B7664\] {
+    background-color: #5B7664;
+  }
+  .bg-\[\#171B1B\] {
+    background-color: #171B1B;
+  }
+  .bg-\[\#171B1B\]\/90 {
+    background-color: color-mix(in oklab, #171B1B 90%, transparent);
+  }
+  .bg-\[\#202525\] {
+    background-color: #202525;
+  }
+  .bg-\[\#B5C9BC\] {
+    background-color: #B5C9BC;
+  }
+  .bg-\[\#F3F4F2\] {
+    background-color: #F3F4F2;
+  }
+  .bg-\[\#F5F6F3\] {
+    background-color: #F5F6F3;
+  }
+  .bg-neutral-50\/30 {
+    background-color: color-mix(in srgb, oklch(98.5% 0 0) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-neutral-50) 30%, transparent);
+    }
+  }
+  .bg-neutral-100 {
+    background-color: var(--color-neutral-100);
+  }
+  .bg-neutral-900 {
+    background-color: var(--color-neutral-900);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-white\/70 {
+    background-color: color-mix(in srgb, #fff 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 70%, transparent);
+    }
+  }
+  .object-cover {
+    object-fit: cover;
+  }
+  .object-center {
+    object-position: center;
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .p-8 {
+    padding: calc(var(--spacing) * 8);
+  }
+  .px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
+  }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .px-7 {
+    padding-inline: calc(var(--spacing) * 7);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-3\.5 {
+    padding-block: calc(var(--spacing) * 3.5);
+  }
+  .py-4\.5 {
+    padding-block: calc(var(--spacing) * 4.5);
+  }
+  .py-12 {
+    padding-block: calc(var(--spacing) * 12);
+  }
+  .py-20 {
+    padding-block: calc(var(--spacing) * 20);
+  }
+  .py-24 {
+    padding-block: calc(var(--spacing) * 24);
+  }
+  .pt-0 {
+    padding-top: calc(var(--spacing) * 0);
+  }
+  .pt-2 {
+    padding-top: calc(var(--spacing) * 2);
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
+  }
+  .pt-8 {
+    padding-top: calc(var(--spacing) * 8);
+  }
+  .pt-20 {
+    padding-top: calc(var(--spacing) * 20);
+  }
+  .pt-24 {
+    padding-top: calc(var(--spacing) * 24);
+  }
+  .pr-8 {
+    padding-right: calc(var(--spacing) * 8);
+  }
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
+  }
+  .pb-6 {
+    padding-bottom: calc(var(--spacing) * 6);
+  }
+  .pb-10 {
+    padding-bottom: calc(var(--spacing) * 10);
+  }
+  .pb-12 {
+    padding-bottom: calc(var(--spacing) * 12);
+  }
+  .pb-14 {
+    padding-bottom: calc(var(--spacing) * 14);
+  }
+  .pb-16 {
+    padding-bottom: calc(var(--spacing) * 16);
+  }
+  .pb-24 {
+    padding-bottom: calc(var(--spacing) * 24);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[11px\] {
+    font-size: 11px;
+  }
+  .text-\[38px\] {
+    font-size: 38px;
+  }
+  .leading-5 {
+    --tw-leading: calc(var(--spacing) * 5);
+    line-height: calc(var(--spacing) * 5);
+  }
+  .leading-6 {
+    --tw-leading: calc(var(--spacing) * 6);
+    line-height: calc(var(--spacing) * 6);
+  }
+  .leading-7 {
+    --tw-leading: calc(var(--spacing) * 7);
+    line-height: calc(var(--spacing) * 7);
+  }
+  .leading-\[1\.1\] {
+    --tw-leading: 1.1;
+    line-height: 1.1;
+  }
+  .leading-\[1\.18\] {
+    --tw-leading: 1.18;
+    line-height: 1.18;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-extrabold {
+    --tw-font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-extrabold);
+  }
+  .font-light {
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
+  }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+  }
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .tracking-tight {
+    --tw-tracking: var(--tracking-tight);
+    letter-spacing: var(--tracking-tight);
+  }
+  .tracking-wide {
+    --tw-tracking: var(--tracking-wide);
+    letter-spacing: var(--tracking-wide);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
+  .text-\[\#5B7664\] {
+    color: #5B7664;
+  }
+  .text-\[\#171B1B\] {
+    color: #171B1B;
+  }
+  .text-\[\#202525\] {
+    color: #202525;
+  }
+  .text-laird-muted {
+    color: var(--color-laird-muted);
+  }
+  .text-neutral-300 {
+    color: var(--color-neutral-300);
+  }
+  .text-neutral-300\/80 {
+    color: color-mix(in srgb, oklch(87% 0 0) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-neutral-300) 80%, transparent);
+    }
+  }
+  .text-neutral-400 {
+    color: var(--color-neutral-400);
+  }
+  .text-neutral-500 {
+    color: var(--color-neutral-500);
+  }
+  .text-neutral-600 {
+    color: var(--color-neutral-600);
+  }
+  .text-neutral-700 {
+    color: var(--color-neutral-700);
+  }
+  .text-neutral-800 {
+    color: var(--color-neutral-800);
+  }
+  .text-neutral-900 {
+    color: var(--color-neutral-900);
+  }
+  .text-red-700 {
+    color: var(--color-red-700);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .text-white\/40 {
+    color: color-mix(in srgb, #fff 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 40%, transparent);
+    }
+  }
+  .text-white\/55 {
+    color: color-mix(in srgb, #fff 55%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 55%, transparent);
+    }
+  }
+  .text-white\/60 {
+    color: color-mix(in srgb, #fff 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 60%, transparent);
+    }
+  }
+  .text-white\/90 {
+    color: color-mix(in srgb, #fff 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-white) 90%, transparent);
+    }
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .opacity-30 {
+    opacity: 30%;
+  }
+  .opacity-90 {
+    opacity: 90%;
+  }
+  .shadow-md {
+    --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-xs {
+    --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .backdrop-blur-md {
+    --tw-backdrop-blur: blur(var(--blur-md));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+  }
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .group-hover\:bg-\[\#B5C9BC\] {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        background-color: #B5C9BC;
+      }
+    }
+  }
+  .group-hover\:text-neutral-900 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-neutral-900);
+      }
+    }
+  }
+  .selection\:bg-\[\#B5C9BC\] {
+    & *::selection {
+      background-color: #B5C9BC;
+    }
+    &::selection {
+      background-color: #B5C9BC;
+    }
+  }
+  .selection\:text-\[\#202525\] {
+    & *::selection {
+      color: #202525;
+    }
+    &::selection {
+      color: #202525;
+    }
+  }
+  .hover\:bg-\[\#363D3B\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #363D3B;
+      }
+    }
+  }
+  .hover\:bg-neutral-50 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-neutral-50);
+      }
+    }
+  }
+  .hover\:bg-neutral-100 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-neutral-100);
+      }
+    }
+  }
+  .hover\:bg-neutral-800 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-neutral-800);
+      }
+    }
+  }
+  .hover\:bg-white {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-white);
+      }
+    }
+  }
+  .hover\:text-white {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-white);
+      }
+    }
+  }
+  .hover\:opacity-80 {
+    &:hover {
+      @media (hover: hover) {
+        opacity: 80%;
+      }
+    }
+  }
+  .focus\:border-\[\#5B7664\] {
+    &:focus {
+      border-color: #5B7664;
+    }
+  }
+  .focus\:ring-\[\#5B7664\] {
+    &:focus {
+      --tw-ring-color: #5B7664;
+    }
+  }
+  .disabled\:opacity-60 {
+    &:disabled {
+      opacity: 60%;
+    }
+  }
+  .sm\:mt-0 {
+    @media (width >= 40rem) {
+      margin-top: calc(var(--spacing) * 0);
+    }
+  }
+  .sm\:grid-cols-2 {
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .sm\:flex-row {
+    @media (width >= 40rem) {
+      flex-direction: row;
+    }
+  }
+  .sm\:items-center {
+    @media (width >= 40rem) {
+      align-items: center;
+    }
+  }
+  .sm\:p-9 {
+    @media (width >= 40rem) {
+      padding: calc(var(--spacing) * 9);
+    }
+  }
+  .sm\:text-4xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+  .sm\:text-5xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+  }
+  .sm\:text-7xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
+  .sm\:text-sm {
+    @media (width >= 40rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+  }
+  .md\:col-span-4 {
+    @media (width >= 48rem) {
+      grid-column: span 4 / span 4;
+    }
+  }
+  .md\:col-span-8 {
+    @media (width >= 48rem) {
+      grid-column: span 8 / span 8;
+    }
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .md\:grid-cols-3 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .md\:grid-cols-12 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+  .md\:flex-row {
+    @media (width >= 48rem) {
+      flex-direction: row;
+    }
+  }
+  .md\:items-end {
+    @media (width >= 48rem) {
+      align-items: flex-end;
+    }
+  }
+  .md\:divide-x {
+    @media (width >= 48rem) {
+      :where(& > :not(:last-child)) {
+        --tw-divide-x-reverse: 0;
+        border-inline-style: var(--tw-border-style);
+        border-inline-start-width: calc(1px * var(--tw-divide-x-reverse));
+        border-inline-end-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+      }
+    }
+  }
+  .md\:divide-y-0 {
+    @media (width >= 48rem) {
+      :where(& > :not(:last-child)) {
+        --tw-divide-y-reverse: 0;
+        border-bottom-style: var(--tw-border-style);
+        border-top-style: var(--tw-border-style);
+        border-top-width: calc(0px * var(--tw-divide-y-reverse));
+        border-bottom-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));
+      }
+    }
+  }
+  .md\:py-28 {
+    @media (width >= 48rem) {
+      padding-block: calc(var(--spacing) * 28);
+    }
+  }
+  .md\:text-right {
+    @media (width >= 48rem) {
+      text-align: right;
+    }
+  }
+  .md\:text-8xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-8xl);
+      line-height: var(--tw-leading, var(--text-8xl--line-height));
+    }
+  }
+  .md\:text-base {
+    @media (width >= 48rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .md\:text-sm {
+    @media (width >= 48rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+  }
+  .md\:text-\[76px\] {
+    @media (width >= 48rem) {
+      font-size: 76px;
+    }
+  }
+  .lg\:col-span-2 {
+    @media (width >= 64rem) {
+      grid-column: span 2 / span 2;
+    }
+  }
+  .lg\:col-span-3 {
+    @media (width >= 64rem) {
+      grid-column: span 3 / span 3;
+    }
+  }
+  .lg\:col-span-4 {
+    @media (width >= 64rem) {
+      grid-column: span 4 / span 4;
+    }
+  }
+  .lg\:col-span-5 {
+    @media (width >= 64rem) {
+      grid-column: span 5 / span 5;
+    }
+  }
+  .lg\:col-span-7 {
+    @media (width >= 64rem) {
+      grid-column: span 7 / span 7;
+    }
+  }
+  .lg\:col-span-8 {
+    @media (width >= 64rem) {
+      grid-column: span 8 / span 8;
+    }
+  }
+  .lg\:grid-cols-12 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+  .lg\:gap-16 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 16);
+    }
+  }
+  .lg\:p-10 {
+    @media (width >= 64rem) {
+      padding: calc(var(--spacing) * 10);
+    }
+  }
+  .lg\:p-11 {
+    @media (width >= 64rem) {
+      padding: calc(var(--spacing) * 11);
+    }
+  }
+  .lg\:text-\[43px\] {
+    @media (width >= 64rem) {
+      font-size: 43px;
+    }
+  }
+  .lg\:text-\[46px\] {
+    @media (width >= 64rem) {
+      font-size: 46px;
+    }
+  }
+  .lg\:text-\[57px\] {
+    @media (width >= 64rem) {
+      font-size: 57px;
+    }
+  }
+  .lg\:text-\[114px\] {
+    @media (width >= 64rem) {
+      font-size: 114px;
+    }
+  }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-space-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-divide-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-divide-x-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-space-y-reverse: 0;
+      --tw-space-x-reverse: 0;
+      --tw-divide-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
+      --tw-duration: initial;
+      --tw-divide-x-reverse: 0;
+    }
+  }
+}
+</style>
+<!-- Nonblocking font loading; preconnect avoids extra connection setup. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<!-- Laird Co. Tailwind utilities bundled locally for fast, reliable rendering -->
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="custom-typography">
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #1D2220;
+      background-color: #FFFFFF;
+      overflow-x: hidden;
+    }
+    .letter-tight {
+      letter-spacing: -0.03em;
+    }
+    .watermark-text {
+      letter-spacing: 0.05em;
+      -webkit-text-stroke: 1.5px rgba(180, 199, 185, 0.20);
+      color: transparent;
+    }
+  </style>
+<style data-purpose="interactive-transitions">
+    .plan-card {
+      transition: all 0.25s ease-in-out;
+    }
+    .accordion-content {
+      transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    .btn-arrow-hover:hover .arrow-icon {
+      transform: translate(2px, -2px);
+    }
+    .arrow-icon {
+      transition: transform 0.2s ease-out;
+    }
+  </style>
+<!-- END: Custom Styles -->
+<meta content="Laird Co. designs practical AI agents, custom automation, and connected workflows that help businesses spend less time on manual work." name="description"/><meta content="#171B1B" name="theme-color"/><style>
+html{scroll-padding-top:88px}button,a,input,textarea,select{outline-offset:3px}
+@media(max-width:767px){header .max-w-\[1240px\] > .flex.items-center:last-child a{padding:10px 13px;font-size:11px} #home h1{font-size:clamp(3.1rem,12vw,5rem)} .watermark-text{letter-spacing:0.01em}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style><style data-purpose="aligned-story-scroll">
+/* Coordinated story: two continuous columns, no empty checkerboard placeholders */
+.story-section{background:#F3F4F2;color:#171d1b;padding:112px 0 116px;overflow:clip}
+.story-shell,.cases-shell{max-width:1240px;margin:0 auto;padding:0 24px}
+.story-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,94px);align-items:start}
+.story-left{position:relative;align-self:stretch;min-width:0}
+.story-sticky{position:sticky;top:115px;padding:18px 0 24px;max-width:520px}
+.story-eyebrow,.cases-eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.04em;color:#4c5853;font-weight:500}
+.story-dot{width:8px;height:8px;flex:none;background:#33572f;border-radius:50%}
+.story-sticky h2{margin:40px 0 25px;font-weight:350;font-size:clamp(36px,3.7vw,58px);line-height:1.13;letter-spacing:-.055em;max-width:550px}
+.story-sticky h2 em,.cases-heading h2 em{font-style:normal;color:#61815b}
+.story-intro{font-size:14px;line-height:1.85;color:#66716c;max-width:410px;margin-bottom:43px}
+.story-step-list{display:grid;gap:0;margin-top:22px;border-top:1px solid #d2d8d1}
+.story-step-label{display:grid;grid-template-columns:35px 1fr 18px;align-items:center;gap:14px;min-height:69px;border-bottom:1px solid #d2d8d1;color:#858c87;font-size:13px;transition:color .35s,padding-left .35s}
+.story-step-no{font-size:12px;font-variant-numeric:tabular-nums}
+.story-step-marker{font-size:17px;transform:rotate(0deg);opacity:.25;transition:transform .35s,opacity .35s}
+.story-step-label.is-current{color:#183f30;font-weight:600;padding-left:8px}
+.story-step-label.is-current .story-step-marker{opacity:1;transform:rotate(45deg)}
+.story-progress{margin-top:23px;height:3px;background:#d4ded0;border-radius:5px;overflow:hidden}
+.story-progress>span{display:block;height:100%;width:33.333%;background:#325830;border-radius:5px;transition:width .65s cubic-bezier(.22,1,.36,1)}
+.story-progress-caption{font-size:11px;letter-spacing:.09em;font-weight:600;color:#315235;margin-top:12px;display:flex;gap:3px}
+.story-scroll-hint{margin-left:auto;letter-spacing:0;color:#738078;font-weight:400}
+.story-frames{display:grid;gap:30px;min-width:0;padding-top:0}
+.story-frame{min-height:565px;position:relative;overflow:hidden;border-radius:4px;padding:35px 39px 40px;display:flex;flex-direction:column;justify-content:space-between;opacity:.82;filter:saturate(.86);transform:translateY(26px) scale(.975);transition:opacity .68s ease,transform .8s cubic-bezier(.22,1,.36,1),filter .6s,box-shadow .6s}
+.story-frame.is-current,.story-frame.is-visible{opacity:1;filter:saturate(1);transform:translateY(0) scale(1);box-shadow:0 18px 50px rgba(15,39,33,.10)}
+.story-frame-one{color:#eef7ee;background:linear-gradient(145deg,#15342c,#102822 65%,#0b1e1b)}
+.story-frame-two{color:#172f27;background:#e4eddf;border:1px solid #d1dfcb}
+.story-frame-three{color:#e8f7dc;background:radial-gradient(circle at 75% 27%,#245546 0%,#12382f 33%,#09231f 90%)}
+.story-frame-head{display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:600;letter-spacing:.18em;opacity:.78}
+.story-frame-symbol{font-size:21px;letter-spacing:0;font-weight:400}
+.story-frame-copy{position:relative;z-index:2}
+.story-frame-copy h3{font-size:clamp(27px,2.65vw,36px);font-weight:350;letter-spacing:-.045em;line-height:1.14;max-width:430px;margin:0 0 16px}
+.story-frame-copy p{font-size:13px;line-height:1.82;max-width:355px;opacity:.72;margin:0}
+.story-inline-cta{margin-top:19px;display:inline-flex;align-items:center;gap:18px;text-decoration:none;font-size:12px;font-weight:600;color:#cbf3b2;border-bottom:1px solid rgba(203,243,178,.45);padding-bottom:6px}
+.story-inline-cta:hover{color:white}
+.story-flow-graphic{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:286px;padding:14px 5px 0}
+.workflow-node{border:1px solid rgba(203,242,168,.17);background:rgba(255,255,255,.055);border-radius:10px;min-height:57px;padding:0 17px;max-width:332px;width:90%;display:flex;align-items:center;gap:13px;font-size:12px;letter-spacing:-.01em;box-shadow:0 12px 30px rgba(1,10,9,.13)}
+.workflow-middle{width:84%;border-style:dashed;opacity:.72}
+.workflow-bottom{border-color:#bdeca1;background:#B5C9BC;color:#123225;width:93%}
+.workflow-symbol{font-size:18px;width:20px;text-align:center;flex:none}
+.workflow-node-tag{margin-left:auto;font-size:9px;letter-spacing:.12em;opacity:.68}
+.workflow-path{height:22px;display:flex;align-items:center;justify-content:center;gap:4px;flex-direction:column}
+.workflow-path span{display:block;width:2px;height:3px;border-radius:2px;background:#8bad7c;opacity:.7}
+.connection-graphic{height:286px;position:relative;margin:18px auto 6px;max-width:370px;width:100%}
+.connection-core{position:absolute;left:50%;top:51%;width:126px;height:126px;transform:translate(-50%,-50%);background:#173d2c;color:#d2f8bb;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;z-index:2;box-shadow:0 12px 30px rgba(26,62,42,.13)}
+.connection-core-icon{font-size:25px;line-height:1}
+.connection-core>span:last-child{text-align:center;font-size:8px;letter-spacing:.15em;line-height:1.65}
+.connection-chip{position:absolute;background:white;color:#294335;box-shadow:0 9px 22px rgba(41,85,50,.08);border:1px solid #d4dfce;padding:12px 15px;border-radius:8px;font-size:11px;white-space:nowrap;z-index:3;display:flex;align-items:center;gap:8px}
+.chip-icon{font-size:16px;color:#37613e}
+.chip-top{top:3px;left:50%;transform:translateX(-50%)}
+.chip-left{left:0;top:61%}
+.chip-right{right:0;top:61%}
+.connection-spoke{position:absolute;border:1px dashed #7ba174;opacity:.7;z-index:1}
+.spoke-top{left:50%;top:35px;height:105px;border-left-width:1px;border-top:0;border-right:0;border-bottom:0}
+.spoke-left{width:43%;left:12%;top:62%;border-top-width:1px;border-left:0;border-right:0;border-bottom:0;transform:rotate(-18deg);transform-origin:right center}
+.spoke-right{width:43%;right:12%;top:62%;border-top-width:1px;border-left:0;border-right:0;border-bottom:0;transform:rotate(18deg);transform-origin:left center}
+.results-graphic{position:relative;min-height:310px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:19px;text-align:center;isolation:isolate}
+.results-shine{position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(151,230,143,.08);filter:blur(6px);z-index:-1}
+.results-icon{color:#B5C9BC;opacity:.94}
+.results-phrase{font-size:clamp(23px,2.3vw,32px);font-weight:350;line-height:1.22;letter-spacing:-.05em}
+.results-phrase em{font-style:normal;color:#B5C9BC}
+.results-bars{width:210px;display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.results-bars span{display:block;width:var(--bar-width);height:5px;background:#8bcf85;border-radius:2px;opacity:.32;transition:width .8s ease}
+.story-frame-three.is-current .results-bars span{opacity:.65}
+.cases-section{padding:92px 0 104px;background:#fff}
+.cases-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,94px);align-items:stretch}
+.cases-heading{padding:17px 0;display:flex;flex-direction:column;align-items:start}
+.cases-heading h2{font-size:clamp(34px,3.5vw,52px);line-height:1.16;letter-spacing:-.055em;font-weight:350;margin:35px 0 20px;max-width:470px}
+.cases-heading>p{font-size:14px;color:#66716c;line-height:1.85;max-width:390px}
+.cases-controls{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:40px}
+.case-arrow{width:44px;height:44px;background:#202525;border:1px solid #202525;border-radius:50%;color:#fff;cursor:pointer;display:inline-grid;place-items:center;font-size:18px;transition:background .2s,transform .2s}
+.case-arrow:hover{background:#5B7664;transform:translateY(-2px)}
+#case-position{margin-left:15px;font-size:11px;letter-spacing:.12em;color:#718078}
+.cases-panel{background:#F3F4F2;min-height:365px;padding:38px 42px 32px;display:flex;flex-direction:column;justify-content:space-between;border-left:3px solid #5B7664;transition:background .3s ease}
+.cases-panel-top,.cases-panel-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}
+[data-case-title]{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5B7664;font-weight:650}
+.cases-spark{font-size:28px;color:#789776}
+[data-case-quote]{font-size:clamp(24px,2.5vw,35px);letter-spacing:-.045em;line-height:1.28;font-weight:350;color:#17251f;max-width:540px;margin:32px 0}
+[data-case-role]{font-size:12px;color:#68756e;line-height:1.5}
+.cases-panel-bottom>span:last-child{color:#5B7664;font-size:21px}
+@media(min-width:768px) and (max-height:760px){.story-sticky{top:94px}.story-sticky h2{margin-top:24px;margin-bottom:16px;font-size:clamp(32px,3.5vw,48px)}.story-intro{margin-bottom:20px;line-height:1.6}.story-step-label{min-height:56px}.story-progress{margin-top:15px}}
+@media(max-width:767px){.story-section{padding:76px 0 72px}.story-layout,.cases-grid{grid-template-columns:1fr;gap:36px}.story-sticky{position:static;padding:0}.story-sticky h2{margin:25px 0 17px;font-size:clamp(35px,9vw,49px)}.story-intro{margin-bottom:26px}.story-step-label{min-height:56px}.story-frames{gap:18px}.story-frame{min-height:465px;padding:26px 26px 31px;transform:none;opacity:1;filter:none;border-radius:3px}.story-frame-copy h3{font-size:29px}.story-flow-graphic,.connection-graphic{min-height:210px;height:210px}.results-graphic{min-height:205px}.connection-core{height:98px;width:98px}.connection-chip{padding:9px;font-size:10px}.connection-graphic{max-width:310px}.story-frame.is-current,.story-frame.is-visible{transform:none}.story-progress-caption{display:none}.cases-section{padding:68px 0 75px}.cases-heading{padding:0}.cases-heading h2{margin:25px 0 15px}.cases-controls{padding-top:22px}.cases-panel{min-height:315px;padding:29px 27px 25px}[data-case-quote]{font-size:clamp(23px,6vw,31px)}}
+@media(prefers-reduced-motion:reduce){.story-frame,.story-step-label,.story-progress>span,.case-arrow{transition:none!important;transform:none!important}.story-frame{opacity:1!important;filter:none!important}}
+</style><style data-purpose="neutral-story-palette">
+/* A better way to work — architectural monochrome, scoped to this section only. */
+.story-section { background:#f3f3f2; color:#1a1b1c; }
+.story-section .story-eyebrow { color:#626666; }
+.story-section .story-dot { background:#4d5050; }
+.story-section .story-sticky h2 em { color:#727675; }
+.story-section .story-intro { color:#707473; }
+.story-section .story-step-list { border-top-color:#d1d2d1; }
+.story-section .story-step-label { border-bottom-color:#d1d2d1; color:#8a8e8c; }
+.story-section .story-step-label.is-current { color:#1c1f20; }
+.story-section .story-progress { background:#d8d9d7; }
+.story-section .story-progress > span { background:#383b3c; }
+.story-section .story-progress-caption { color:#313434; }
+.story-section .story-scroll-hint { color:#7b807e; }
+.story-section .story-frame.is-current,
+.story-section .story-frame.is-visible { box-shadow:0 18px 50px rgba(0,0,0,.09); }
+/* Three panels: charcoal, warm stone, graphite. */
+.story-section .story-frame-one { color:#f2f2ef; background:linear-gradient(145deg,#252728 0%,#1c1e1f 62%,#141617 100%); }
+.story-section .story-frame-two { color:#222526; background:#e5e6e4; border:1px solid #d5d7d4; }
+.story-section .story-frame-three { color:#f2f2f0; background:radial-gradient(circle at 75% 27%,#383b3e 0%,#242628 39%,#17191a 90%); }
+.story-section .workflow-node { border-color:rgba(255,255,255,.20); background:rgba(255,255,255,.065); box-shadow:0 12px 30px rgba(0,0,0,.14); }
+.story-section .workflow-bottom { color:#262829; background:#e8e9e6; border-color:#f1f1ee; }
+.story-section .workflow-path span { background:#a3a7a5; }
+.story-section .connection-core { background:#292c2d; color:#f0f0eb; box-shadow:0 12px 30px rgba(0,0,0,.12); }
+.story-section .connection-chip { background:#f8f8f6; color:#424647; border-color:#d0d3d0; box-shadow:0 9px 22px rgba(0,0,0,.065); }
+.story-section .chip-icon { color:#666a6b; }
+.story-section .connection-spoke { border-color:#949a99; }
+.story-section .results-shine { background:rgba(255,255,255,.055); }
+.story-section .results-icon { color:#dedfdd; }
+.story-section .results-phrase em { color:#d1d3d1; }
+.story-section .results-bars span { background:#c0c3c1; }
+.story-section .story-inline-cta { color:#f1f1ee; border-bottom-color:rgba(241,241,238,.45); }
+.story-section .story-inline-cta:hover { color:#fff; }
+</style><style data-purpose="full-screen-hero">
+/* Hero fills the initial viewport. */
+#home.laird-hero{height:100vh;height:100svh;min-height:580px;isolation:isolate}
+@media(max-width:767px){#home.laird-hero>div.relative{padding-bottom:clamp(36px,7vh,66px)}}
+@media(max-height:610px){#home.laird-hero{min-height:520px}}
+
+</style><style data-purpose="hero-side-rays">
+/* The genuine WebGL shader fills the full hero, no fake beams or line textures. */
+#home.laird-hero{background:#080b11}
+#home .side-rays{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none}
+#home .side-rays__canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
+#home .hero-rays-scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top, rgba(5,8,12,.69) 0%,rgba(5,8,12,.21) 24%,transparent 56%)}
+#home .hero-copy-wrap{max-width:650px}
+#home .hero-copy-wrap p{max-width:530px}
+@media(max-width:767px){#home .hero-rays-scrim{background:linear-gradient(to top,rgba(5,8,12,.82),rgba(5,8,12,.2) 45%,transparent 75%)}}
+</style><style data-purpose="laird-wintergreen-theme">
+/* THE PALETTE — chalk, charcoal, mist and just a trace of wintergreen. */
+:root{
+  --laird-ink:#1D2220;
+  --laird-charcoal:#202525;
+  --laird-night:#171B1B;
+  --laird-canvas:#FAFAF8;
+  --laird-stone:#F3F4F2;
+  --laird-line:#DDE1DD;
+  --laird-wintergreen:#819B8A;
+  --laird-wintergreen-deep:#587260;
+  --laird-wintergreen-ice:#E1E8E2;
+}
+body{background:var(--laird-canvas);color:var(--laird-ink)}
+::selection{background:#C7D5CA;color:#171B1B}
+:focus-visible{outline:2px solid #819B8A;outline-offset:3px}
+/* Header: a near-black glass pane above the animated hero. */
+#navbar.bg-\[\#171B1B\]\/90{background-color:rgba(23,27,27,.93)}
+#navbar .group:hover span:first-child{background-color:#B5C9BC}
+#navbar .btn-arrow-hover:hover .arrow-icon{color:var(--laird-wintergreen-deep)}
+#home.laird-hero{background:#080b11}
+/* Consistent sections, fine dividers, and minimal button treatments. */
+#services,#offerings,#calculator{background:var(--laird-canvas)}
+#services{padding-bottom:46px}
+#services .text-neutral-400{color:#969B97}
+#services .text-laird-muted{color:#6F7671}
+#services .rounded-full.bg-neutral-100{background:#F0F1EF;border-color:#E0E3DF;color:#404943}
+#offerings>div>div:first-child{border-color:#E0E3DF;background:#FFFFFF;box-shadow:none}
+#offerings [data-purpose="pricing-card"]{background:#FFFFFF;transition:background-color .3s ease}
+#offerings [data-purpose="pricing-card"]:nth-child(2){background:#F7F8F6}
+#offerings [data-purpose="pricing-card"]:hover{background:#F1F4F0}
+#offerings [data-purpose="pricing-card"] li>span:first-child{color:var(--laird-wintergreen-deep)}
+#offerings [data-purpose="pricing-card"] a.btn-arrow-hover:hover{background-color:#353C39}
+#offerings .text-neutral-500{color:#6E7771}
+/* Sticky story stays monochromatic; wintergreen appears only in the tiny navigational cues. */
+.story-section{background:#F2F3F1}
+.story-section .story-dot{background:var(--laird-wintergreen)}
+.story-section .story-sticky h2 em{color:#777E78}
+.story-section .story-step-label.is-current{color:#222625}
+.story-section .story-step-label.is-current .story-step-no{color:var(--laird-wintergreen-deep)}
+.story-section .story-progress>span{background:#779183}
+.story-section .story-progress-caption{color:#566B5D}
+.story-section .story-frame-one,
+.story-section .story-frame-three{border:1px solid #333938}
+.story-section .workflow-bottom{background:#E8EAE7;color:#252B28}
+.story-section .story-inline-cta{color:#E7ECE7}
+/* Use-case editorial cards: no prominent green panel or large blocks of color. */
+.cases-section{background:var(--laird-canvas)}
+.cases-heading h2 em{color:#7E9384}
+.cases-heading .story-dot{background:var(--laird-wintergreen)}
+.cases-panel{background:#F0F2EF;border-left:2px solid #A1B5A6}
+.cases-panel [data-case-title]{color:#506C5A}
+.cases-panel .cases-spark{color:#94AB9C}
+.cases-panel .cases-panel-bottom>span:last-child{color:#738B79}
+.cases-panel [data-case-quote]{color:#1E2521}
+.case-arrow{background:#202525;border-color:#202525}
+.case-arrow:hover{background:#36453D;border-color:#36453D}
+/* FAQs: white/chalk background, a single quiet wintergreen interaction hint. */
+#calculator [id^="faq-icon-"]{color:#829789}
+#calculator a.btn-arrow-hover:hover{background-color:#363C39}
+/* Contact block: soft gray with restrained sage focus rings and a single small dot. */
+#contact{background:#F1F2F0}
+#contact>div>div>div:first-child>div:first-child .rounded-full{background:#819B8A}
+#contact .lg\:col-span-7{background:#FFF;border-color:#E0E4DF;box-shadow:0 14px 34px rgba(23,27,27,.035)}
+#contact input:focus,#contact select:focus,#contact textarea:focus{border-color:#819B8A;--tw-ring-color:#A9C0AF}
+#contact input,#contact select,#contact textarea{background:#FCFCFB}
+#contact #lead-submit{background:#202525}
+#contact #lead-submit:hover{background:#353D39}
+#contact #lead-status.text-\[\#5B7664\]{color:#506C5A}
+/* Footer: deep charcoal instead of the source template's green-black. */
+footer[data-purpose="site-footer"]{background:#171B1B;border-top-color:#343B38}
+footer .footer-cta{background:#F4F5F2;color:#171B1B}
+footer .footer-cta:hover{background:#E9EFE9}
+footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
+@media(prefers-reduced-motion:reduce){#offerings [data-purpose="pricing-card"]{transition:none}}
+</style><style data-purpose="laird-input-details">
+#lead-form input,#lead-form select,#lead-form textarea{border:1px solid #C9D0CA;min-width:0}
+#lead-form input:focus,#lead-form select:focus,#lead-form textarea:focus{border-color:#819B8A;outline:2px solid rgba(129,155,138,.22);outline-offset:0}
+</style>
+
+<style id="laird-case-variations">
+:root{--lc-dark:#1c2221;--lc-ink:#202726;--lc-paper:#fafbf9;--lc-wash:#f2f4f1;--lc-line:#dce1dc;--lc-muted:#68746e;--lc-sage:#829988;--lc-deep:#607d69}
+.lc-container{max-width:1240px;margin-inline:auto;padding-inline:24px}
+.lc-kicker{display:flex;align-items:center;gap:11px;font-size:12px;letter-spacing:.09em;font-weight:600;color:#626f68}
+.lc-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lc-sage);flex:none}
+.lc-heading{font-size:clamp(38px,4.3vw,61px);line-height:1.09;letter-spacing:-.062em;font-weight:350;margin:26px 0 20px;color:var(--lc-ink)}
+.lc-heading em{font-style:normal;color:#809784}
+.lc-intro{color:#69766e;font-size:15px;line-height:1.82;max-width:485px}
+.lc-index{font-size:11px;letter-spacing:.14em;font-weight:650;color:#65836e}
+.lc-counter{font-size:12px;letter-spacing:.12em;color:#809088;font-variant-numeric:tabular-nums}
+.lc-button{border:0;background:transparent;cursor:pointer;font:inherit;text-align:left}
+.lc-button:focus-visible,.lc-prev:focus-visible,.lc-next:focus-visible{outline:2px solid #8fa99a;outline-offset:4px}
+.lc-prev,.lc-next{width:48px;height:48px;display:grid;place-items:center;border:1px solid #343e38;border-radius:50%;background:var(--lc-ink);color:white;cursor:pointer;transition:transform .25s,background-color .25s;font-size:19px}
+.lc-prev:hover,.lc-next:hover{background:#4a6252;transform:translateY(-2px)}
+.lc-nav{display:flex;gap:12px;align-items:center}
+
+/* 01 — Editorial panel: purposeful typography and slim numbered rail */
+.laird-cases-v1{background:#fafbf9;padding:115px 0 124px;color:var(--lc-ink);overflow:hidden}
+.lc-v1-grid{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:clamp(45px,6vw,105px);align-items:stretch;min-height:570px}
+.lc-v1-left{display:flex;flex-direction:column;align-items:flex-start;padding:15px 0 0}
+.lc-v1-left .lc-heading{max-width:540px}
+.lc-v1-selector{align-self:stretch;margin-top:auto;padding-top:52px;display:grid;border-top:1px solid #d4d9d4}
+.lc-v1-choice{display:flex;align-items:center;gap:22px;padding:17px 4px;color:#939d95;border-bottom:1px solid #d4d9d4;transition:color .28s,transform .28s}
+.lc-v1-choice span:first-child{font-size:12px;letter-spacing:.1em}
+.lc-v1-choice span:nth-child(2){font-size:15px;flex:1}
+.lc-v1-choice span:last-child{opacity:0;font-size:19px}
+.lc-v1-choice.is-active{color:#223229;transform:translateX(5px);font-weight:600}
+.lc-v1-choice.is-active span:last-child{opacity:1;color:#6d9177}
+.lc-v1-feature{position:relative;background:linear-gradient(155deg,#292f2d 0%,#171e1b 100%);border:1px solid #303a35;color:#f1f4f1;padding:49px clamp(32px,4vw,64px) 36px;min-height:570px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(15,28,20,.09)}
+.lc-v1-feature:before{content:"";position:absolute;right:-180px;top:-200px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(129,163,140,.22),transparent 67%);pointer-events:none}
+.lc-v1-feature:after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.07);pointer-events:none}
+.lc-v1-top,.lc-v1-bottom{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lc-v1-top span{color:#b2c8b9;font-size:11px;font-weight:600;letter-spacing:.17em}
+.lc-v1-stars{font-size:26px;font-weight:200;color:#a5b9ac}
+.lc-v1-content{position:relative;z-index:1;margin:auto 0;transition:opacity .24s ease,transform .24s ease}
+.lc-v1-content.is-changing{opacity:0;transform:translateY(13px)}
+.lc-v1-watermark{font-size:clamp(80px,10vw,146px);letter-spacing:-.1em;font-weight:300;line-height:1;margin:24px 0 -1px;color:rgba(213,226,218,.14)}
+.lc-v1-quote{font-size:clamp(25px,2.35vw,35px);font-weight:350;letter-spacing:-.042em;line-height:1.33;max-width:550px;margin:0}
+.lc-v1-bottom{padding-top:25px;border-top:1px solid rgba(242,245,242,.14)}
+.lc-v1-bottom span{font-size:12px;color:#c4d0c7}
+.lc-v1-nav{display:flex;gap:10px}
+.lc-v1-nav .lc-prev,.lc-v1-nav .lc-next{width:38px;height:38px;font-size:17px;border-color:#63726b;background:transparent}
+.lc-v1-nav .lc-prev:hover,.lc-v1-nav .lc-next:hover{background:#47554d}
+
+/* 02 — Workflow visualization: three connected live steps */
+.laird-cases-v2{background:#f1f3f0;padding:112px 0 120px;color:var(--lc-ink)}
+.lc-v2-introbar{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:end;padding-bottom:53px}
+.lc-v2-introbar .lc-heading{max-width:690px;margin-bottom:0}
+.lc-v2-introbar .lc-intro{max-width:430px;margin:0 0 6px auto}
+.lc-v2-workspace{display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);gap:0;min-height:520px;border:1px solid #d6ddd5;box-shadow:0 20px 40px rgba(30,40,33,.035)}
+.lc-v2-menu{background:#fbfcfa;padding:42px 34px;display:flex;flex-direction:column;gap:10px;border-right:1px solid #dce2db}
+.lc-v2-menu>p{font-size:11px;letter-spacing:.13em;font-weight:650;color:#6d7b70;margin:0 0 22px}
+.lc-v2-choice{display:flex;align-items:center;gap:15px;border:1px solid transparent;padding:23px 18px;color:#87938a;transition:background .3s,color .3s,border-color .3s}
+.lc-v2-choice.is-active{background:#eef2ed;border-color:#dae2d9;color:#202c23}
+.lc-v2-choice .lc-v2-number{font-size:12px;color:#708777;flex:none}
+.lc-v2-choice .lc-v2-choice-label{font-size:17px;letter-spacing:-.018em;flex:1;font-weight:500}
+.lc-v2-choice .lc-v2-choice-arrow{font-size:20px;opacity:.15}
+.lc-v2-choice.is-active .lc-v2-choice-arrow{opacity:1;color:#607e67}
+.lc-v2-menu-foot{margin-top:auto;border-top:1px solid #dde4dc;padding-top:23px;display:flex;align-items:center;justify-content:space-between;color:#6c7b70;font-size:12px}
+.lc-v2-visual{background:radial-gradient(circle at 85% 16%,#fcfffc 0%,#f5f8f4 43%,#e8eee7 100%);padding:42px clamp(32px,4.3vw,67px) 40px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.lc-v2-visual:before{content:"";position:absolute;inset:0;opacity:.38;background-image:radial-gradient(#bac7bb 0.7px,transparent 0.7px);background-size:21px 21px;mask-image:linear-gradient(to bottom,#000,transparent 85%);pointer-events:none}
+.lc-v2-visual-head{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between}
+.lc-v2-visual-head span:first-child{font-size:11px;letter-spacing:.13em;font-weight:650;color:#5e7665}
+.lc-v2-status{display:flex;align-items:center;gap:7px;color:#657c6a;font-size:10px;letter-spacing:.09em;font-weight:600}
+.lc-v2-status:before{content:"";width:7px;height:7px;background:#829d88;border-radius:50%;box-shadow:0 0 0 4px rgba(130,157,136,.13)}
+.lc-v2-flow{position:relative;z-index:1;display:flex;align-items:center;gap:0;justify-content:center;margin:auto -6px 37px;min-height:195px;transition:opacity .24s,transform .24s}
+.lc-v2-flow.is-changing{opacity:.22;transform:translateY(8px)}
+.lc-v2-node{background:#fff;border:1px solid #cbd9cd;box-shadow:0 8px 22px rgba(35,52,39,.06);padding:20px 13px;flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;z-index:2;max-width:185px}
+.lc-v2-node .lc-v2-node-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid #cbdace;color:#557864;font-size:17px}
+.lc-v2-node strong{font-size:12px;font-weight:550;line-height:1.55}
+.lc-v2-node small{font-size:10px;letter-spacing:.08em;color:#8a968b;text-transform:uppercase}
+.lc-v2-node:last-child{background:#242f28;border-color:#242f28;color:#eef2ee}
+.lc-v2-node:last-child .lc-v2-node-icon{color:#c4d8c7;border-color:#647b69}
+.lc-v2-node:last-child small{color:#b8c8ba}
+.lc-v2-link{flex:0 0 clamp(18px,4.4vw,70px);height:1px;background:#93ab99;position:relative;z-index:1}
+.lc-v2-link:after{content:"";position:absolute;top:-3px;left:0;width:100%;height:7px;background:radial-gradient(circle 3.5px at 3.5px 50%,#668d6f 98%,transparent);animation:lc-flow-travel 2.4s linear infinite}
+.lc-v2-link:nth-of-type(4):after{animation-delay:1.1s}
+@keyframes lc-flow-travel{0%{transform:translateX(0);opacity:.2}25%{opacity:1}95%{opacity:1}100%{transform:translateX(calc(100% - 7px));opacity:.2}}
+.laird-cases-v2:not(.is-visible) .lc-v2-link:after{animation-play-state:paused}
+.lc-v2-caption{position:relative;z-index:2;border-top:1px solid #d1dcd1;padding-top:30px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}
+.lc-v2-caption h3{font-size:25px;letter-spacing:-.035em;font-weight:400;margin:0 0 8px;line-height:1.25}
+.lc-v2-caption p{font-size:13px;color:#6a786c;line-height:1.7;max-width:520px;margin:0}
+.lc-v2-caption .lc-next{width:43px;height:43px}
+
+/* 03 — Stacked deck: dramatic dark section, cards have depth. */
+.laird-cases-v3{background:linear-gradient(132deg,#202624,#161b19 60%,#171c19);color:#ecf0eb;padding:112px 0 120px;overflow:hidden}
+.lc-v3-grid{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:clamp(22px,4.8vw,78px);align-items:center;min-height:594px}
+.lc-v3-left{display:flex;flex-direction:column;align-items:start;min-height:495px;padding-block:22px}
+.lc-v3-left .lc-kicker{color:#b7c4b9}
+.lc-v3-left .lc-heading{color:#f4f6f1;max-width:500px;font-size:clamp(40px,4.5vw,64px)}
+.lc-v3-left .lc-heading em{color:#9fb7a2}
+.lc-v3-left .lc-intro{color:#adbbb0;max-width:440px}
+.lc-v3-controls{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:44px}
+.lc-v3-controls .lc-prev,.lc-v3-controls .lc-next{background:#eaf0e9;color:#202b24;border:0}
+.lc-v3-controls .lc-prev:hover,.lc-v3-controls .lc-next:hover{background:#cadcce}
+.lc-v3-controls .lc-counter{color:#a7b6ab;margin-left:16px}
+.lc-v3-undertext{display:flex;gap:12px;align-items:center;margin-top:24px;font-size:11px;letter-spacing:.08em;color:#8fa295}
+.lc-v3-undertext:before{content:"";display:block;width:25px;height:1px;background:#8fa295}
+.lc-v3-deck{height:545px;position:relative;perspective:1200px;perspective-origin:50% 42%;transform-style:preserve-3d}
+.lc-v3-card{position:absolute;top:44px;left:9%;width:82%;height:440px;max-width:530px;border:1px solid #ccd7cb;background:#eef2ec;box-shadow:0 26px 50px rgba(0,0,0,.28);padding:38px clamp(26px,3.1vw,43px) 31px;display:flex;flex-direction:column;justify-content:space-between;color:#202a22;transition:transform .82s cubic-bezier(.2,.75,.18,1),opacity .55s,filter .55s,box-shadow .55s;backface-visibility:hidden;cursor:pointer;text-align:left;overflow:hidden}
+.lc-v3-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 14%,rgba(126,161,133,.17),transparent 43%);pointer-events:none}
+.lc-v3-card .lc-v3-card-kicker{display:flex;justify-content:space-between;gap:10px;font-size:11px;letter-spacing:.15em;font-weight:600;color:#667f6b}
+.lc-v3-card .lc-v3-card-index{font-size:clamp(61px,7vw,94px);font-weight:300;color:rgba(84,113,91,.18);letter-spacing:-.09em;line-height:1;margin:0 0 -10px}
+.lc-v3-card h3{font-size:clamp(25px,2.8vw,36px);font-weight:370;letter-spacing:-.05em;line-height:1.15;margin:0 0 16px;max-width:360px}
+.lc-v3-card p{font-size:13px;color:#5c6a60;line-height:1.7;margin:0;max-width:380px}
+.lc-v3-card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #cdd8cd;padding-top:22px;font-size:11px;color:#718272}
+.lc-v3-card-foot span:last-child{font-size:22px;color:#506e59}
+.lc-v3-card.is-active{z-index:4;opacity:1;filter:none;transform:translate3d(0,0,80px) rotateY(0deg) rotateZ(0deg) scale(1);box-shadow:0 35px 65px rgba(0,0,0,.37)}
+.lc-v3-card.is-next{z-index:3;opacity:.64;filter:brightness(.87);transform:translate3d(63px,37px,-75px) rotateY(-9deg) rotateZ(5deg) scale(.91)}
+.lc-v3-card.is-prev{z-index:2;opacity:.38;filter:brightness(.79);transform:translate3d(-49px,-37px,-125px) rotateY(7deg) rotateZ(-5deg) scale(.88)}
+.lc-v3-card[aria-hidden="true"]{pointer-events:auto}
+@media(hover:hover){.lc-v3-card.is-active:hover{transform:translate3d(0,-6px,80px) scale(1.008)}}
+@media(max-width:990px){.lc-v2-workspace{grid-template-columns:minmax(230px,.8fr) minmax(0,1.2fr)}.lc-v2-menu{padding:30px 16px}.lc-v2-visual{padding:38px 24px}.lc-v2-flow{gap:0}.lc-v2-link{flex-basis:24px}.lc-v1-feature{min-height:545px}.lc-v3-card{left:5%;width:87%}}
+@media(max-width:767px){
+.laird-cases-v1,.laird-cases-v2,.laird-cases-v3{padding:72px 0 80px}
+.lc-v1-grid,.lc-v3-grid{grid-template-columns:1fr;gap:34px}
+.lc-v1-grid{min-height:unset}.lc-v1-left{padding:0}.lc-v1-selector{padding-top:24px;margin-top:32px}
+.lc-heading,.lc-v3-left .lc-heading{font-size:clamp(34px,9vw,49px)}
+.lc-v1-feature{min-height:465px;padding:32px 27px 25px}
+.lc-v1-watermark{font-size:82px}.lc-v1-quote{font-size:clamp(23px,6vw,31px)}
+.lc-v2-introbar{grid-template-columns:1fr;gap:12px;padding-bottom:30px}.lc-v2-introbar .lc-intro{margin:0;max-width:500px}
+.lc-v2-workspace{grid-template-columns:1fr}.lc-v2-menu{border-right:0;border-bottom:1px solid #dce2db;gap:2px;padding:24px 22px}
+.lc-v2-menu>p{margin-bottom:10px}.lc-v2-choice{padding:13px 15px}.lc-v2-menu-foot{margin-top:12px;padding-top:15px}
+.lc-v2-visual{min-height:410px;padding:26px 23px}.lc-v2-flow{min-height:158px;margin:36px -8px 30px}.lc-v2-node{padding:13px 7px;gap:9px;min-height:109px}.lc-v2-node strong{font-size:10px}.lc-v2-node small{font-size:8px}.lc-v2-node .lc-v2-node-icon{height:28px;width:28px}.lc-v2-link{flex-basis:16px}
+.lc-v2-caption{padding-top:20px}.lc-v2-caption h3{font-size:23px}.lc-v2-caption p{font-size:12px}
+.lc-v3-left{min-height:unset;padding:0}.lc-v3-controls{padding-top:28px}.lc-v3-undertext{margin-top:17px}
+.lc-v3-deck{height:465px;perspective:950px}.lc-v3-card{top:35px;left:7%;width:86%;height:385px;padding:26px 25px 24px}
+.lc-v3-card h3{font-size:clamp(24px,6.1vw,31px)}.lc-v3-card .lc-v3-card-index{font-size:74px}
+.lc-v3-card.is-next{transform:translate3d(30px,26px,-80px) rotateY(-6deg) rotateZ(4deg) scale(.91)}
+.lc-v3-card.is-prev{transform:translate3d(-27px,-21px,-115px) rotateY(6deg) rotateZ(-4deg) scale(.88)}
+}
+@media(max-width:380px){.lc-v3-card{left:5%;width:90%;height:420px}.lc-v3-deck{height:475px}.lc-v2-node{padding:11px 5px}.lc-v2-link{flex-basis:10px}}
+@media(prefers-reduced-motion:reduce){.lc-v1-content,.lc-v2-flow,.lc-v3-card,.lc-v1-choice,.lc-v2-choice,.lc-next,.lc-prev{transition:none!important}.lc-v2-link:after{animation:none}}
+</style>
+<style data-purpose="savings-calculator">
+/* LAIRD CO. | Three isolated savings calculator directions */
+.sav-section{--sv-ink:#202625;--sv-night:#1B2220;--sv-sage:#819B8A;--sv-sage2:#617e6b;--sv-paper:#FAFBF8;--sv-muted:#758078;--sv-line:#dce2db;box-sizing:border-box;color:var(--sv-ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.sav-section *{box-sizing:border-box}.sav-section button,.sav-section input,.sav-section a{font:inherit}.sav-section h2,.sav-section h3,.sav-section p{margin:0}.sav-section a{text-decoration:none}.sav-section :focus-visible{outline:2px solid #819B8A;outline-offset:3px}
+.sav-wrap{max-width:1240px;margin:auto;padding:0 24px}.sav-topline{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.17em;font-weight:650;color:#819186;border-bottom:1px solid var(--sv-line);padding-bottom:19px}.sav-topline span:first-child{display:flex;align-items:center;gap:10px}.sav-topline i{height:7px;width:7px;background:#85a08c;border-radius:100%;display:inline-block}.sav-kicker{font-size:11px;letter-spacing:.15em;font-weight:650;color:#758b7b;margin-bottom:21px}.sav-section h2{font-weight:380;letter-spacing:-.065em;line-height:1.07;font-size:clamp(38px,4.5vw,67px)}.sav-section h2 em{font-style:normal;color:#8aa18f}.sav-input-stack{display:grid;gap:27px}.sav-input-row{min-width:0}.sav-input-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:13px}.sav-input-top label{font-size:12px;font-weight:600;letter-spacing:-.01em}.sav-input-right{display:flex;align-items:center;justify-content:flex-end;gap:6px}.sav-input-right input{width:61px;border:1px solid #d6ddd4;background:#fff;border-radius:6px;text-align:right;padding:6px 7px;font-size:15px;font-weight:600;color:#1e2922;font-variant-numeric:tabular-nums;outline:none}.sav-input-right>span{color:#738278;font-size:11px;min-width:32px;text-align:left}.sav-help{font-size:11px;color:#89938b;margin-top:10px;line-height:1.4}.sav-section input[type=range]{display:block;width:100%;height:5px;appearance:none;-webkit-appearance:none;border:0;outline:none;cursor:pointer;border-radius:20px;background:linear-gradient(to right,var(--sv-sage2) 0%,var(--sv-sage2) var(--pct,50%),#dce2dc var(--pct,50%),#dce2dc 100%);margin:0}.sav-section input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border:3px solid #fff;box-shadow:0 1px 7px #1113;border-radius:50%;background:#667f6d;cursor:pointer}.sav-section input[type=range]::-moz-range-thumb{width:13px;height:13px;border:3px solid #fff;box-shadow:0 1px 7px #1113;border-radius:50%;background:#667f6d;cursor:pointer}.sav-section input[type=number]{font-variant-numeric:tabular-nums}.sav-disclaimer{font-size:11px;line-height:1.8;color:#758177;max-width:780px}.sav-disclaimer span{font-size:13px;padding-right:6px;color:#83988b}.sav-disclaimer strong{font-weight:600}.sav-footnote{border-top:1px solid var(--sv-line);margin-top:30px;padding-top:18px;display:flex;align-items:flex-start;justify-content:space-between;gap:30px}.sav-end-note{white-space:nowrap;font-size:9px;font-weight:600;letter-spacing:.15em;color:#9ba79d;padding-top:4px}.sav-cta{display:inline-flex;align-items:center;justify-content:center;gap:20px;border-radius:100px;padding:14px 19px;font-size:12px!important;font-weight:600!important;white-space:nowrap;transition:background .25s,transform .25s}.sav-cta:hover{transform:translateY(-2px)}.sav-cta span{font-size:18px;font-weight:400}
+/* 01 / calm editorial cost-saver */
+/* 02 / dark ROI workbench */
+/* 03 / bento opportunity dashboard */
+#calculator.sav-variant-three{padding:86px 0 94px;background:#eef1ed}.sav-variant-three .sav-topline{color:#718677}.sav-3-heading{display:grid;grid-template-columns:1.4fr .6fr;align-items:end;gap:38px;margin:54px 0 45px}.sav-3-heading p{max-width:290px;color:#718074;font-size:14px;line-height:1.85;margin-bottom:10px}.sav-3-inputs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}.sav-3-inputlead{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin:0 0 5px;font-size:10px;letter-spacing:.13em;font-weight:650;color:#738779}.sav-3-inputlead strong{font-size:10px;color:#76907b}.sav-3-input{background:#fcfdfa;border:1px solid #dce4db;min-width:0;padding:20px 20px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:15px;min-height:148px}.sav-3-input>label{font-size:12px;font-weight:600;color:#536054;min-height:26px}.sav-3-number{display:flex;align-items:baseline;gap:5px}.sav-3-number input{width:100%;min-width:0;max-width:100px;font-size:30px;line-height:1;font-weight:450;letter-spacing:-.05em;color:#202725;border:0;background:transparent;padding:0;outline:none}.sav-3-number span{font-size:11px;color:#7d8f80;white-space:nowrap}.sav-3-input input[type=range]{height:4px}.sav-3-dashboard{display:grid;grid-template-columns:1.1fr .52fr 1.08fr;gap:12px;align-items:stretch}.sav-3-metric-primary{background:#202925;color:#f5f8f2;min-height:340px;padding:30px 33px;display:flex;flex-direction:column}.sav-3-cap{display:flex;align-items:center;justify-content:space-between;color:#b4c6b7;font-size:10px;letter-spacing:.14em;font-weight:600}.sav-3-cap span:last-child{font-size:23px;letter-spacing:0;font-weight:400}.sav-3-primary-inner{margin:auto 0}.sav-3-primary-inner>span{display:block;color:#bbcbba;font-size:12px}.sav-3-primary-inner strong{display:block;font-size:clamp(53px,5.1vw,74px);line-height:1.18;letter-spacing:-.075em;font-weight:360;white-space:nowrap;margin:13px 0}.sav-3-explainer{color:#a1b5a5;font-size:12px;line-height:1.7;max-width:245px}.sav-3-bottom{border-top:1px solid #4b5b50;padding-top:18px}.sav-3-bottom .sav-cta{background:#e7eee6;color:#202a21;padding:12px 17px}.sav-3-metric-small{background:#e1e8df;border:1px solid #d4ded2;padding:29px 23px;position:relative;min-width:0}.sav-3-cap-label{display:block;font-size:10px;letter-spacing:.12em;color:#657e69;font-weight:600;line-height:1.5}.sav-3-small-num{margin-top:39px}.sav-3-small-num strong{display:block;font-size:clamp(44px,4vw,63px);line-height:1.1;letter-spacing:-.075em;font-weight:400;font-variant-numeric:tabular-nums}.sav-3-small-num em{font-size:12px;color:#617362;font-style:normal}.sav-3-metric-small p{font-size:11px;color:#617162;line-height:1.7;margin-top:17px;max-width:170px}.sav-3-ring{position:absolute;bottom:22px;right:16px;width:73px;height:73px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#799a80 0% 60%,#bdcdbf 60% 100%)}.sav-3-ring:before{content:"";position:absolute;width:59px;height:59px;background:#e1e8df;border-radius:50%}.sav-3-ring span{position:relative;z-index:1;font-size:13px;font-weight:650;color:#36533e}.sav-3-chartcard{background:#fbfcf9;border:1px solid #dce2db;padding:28px 25px;display:flex;flex-direction:column;min-width:0}.sav-3-charttop{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.sav-3-charttop>div>span{display:block;font-size:10px;letter-spacing:.13em;color:#77917c;font-weight:600}.sav-3-charttop h3{font-size:21px;font-weight:450;letter-spacing:-.035em;margin-top:14px}.sav-3-switch{display:flex;border:1px solid #d3ddd3;padding:3px;border-radius:100px;gap:3px;flex-shrink:0}.sav-3-switch button{border:0;border-radius:100px;padding:7px 10px;background:transparent;color:#7a8b7b;cursor:pointer;font-size:10px;white-space:nowrap}.sav-3-switch button[aria-pressed=true]{background:#26332a;color:#f3f7f1}.sav-3-chartarea{display:grid;grid-template-columns:54px 1fr;gap:5px;flex:1;margin-top:35px;min-height:165px}.sav-3-axis{display:flex;flex-direction:column;justify-content:space-between;font-size:10px;color:#8a9a8b;padding-bottom:3px}.sav-3-chartarea svg{width:100%;height:165px;display:block;overflow:visible}.sav-3-gridline{fill:none;stroke:#dee5dc;stroke-width:1}.sav-3-months{display:flex;justify-content:space-between;margin:12px 0 0 57px;color:#8c9a8d;font-size:9px;letter-spacing:.06em;font-weight:550}.sav-variant-three .sav-footnote{margin-top:30px}
+/* responsive handling */
+@media(max-width:1050px){.sav-3-dashboard{grid-template-columns:1fr .7fr}.sav-3-chartcard{grid-column:1/-1;min-height:315px}.sav-3-input{padding:17px 13px}.sav-1-resultfooter{flex-wrap:wrap}.sav-2-moneypanel{flex-wrap:wrap}}
+@media(max-width:767px){#calculator.sav-variant-one,#calculator.sav-variant-two,#calculator.sav-variant-three{padding:64px 0 77px}.sav-wrap{padding:0 21px}.sav-topline{font-size:9px;gap:8px;letter-spacing:.08em}.sav-topline>span:last-child{font-size:9px;text-align:right}.sav-section h2{font-size:clamp(39px,9vw,55px)}.sav-kicker{font-size:10px;margin-bottom:17px}.sav-variant-one .sav-intro,.sav-2-heading,.sav-3-heading{display:block;margin:40px 0 31px}.sav-variant-one .sav-intro p,.sav-2-heading p,.sav-3-heading p{margin-top:23px;max-width:400px}.sav-1-grid,.sav-2-workbench{grid-template-columns:1fr}.sav-1-grid{min-height:0}.sav-1-controls,.sav-1-result,.sav-2-inputpanel,.sav-2-outputpanel{padding:28px 25px 32px}.sav-1-cardtop,.sav-1-resulttop{margin-bottom:30px}.sav-1-result{min-height:440px}.sav-1-big{font-size:clamp(53px,12vw,77px)}.sav-1-bars{padding-top:30px}.sav-1-resultfooter{flex-wrap:nowrap}.sav-2-heroout{margin-top:55px}.sav-2-outputpanel{min-height:460px}.sav-2-hours strong{font-size:clamp(78px,17vw,108px)}.sav-2-presetline{flex-wrap:wrap}.sav-3-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.sav-3-dashboard{grid-template-columns:1fr 1fr}.sav-3-metric-primary{grid-column:1/-1;min-height:300px}.sav-3-chartcard{grid-column:1/-1}.sav-3-metric-small{grid-column:1/-1;min-height:215px}.sav-3-ring{width:81px;height:81px;bottom:28px;right:25px}.sav-3-ring:before{width:65px;height:65px}.sav-3-small-num{margin-top:24px}.sav-3-metric-small p{max-width:210px}.sav-3-primary-inner strong{font-size:clamp(52px,11vw,70px)}.sav-footnote{display:block}.sav-end-note{display:block;margin-top:14px}.sav-3-chartarea{min-height:145px}.sav-3-chartarea svg{height:155px}}
+@media(max-width:430px){.sav-1-barrow{grid-template-columns:72px minmax(0,1fr) 40px;gap:8px}.sav-1-resultfooter{flex-wrap:wrap}.sav-1-resultfooter .sav-cta{width:100%}.sav-3-inputs{gap:7px}.sav-3-input{padding:17px 12px}.sav-3-number input{font-size:28px}.sav-3-charttop{flex-wrap:wrap}.sav-3-switch{margin-top:9px}.sav-3-charttop h3{margin-top:8px}.sav-2-moneypanel strong{font-size:39px}}
+@media(prefers-reduced-motion:reduce){.sav-section *{scroll-behavior:auto!important;transition:none!important}}
+</style></head>
+<body class="bg-white text-neutral-900 antialiased selection:bg-[#B5C9BC] selection:text-[#202525]">
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-purpose="site-navigation" id="navbar">
+<div class="max-w-[1240px] mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo Branding -->
+<a aria-label="Laird Co. Home" class="flex items-center space-x-2.5 text-white group" href="#home">
+<div class="flex items-center space-x-1">
+<span class="inline-block w-2.5 h-5 bg-white rounded-sm opacity-90 transform -skew-x-12 group-hover:bg-[#B5C9BC] transition-colors"></span>
+<span class="inline-block w-2 h-3.5 bg-white/70 rounded-xs transform -skew-x-12"></span>
+</div>
+<span class="text-xl font-medium tracking-tight text-white">laird co.</span>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center space-x-8 text-sm font-light text-white/90"><a class="hover:text-white transition-opacity hover:opacity-80" href="#home">Home</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#about">Our approach</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#services">Services</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#cases">Use cases</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#calculator">Calculator</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#contact">Contact</a></nav>
+<!-- CTA Book a Call Button -->
+<div class="flex items-center">
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="md:hidden mr-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white" id="mobile-menu-toggle" type="button"><span aria-hidden="true" class="text-xl">☰</span></button><a class="btn-arrow-hover inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-white text-[#202525] text-xs font-semibold hover:bg-neutral-100 transition-all shadow-sm" href="#contact">
+<span class="">Start a Conversation</span>
+<span class="arrow-icon text-sm">↗</span>
+</a>
+</div>
+</div>
+<nav aria-label="Mobile navigation" class="hidden md:hidden bg-[#171B1B] px-6 pb-6 pt-2 border-t border-white/10 text-sm text-white/90" id="mobile-menu"><div class="max-w-[1240px] mx-auto grid grid-cols-2 gap-5"><a href="#home">Home</a><a href="#about">Our approach</a><a href="#services">Services</a><a href="#cases">Use cases</a><a href="#calculator">Calculator</a><a href="#contact">Contact</a></div></nav></header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<section class="laird-hero relative w-full bg-neutral-900 overflow-hidden flex flex-col justify-end" data-purpose="hero-banner" id="home">
+<div class="side-rays" id="hero-side-rays" aria-hidden="true"><canvas class="side-rays__canvas" id="hero-rays-canvas"></canvas></div>
+<div class="hero-rays-scrim" aria-hidden="true"></div>
+<!-- Hero Content Container -->
+<div class="relative z-10 max-w-[1240px] w-full mx-auto px-6 pb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="hero-copy-wrap max-w-xl">
+<h1 class="text-5xl md:text-[76px] font-light text-white leading-tight tracking-tight letter-tight">Work, made simpler.</h1>
+<p class="mt-4 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-lg">Thoughtful AI strategy, custom agents, and practical automations that take repetitive work off your team’s plate.</p>
+</div>
+<!-- Right Alignment Eyebrow -->
+<div class="text-left md:text-right">
+<p class="text-xs md:text-sm text-neutral-300/80 font-light tracking-wide">AI strategy  ·  Custom automation  ·  Nationwide</p>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: PricingIntroSection -->
+<section class="pt-24 pb-14 bg-white" data-purpose="pricing-intro" id="services">
+<div class="max-w-[1240px] mx-auto px-6">
+<!-- Section Title & Subtitle Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start pb-12">
+<div class="md:col-span-4">
+<span class="inline-flex items-center text-xs tracking-wide text-laird-muted font-normal">  ●  Designed around how you actually work</span>
+</div>
+<div class="md:col-span-8">
+<h2 class="text-3xl sm:text-4xl lg:text-[46px] font-light text-neutral-900 leading-[1.18] letter-tight">Practical technology, <span class="text-neutral-400">purpose-built for your business.</span></h2>
+</div>
+</div>
+<!-- Segmented Billing Switcher -->
+<div class="flex items-center justify-center pt-2 pb-6"><span class="px-5 py-2 text-xs font-medium rounded-full bg-neutral-100 border border-neutral-200 text-[#202525]">Three ways to work with us</span><span class="ml-3 text-xs text-neutral-500">Scoped for your goals, systems, and team</span></div>
+</div>
+</section>
+<!-- END: PricingIntroSection -->
+<!-- BEGIN: PricingTableSection -->
+<section class="pb-24 bg-white" data-purpose="pricing-cards-container" id="offerings">
+<div class="max-w-[1240px] mx-auto px-6">
+<!-- Unified Card Grid with 1px border styling -->
+<div class="border border-neutral-200 rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200 shadow-xs bg-white">
+<!-- CARD 1: Starter Plan -->
+<div class="p-8 lg:p-10 flex flex-col justify-between plan-card" data-purpose="pricing-card">
+<div>
+<h3 class="text-base font-semibold text-neutral-900">AI Opportunity Audit</h3>
+<p class="mt-3 text-xs leading-relaxed text-neutral-500 font-normal">Find the tasks, handoffs, and disconnected systems slowing your team down. Leave with a practical path forward.</p>
+<div class="mt-8 mb-6 flex items-baseline">
+<span class="text-[38px] lg:text-[43px] font-light text-neutral-900 tracking-tight" id="price-starter">Discover</span>
+<span class="ml-3 text-[11px] text-neutral-500 font-normal" id="period-starter">Strategy &amp; assessment</span>
+</div>
+<a class="btn-arrow-hover w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors" data-intent="AI Opportunity Audit" href="#contact">
+<span class="">Discuss an Audit</span>
+<span class="arrow-icon text-sm">↗</span>
+</a>
+<!-- Features List -->
+<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Workflow and process review</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Identify high-impact automation opportunities</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Review of existing tools and systems</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Prioritized recommendations</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Clear next steps and project scope</span></li></ul>
+</div>
+</div>
+<!-- CARD 2: Growth Plan -->
+<div class="p-8 lg:p-10 flex flex-col justify-between plan-card bg-neutral-50/30" data-purpose="pricing-card">
+<div>
+<h3 class="text-base font-semibold text-neutral-900">Custom Automation Build</h3>
+<p class="mt-3 text-xs leading-relaxed text-neutral-500 font-normal">Put smart systems to work. We design and implement AI-powered workflows that fit the tools and processes you already use.</p>
+<div class="mt-8 mb-6 flex items-baseline">
+<span class="text-[38px] lg:text-[43px] font-light text-neutral-900 tracking-tight" id="price-growth">Build</span>
+<span class="ml-3 text-[11px] text-neutral-500 font-normal" id="period-growth">Design &amp; implementation</span>
+</div>
+<a class="btn-arrow-hover w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors" data-intent="Custom Automation Build" href="#contact">
+<span class="">Plan a Build</span>
+<span class="arrow-icon text-sm">↗</span>
+</a>
+<!-- Features List -->
+<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Custom AI agents and assistants</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Workflow automation and integrations</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Internal knowledge and document search</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Testing, safeguards, and team training</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Launch and handoff support</span></li></ul>
+</div>
+</div>
+<!-- CARD 3: Premium Plan -->
+<div class="p-8 lg:p-10 flex flex-col justify-between plan-card" data-purpose="pricing-card">
+<div>
+<h3 class="text-base font-semibold text-neutral-900">Ongoing Optimization</h3>
+<p class="mt-3 text-xs leading-relaxed text-neutral-500 font-normal">Keep your systems useful as your business changes. We refine what is working and improve what comes next.</p>
+<div class="mt-8 mb-6 flex items-baseline">
+<span class="text-[38px] lg:text-[43px] font-light text-neutral-900 tracking-tight" id="price-premium">Evolve</span>
+<span class="ml-3 text-[11px] text-neutral-500 font-normal" id="period-premium">Support &amp; improvement</span>
+</div>
+<a class="btn-arrow-hover w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors" data-intent="Ongoing Optimization" href="#contact">
+<span class="">Explore Support</span>
+<span class="arrow-icon text-sm">↗</span>
+</a>
+<!-- Features List -->
+<ul class="mt-8 space-y-3.5 text-xs text-neutral-700"><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Workflow monitoring and refinements</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Knowledge base and content updates</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Troubleshooting and adjustments</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>New use-case exploration</span></li><li class="flex items-start"><span class="text-[#202525] mr-2.5 font-bold text-xs">✓</span><span>Continued automation guidance</span></li></ul>
+</div>
+</div>
+</div>
+<!-- Bottom Subtext & Twin Pill CTA -->
+<div class="mt-12 text-center max-w-xl mx-auto space-y-6">
+<p class="text-xs md:text-sm text-neutral-500 font-normal">No off-the-shelf fixes or made-up results. Just thoughtful solutions to problems worth solving.</p>
+<div class="flex items-center justify-center space-x-3">
+<a class="btn-arrow-hover px-6 py-2.5 bg-[#202525] text-white rounded-full text-xs font-semibold hover:bg-[#363D3B] transition-colors flex items-center space-x-2" href="#contact">
+<span class="">Tell Us What You Need</span>
+<span class="arrow-icon text-sm">↗</span>
+</a>
+<a class="px-6 py-2.5 bg-white border border-neutral-300 text-neutral-800 rounded-full text-xs font-semibold hover:bg-neutral-50 transition-colors" href="#about">See Our Approach</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PricingTableSection -->
+<!-- BEGIN: Coordinated Scrollytelling -->
+<section class="story-section" data-purpose="workflow-scrollytelling" id="about" aria-labelledby="story-title">
+  <div class="story-shell">
+    <div class="story-layout">
+      <div class="story-left">
+        <div class="story-sticky">
+          <div class="story-eyebrow"><span class="story-dot"></span> A better way to work</div>
+          <h2 id="story-title">Technology should give people <em>time back</em>—not create more work.</h2>
+          <p class="story-intro">We start with how your business works, then build the right connections. Move through the three steps to see how it comes together.</p>
+          <div class="story-step-list" aria-label="Our process">
+            <div class="story-step-label is-current" data-step-label="0"><span class="story-step-no">01</span><span>Understand the workflow</span><span class="story-step-marker">↗</span></div>
+            <div class="story-step-label" data-step-label="1"><span class="story-step-no">02</span><span>Connect the pieces</span><span class="story-step-marker">↗</span></div>
+            <div class="story-step-label" data-step-label="2"><span class="story-step-no">03</span><span>Give time back</span><span class="story-step-marker">↗</span></div>
+          </div>
+          <div class="story-progress" role="presentation"><span id="story-progress-fill"></span></div>
+          <p class="story-progress-caption"><span id="story-current-number">01</span> / 03 <span class="story-scroll-hint">Scroll to explore <span aria-hidden="true">↓</span></span></p>
+        </div>
+      </div>
+      <div class="story-frames" aria-label="Our approach, step by step">
+        <article class="story-frame story-frame-one is-current" data-story-frame="0" aria-label="Step one, understand the workflow">
+          <div class="story-frame-head"><span>01 / DISCOVER</span><span class="story-frame-symbol">↗</span></div>
+          <div class="story-flow-graphic" aria-hidden="true">
+            <div class="workflow-node workflow-top"><span class="workflow-symbol">↙</span><span>New request</span><span class="workflow-node-tag">INBOX</span></div>
+            <div class="workflow-path"><span></span><span></span><span></span></div>
+            <div class="workflow-node workflow-middle"><span class="workflow-symbol">⋯</span><span>Manual handoffs</span><span class="workflow-node-tag">3 STEPS</span></div>
+            <div class="workflow-path"><span></span><span></span><span></span></div>
+            <div class="workflow-node workflow-bottom"><span class="workflow-symbol">✓</span><span>Clear next action</span><span class="workflow-node-tag">READY</span></div>
+          </div>
+          <div class="story-frame-copy"><h3>Understand before you automate.</h3><p>Find the repeated tasks, bottlenecks and busywork. The best starting point is a real problem—not another tool.</p></div>
+        </article>
+        <article class="story-frame story-frame-two" data-story-frame="1" aria-label="Step two, connect the pieces">
+          <div class="story-frame-head"><span>02 / CONNECT</span><span class="story-frame-symbol">↗</span></div>
+          <div class="connection-graphic" aria-hidden="true">
+            <div class="connection-core"><span class="connection-core-icon">✳</span><span>CONNECTED<br/>WORKFLOW</span></div>
+            <div class="connection-spoke spoke-top"></div><div class="connection-spoke spoke-left"></div><div class="connection-spoke spoke-right"></div>
+            <div class="connection-chip chip-top"><span class="chip-icon">▤</span> Documents</div>
+            <div class="connection-chip chip-left"><span class="chip-icon">▣</span> Your tools</div>
+            <div class="connection-chip chip-right"><span class="chip-icon">◎</span> Your team</div>
+          </div>
+          <div class="story-frame-copy"><h3>Make what you have work better.</h3><p>Build around your people, data and existing systems, so information moves where it should without extra effort.</p></div>
+        </article>
+        <article class="story-frame story-frame-three" data-story-frame="2" aria-label="Step three, give time back">
+          <div class="story-frame-head"><span>03 / IMPROVE</span><span class="story-frame-symbol">↗</span></div>
+          <div class="results-graphic" aria-hidden="true">
+            <div class="results-shine"></div>
+            <div class="results-icon"><svg viewBox="0 0 48 48" width="58" height="58" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="6" width="30" height="36" rx="4"></rect><path d="m16 23 5 5 11-13M16 34h16"></path></svg></div>
+            <div class="results-phrase">More time for<br/><em>the work that matters.</em></div>
+            <div class="results-bars"><span style="--bar-width:48%"></span><span style="--bar-width:74%"></span><span style="--bar-width:93%"></span></div>
+          </div>
+          <div class="story-frame-copy"><h3>Built to be used. Made to last.</h3><p>Keep the workflows simple, useful and adaptable. The best automation is one your team actually wants to use.</p><a class="story-inline-cta" href="#contact">Talk through your workflow <span aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: Coordinated Scrollytelling -->
+<section class="laird-cases-v2" id="cases" aria-labelledby="cases-title" data-case-variant="workflow"><div class="lc-container"><div class="lc-v2-introbar"><div><div class="lc-kicker">Practical possibilities</div><h2 class="lc-heading" id="cases-title">Where AI can <em>make a difference.</em></h2></div><p class="lc-intro">A few examples of the connected workflows Laird Co. can design. Every business is different.</p></div>
+<div class="lc-v2-workspace"><div class="lc-v2-menu"><p>EXPLORE A WORKFLOW</p><button class="lc-button lc-v2-choice is-active" type="button" data-lc-index="0" aria-pressed="true"><span class="lc-v2-number">01</span><span class="lc-v2-choice-label">Lead follow-up</span><span class="lc-v2-choice-arrow">↗</span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="1" aria-pressed="false"><span class="lc-v2-number">02</span><span class="lc-v2-choice-label">Internal knowledge</span><span class="lc-v2-choice-arrow">↗</span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="2" aria-pressed="false"><span class="lc-v2-number">03</span><span class="lc-v2-choice-label">Connected operations</span><span class="lc-v2-choice-arrow">↗</span></button><div class="lc-v2-menu-foot"><span>Built around the way you work</span><span class="lc-counter" data-lc-count>01 / 03</span></div></div>
+<div class="lc-v2-visual"><div class="lc-v2-visual-head"><span data-lc-eyebrow>01 / CAPTURE &amp; ROUTE</span><span class="lc-v2-status">A BETTER FLOW</span></div><div class="lc-v2-flow" data-lc-content>
+<div class="lc-v2-node"><span class="lc-v2-node-icon">↘</span><strong data-lc-node="0">New inquiry</strong><small data-lc-tag="0">Inbox</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon">⌁</span><strong data-lc-node="1">Capture &amp; qualify</strong><small data-lc-tag="1">Automated handoff</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon">✓</span><strong data-lc-node="2">Next action ready</strong><small data-lc-tag="2">Assigned</small></div>
+</div><div class="lc-v2-caption"><div><h3 data-lc-description>Turn incoming inquiries into clear, consistent next steps.</h3><p data-lc-quote>A new inquiry comes in. The right details get captured, the right person gets notified, and the next step is already in motion.</p></div><button class="lc-next" type="button" aria-label="Next workflow">→</button></div></div></div></div></section>
+<!-- BEGIN: SavingsCalculator -->
+<section class="sav-section sav-variant-three" id="calculator" aria-labelledby="sav-heading-three">
+  <div class="sav-wrap">
+    <div class="sav-topline"><span><i></i> OPERATIONAL OPPORTUNITIES / EST. 2026</span><span>03 — THE IMPACT DASHBOARD</span></div>
+    <div class="sav-3-heading"><div><div class="sav-kicker">THE NUMBERS BEHIND A BETTER WORKFLOW</div><h2 id="sav-heading-three">See the <em>opportunity.</em><br>Not just the work.</h2></div><p>Dial in your current process and explore a simple model of how small improvements can add up.</p></div>
+    <div class="sav-3-inputs"><div class="sav-3-inputlead"><span>YOUR INPUTS</span><strong>Start here ↗</strong></div><div class="sav-3-input"><label for="sav-tasks-number">Repetitive tasks / week</label><div class="sav-3-number"><input id="sav-tasks-number" aria-label="Repetitive tasks / week" data-field="tasks" type="number" min="10" max="1000" step="5" value="120"><span>tasks</span></div><input type="range" data-field="tasks" aria-label="Adjust repetitive tasks / week" min="10" max="1000" step="5" value="120"></div><div class="sav-3-input"><label for="sav-minutes-number">Minutes per task</label><div class="sav-3-number"><input id="sav-minutes-number" aria-label="Minutes per task" data-field="minutes" type="number" min="1" max="60" step="1" value="8"><span>min</span></div><input type="range" data-field="minutes" aria-label="Adjust minutes per task" min="1" max="60" step="1" value="8"></div><div class="sav-3-input"><label for="sav-rate-number">Hourly team cost</label><div class="sav-3-number"><input id="sav-rate-number" aria-label="Hourly team cost" data-field="rate" type="number" min="15" max="150" step="5" value="35"><span>$ / hr</span></div><input type="range" data-field="rate" aria-label="Adjust hourly team cost" min="15" max="150" step="5" value="35"></div><div class="sav-3-input"><label for="sav-percent-number">Time potentially reduced</label><div class="sav-3-number"><input id="sav-percent-number" aria-label="Time potentially reduced" data-field="percent" type="number" min="10" max="90" step="5" value="60"><span>%</span></div><input type="range" data-field="percent" aria-label="Adjust time potentially reduced" min="10" max="90" step="5" value="60"></div></div>
+    <div class="sav-3-dashboard">
+      <div class="sav-3-metric-primary"><div class="sav-3-cap"><span>01 / ANNUAL CAPACITY VALUE</span><span>↗</span></div><div class="sav-3-primary-inner"><span>Potential staff-time value / year</span><strong data-out="annual">$16,128</strong><div class="sav-3-explainer">An estimate of productive time made available, not a cash payout.</div></div><div class="sav-3-bottom"><a class="sav-cta" href="#contact" data-discuss>Explore an opportunity <span aria-hidden="true">↗</span></a></div></div>
+      <div class="sav-3-metric-small"><span class="sav-3-cap-label">02 / HOURS RECOVERED</span><div class="sav-3-small-num"><strong data-out="annualHours">461</strong><em>h / year</em></div><p>Time your team could redirect to higher-value work.</p><div class="sav-3-ring" data-ring><span data-out="percentText">60%</span></div></div>
+      <div class="sav-3-chartcard"><div class="sav-3-charttop"><div><span>03 / THE YEAR AHEAD</span><h3 data-chart-title>Cumulative time value</h3></div><div class="sav-3-switch" role="group" aria-label="Chart unit"><button type="button" data-chart-mode="value" aria-pressed="true">$ Value</button><button type="button" data-chart-mode="hours" aria-pressed="false">Hours</button></div></div><div class="sav-3-chartarea"><div class="sav-3-axis"><span data-chart-max>$16,128</span><span data-chart-half>$8,064</span><span>$0</span></div><svg data-projection viewBox="0 0 600 155" preserveAspectRatio="none" role="img" aria-label="Cumulative estimated potential staff-time value over 12 months"><defs><linearGradient id="sav3Gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#91A99A" stop-opacity=".32"/><stop offset="100%" stop-color="#91A99A" stop-opacity="0"/></linearGradient></defs><path d="M0 30 H600 M0 77 H600 M0 124 H600" class="sav-3-gridline"></path><polygon fill="url(#sav3Gradient)" data-chart-area points="0,142 600,12 600,142"></polygon><polyline data-chart-line points="0,142 600,12" fill="none" stroke="#6B8874" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></polyline><circle data-chart-end cx="600" cy="12" r="6" fill="#6B8874"></circle></svg></div><div class="sav-3-months"><span>START</span><span>MONTH 3</span><span>MONTH 6</span><span>MONTH 9</span><span>MONTH 12</span></div></div>
+    </div><div class="sav-footnote"><p class="sav-disclaimer"><span aria-hidden="true">ⓘ</span> Illustrative estimate of recovered staff time valued at your hourly team cost, <strong>not guaranteed cash savings.</strong> Assumes 48 working weeks/year and excludes implementation, software, and ongoing costs.</p><span class="sav-end-note">48 WORKING WEEKS / YEAR</span></div>
+  </div>
+</section>
+<!-- END: SavingsCalculator -->
+<!-- BEGIN: SiteFooter -->
+<section class="bg-[#F3F4F2] py-24 md:py-28" data-purpose="lead-form" id="contact">
+<div class="max-w-[1240px] mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+<div class="lg:col-span-5">
+<div class="flex items-center gap-2 text-xs text-neutral-600 mb-8"><span class="w-1.5 h-1.5 bg-[#5B7664] rounded-full"></span> LET'S TALK</div>
+<h2 class="text-4xl sm:text-5xl lg:text-[57px] font-light leading-[1.1] tracking-tight text-[#202525]">Less busywork.<br/><span class="text-neutral-400">More room to grow.</span></h2>
+<p class="mt-6 text-sm leading-7 text-neutral-600 max-w-md">Tell us about a workflow that is taking too much time, a system that is not connected, or an AI idea you want to explore. We will start with the problem, not the pitch.</p>
+<div class="mt-10 pt-6 border-t border-neutral-300/80 max-w-md"><div class="text-xs font-semibold text-[#202525] mb-2">A good place to start</div><p class="text-xs leading-6 text-neutral-600">What is the task? What tools are involved? How would you like it to work instead? A few sentences is plenty.</p></div>
+</div>
+<div class="lg:col-span-7 bg-white border border-neutral-200 rounded-2xl p-6 sm:p-9 lg:p-11 shadow-sm">
+<div class="flex items-start justify-between gap-4 mb-8"><div><h3 class="text-xl font-medium tracking-tight text-neutral-900">Start a conversation</h3><p class="text-xs text-neutral-500 mt-2">Share a little about your business and what you need.</p></div><span aria-hidden="true" class="text-[#5B7664] text-xl">↗</span></div>
+<form action="/api/contact" id="lead-form" method="post" novalidate="">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">Your name <span aria-hidden="true">*</span></span><input autocomplete="name" class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="120" name="name" placeholder="Your name" required="" type="text"/></label>
+<label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">Work email <span aria-hidden="true">*</span></span><input autocomplete="email" class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="254" name="email" placeholder="you@company.com" required="" type="email"/></label>
+<label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">Company</span><input autocomplete="organization" class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="160" name="company" placeholder="Company name" type="text"/></label>
+<label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">I'm interested in</span><select class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" id="lead-interest" name="interest"><option value="Not sure yet">Not sure yet</option><option value="AI Opportunity Audit">AI Opportunity Audit</option><option value="Custom Automation Build">Custom Automation Build</option><option value="Ongoing Optimization">Ongoing Optimization</option><option value="Something else">Something else</option></select></label>
+</div>
+<label class="block mt-5"><span class="block text-xs font-medium text-neutral-700 mb-2">What are you looking to improve? <span aria-hidden="true">*</span></span><textarea class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="4000" minlength="10" name="message" placeholder="Tell us about the process, tools, or idea you have in mind..." required="" rows="5"></textarea></label>
+<div aria-hidden="true" class="sr-only"><label>Leave this field blank<input autocomplete="off" name="website" tabindex="-1" type="text"/></label></div>
+<div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5"><p class="text-[11px] leading-5 text-neutral-500 max-w-[300px]">Your details will only be used to respond to your inquiry.</p><button class="btn-arrow-hover inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors disabled:opacity-60" id="lead-submit" type="submit">Send Inquiry <span class="arrow-icon">↗</span></button></div>
+<p aria-live="polite" class="text-xs mt-5 hidden" id="lead-status" role="status"></p>
+</form>
+</div>
+</div>
+</div>
+</section><footer class="bg-[#171B1B] text-white pt-20 pb-10 border-t border-[#343B38]" data-purpose="site-footer">
+<div class="max-w-[1240px] mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+<div class="lg:col-span-5 pr-8"><a class="inline-flex items-center gap-2.5 text-2xl tracking-tight font-medium" href="#home"><span class="inline-flex gap-1"><i class="w-2.5 h-5 bg-[#B5C9BC] -skew-x-12 rounded-sm"></i><i class="w-2 h-3.5 bg-white/70 -skew-x-12 rounded-sm"></i></span>laird co.</a><p class="text-sm leading-7 text-white/55 mt-6 max-w-sm">Thoughtful AI strategy and custom automations for businesses ready to spend less time on repetitive work.</p><a class="inline-flex items-center gap-2 mt-7 rounded-full bg-[#F5F6F3] text-[#171B1B] px-5 py-2.5 text-xs font-semibold hover:bg-white transition-colors footer-cta" href="#contact">Start a Conversation ↗</a></div>
+<div class="lg:col-span-2"><h4 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Explore</h4><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#home">Home</a></li><li><a class="hover:text-white" href="#about">Our Approach</a></li><li><a class="hover:text-white" href="#services">Services</a></li><li><a class="hover:text-white" href="#cases">Use Cases</a></li><li><a class="hover:text-white" href="#calculator">Calculator</a></li></ul></div>
+<div class="lg:col-span-3"><h4 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">What we do</h4><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#services">AI Strategy</a></li><li><a class="hover:text-white" href="#services">Custom AI Agents</a></li><li><a class="hover:text-white" href="#services">Workflow Automation</a></li><li><a class="hover:text-white" href="#services">Tool Integrations</a></li><li><a class="hover:text-white" href="#services">Ongoing Support</a></li></ul></div>
+<div class="lg:col-span-2"><h4 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Connect</h4><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#contact">Contact Us</a></li><li><a class="hover:text-white" href="#contact">Request a Consultation</a></li></ul></div>
+</div>
+<div class="py-12 select-none overflow-hidden text-center"><h2 class="watermark-text text-5xl sm:text-7xl md:text-8xl lg:text-[114px] font-extrabold tracking-wider uppercase opacity-30 whitespace-nowrap">LAIRD CO.</h2></div>
+<div class="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-white/5 text-[11px] text-white/40"><span>© 2026 Laird Co. All rights reserved.</span><span class="mt-2 sm:mt-0">Thoughtful by design. Useful by nature.</span></div>
+</div></footer>
+<!-- END: SiteFooter -->
+<!-- BEGIN: InteractiveScripts -->
+
+
+<script data-purpose="nav-scroll">
+    /**
+     * Adds frosted glass effect to top navbar on scroll
+     */
+    const navbar = document.getElementById('navbar');
+    let navbarScrolled;
+    const updateNavbar = () => {
+      const scrolled = window.scrollY > 30;
+      if (scrolled === navbarScrolled) return;
+      navbarScrolled = scrolled;
+      for (const name of ['bg-[#171B1B]/90', 'backdrop-blur-md', 'shadow-md']) navbar.classList.toggle(name, scrolled);
+    };
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+  </script>
+<!-- END: InteractiveScripts -->
+<script>
+const mobileToggle=document.getElementById('mobile-menu-toggle');
+const mobileMenu=document.getElementById('mobile-menu');
+mobileToggle.addEventListener('click',()=>{
+ const willOpen=mobileMenu.classList.contains('hidden');
+ mobileMenu.classList.toggle('hidden',!willOpen);
+ mobileToggle.setAttribute('aria-expanded',String(willOpen));
+ mobileToggle.setAttribute('aria-label',willOpen?'Close navigation':'Open navigation');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+ mobileMenu.classList.add('hidden'); mobileToggle.setAttribute('aria-expanded','false');
+}));
+document.querySelectorAll('a[data-intent]').forEach(link=>link.addEventListener('click',()=>{
+ const select=document.getElementById('lead-interest'); select.value=link.dataset.intent;
+}));
+const form=document.getElementById('lead-form');
+const submit=document.getElementById('lead-submit');
+const status=document.getElementById('lead-status');
+function showStatus(message,isError){
+ status.classList.remove('hidden','text-[#5B7664]','text-red-700');
+ status.classList.add(isError?'text-red-700':'text-[#5B7664]');
+ status.textContent=message;
+}
+form.addEventListener('submit',async event=>{
+ event.preventDefault();
+ if(!form.reportValidity()) return;
+ if(location.protocol==='file:'){
+  showStatus('The form needs to be deployed with its Cloudflare Pages Function before it can send inquiries.',true); return;
+ }
+ submit.disabled=true; submit.firstChild.textContent='Sending... ';
+ status.classList.add('hidden');
+ try {
+  const data=Object.fromEntries(new FormData(form).entries());
+  const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  let body={}; try {body=await response.json();}catch(_){ }
+  if(!response.ok||!body.ok) throw new Error(body.error||'The form could not be sent. Please try again.');
+  showStatus('Thanks for reaching out. Your inquiry has been received.',false);
+  form.reset();
+ } catch(e){showStatus(e.message||'Could not send your inquiry.',true);}
+ finally {submit.disabled=false;submit.firstChild.textContent='Send Inquiry ';}
+});
+
+// Sticky scrollytelling: bring each panel into alignment as it enters the focal area.
+(function setupStoryScroll(){
+ const section=document.getElementById('about');
+ const cards=Array.from(document.querySelectorAll('[data-story-frame]'));
+ const labels=Array.from(document.querySelectorAll('[data-step-label]'));
+ const bar=document.getElementById('story-progress-fill');
+ const number=document.getElementById('story-current-number');
+ if(!section||!cards.length)return;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let raf=0;
+ function update(){
+  raf=0;
+  const focusY=window.innerHeight*.47;
+  let closest=0, distance=Infinity;
+  cards.forEach((card,index)=>{
+   const rect=card.getBoundingClientRect();
+   const anchor=rect.top+Math.min(rect.height*.42,190);
+   const d=Math.abs(anchor-focusY);
+   if(d<distance){distance=d;closest=index;}
+   if(!reduced){card.classList.toggle('is-visible',rect.top<window.innerHeight*.93&&rect.bottom>window.innerHeight*.10);}
+  });
+  cards.forEach((card,index)=>card.classList.toggle('is-current',index===closest));
+  labels.forEach((label,index)=>label.classList.toggle('is-current',index===closest));
+  if(bar)bar.style.width=((closest+1)/cards.length*100)+'%';
+  if(number)number.textContent=String(closest+1).padStart(2,'0');
+ }
+ function onScroll(){if(!raf)raf=requestAnimationFrame(update)}
+ window.addEventListener('scroll',onScroll,{passive:true});
+ window.addEventListener('resize',onScroll,{passive:true});
+ update();
+})();
+</script>
+<script data-purpose="react-bits-side-rays">
+
+/* Actual React Bits SideRays WebGL 2.0 fragment shader and animation logic.
+   Adapted from the exact user-provided SideRays component to a static HTML website.
+   No CSS approximations, React runtime, or dependencies are required. */
+(() => {
+const PIXEL_BUDGET = 900000;
+const FRAME_INTERVAL = 1000 / 30;
+const TAU = Math.PI * 2;
+
+const ORIGINS = {
+  'top-right': { flipX: 0, flipY: 0, side: 0 },
+  'top-left': { flipX: 1, flipY: 0, side: 0 },
+  'bottom-right': { flipX: 0, flipY: 1, side: 0 },
+  'bottom-left': { flipX: 1, flipY: 1, side: 0 },
+  right: { flipX: 0, flipY: 0, side: 1 },
+  left: { flipX: 1, flipY: 0, side: 1 }
+};
+
+const VERTEX = `#version 300 es
+const vec2 corners[3] = vec2[3](vec2(-1.0, -1.0), vec2(3.0, -1.0), vec2(-1.0, 3.0));
+void main() {
+  gl_Position = vec4(corners[gl_VertexID], 0.0, 1.0);
+}`;
+
+const FRAGMENT = `#version 300 es
+precision highp float;
+uniform vec2 uResolution;
+uniform float uTime;
+uniform vec3 uColorA;
+uniform vec3 uColorB;
+uniform float uBlend;
+uniform float uIntensity;
+uniform float uSpread;
+uniform float uDensity;
+uniform float uSharpness;
+uniform float uFalloff;
+uniform float uGlow;
+uniform float uSaturation;
+uniform float uDust;
+uniform float uOpacity;
+uniform float uReveal;
+uniform float uLight;
+uniform vec3 uFrame;
+uniform float uAim;
+uniform vec3 uFocus;
+uniform float uSway;
+out vec4 fragColor;
+
+float hash(vec2 p) {
+  p = fract(p * vec2(123.34, 456.21));
+  p += dot(p, p + 45.32);
+  return fract(p.x * p.y);
+}
+
+float noise(vec2 p) {
+  vec2 i = floor(p);
+  vec2 f = p - i;
+  vec2 w = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
+  float a = hash(i);
+  float b = hash(i + vec2(1.0, 0.0));
+  float c = hash(i + vec2(0.0, 1.0));
+  float d = hash(i + vec2(1.0, 1.0));
+  return mix(mix(a, b, w.x), mix(c, d, w.x), w.y);
+}
+
+float shafts(float u, float t, float seed, float aa) {
+  float sway = (0.4 * sin(t * 0.31 + seed) + 0.24 * sin(t * 0.17 + seed * 2.3)) * uSway;
+  float n = 0.7 * noise(vec2(u + sway + seed, t * 0.3)) + 0.3 * noise(vec2(u * 2.4 + sway * 1.5 + seed * 1.7, t * 0.45 + 3.0));
+  float width = mix(0.5, 0.1, uSharpness);
+  float s = mix(smoothstep(0.5 - width, 0.5 + width, n), 0.5, aa);
+  return mix(0.05, 1.0, s);
+}
+
+float motes(vec2 p, float cell, float t, float seed) {
+  p += vec2(t * 0.021, -t * 0.013) + seed * 7.31;
+  vec2 grid = p / cell;
+  vec2 id = floor(grid);
+  vec2 f = grid - id;
+  float h = hash(id + seed);
+  if (h > 0.5) return 0.0;
+  vec2 center = 0.25 + 0.5 * vec2(hash(id + 1.7 + seed), hash(id + 3.1 + seed));
+  center += 0.1 * vec2(sin(t * 0.7 + h * 31.0), cos(t * 0.6 + h * 23.0));
+  float size = mix(0.035, 0.09, hash(id + 5.3 + seed));
+  float edge = length(fwidth(grid)) * 0.7;
+  float twinkle = 0.55 + 0.45 * sin(t * 1.9 + h * 41.0);
+  return (1.0 - smoothstep(size - edge, size + edge, length(f - center))) * twinkle;
+}
+
+void main() {
+  float aspect = uResolution.x / uResolution.y;
+  vec2 q = (gl_FragCoord.xy - 0.5 * uResolution) / uResolution.y;
+  if (uFrame.x > 0.5) q.x = -q.x;
+  if (uFrame.y > 0.5) q.y = -q.y;
+  vec2 source = uFrame.z > 0.5 ? vec2(aspect * 0.5 + 0.42, 0.3) : vec2(aspect * 0.5 + 0.1, 0.62);
+  float heading = (uFrame.z > 0.5 ? 3.42 : -2.48) + uAim + 0.035 * sin(uTime * 0.21) * uSway;
+  vec2 v = q - source;
+  float r = length(v);
+  float angle = mod(atan(v.y, v.x) - heading + 3.14159265, 6.28318531) - 3.14159265;
+  float t = uTime;
+  float u = angle * uDensity;
+  float aa = smoothstep(0.12, 0.45, fwidth(u));
+  float offset = uSpread * 0.22;
+  float fanA = exp(-pow((angle + offset) / uSpread, 2.0) * 1.4);
+  float fanB = exp(-pow((angle - offset) / (uSpread * 1.15), 2.0) * 1.4);
+  float focus = 1.0 + uFocus.z * exp(-pow((angle - uFocus.x) / uFocus.y, 2.0));
+  float lightA = fanA * shafts(u, t, 0.0, aa) * focus;
+  float lightB = fanB * shafts(u * 0.83, t * 0.6, 17.0, aa) * focus;
+  float reach = 1.0 / (1.0 + pow(r / 0.4, uFalloff));
+  vec3 glowColor = mix(uColorA, uColorB, uBlend);
+  vec3 light = (uColorA * lightA * (1.0 - uBlend) + uColorB * lightB * uBlend) * 2.0 * reach;
+  light += glowColor * uGlow * exp(-pow(r / 0.4, 2.0));
+  if (uDust > 0.0) {
+    float sparkle = motes(q, 0.06, t, 0.0) + 0.7 * motes(q, 0.038, t * 0.8, 9.0);
+    light += mix(glowColor, vec3(1.0), 0.6) * sparkle * (lightA + lightB) * reach * uDust * 2.5;
+  }
+  light *= uIntensity * (1.0 - smoothstep(uReveal * 2.6 - 0.45, uReveal * 2.6, r)) * smoothstep(0.0, 0.35, uReveal);
+  float gray = dot(light, vec3(0.2126, 0.7152, 0.0722));
+  light = max(mix(vec3(gray), light, uSaturation), 0.0);
+  float peak = max(light.r, max(light.g, light.b));
+  float grain = (fract(52.9829189 * fract(dot(gl_FragCoord.xy, vec2(0.06711056, 0.00583715)))) - 0.5) / 255.0;
+  if (uLight > 0.5) {
+    vec3 ink = pow(light / max(peak, 1e-4), vec3(2.0)) * 0.75;
+    float alpha = clamp(pow(1.0 - exp(-peak * 2.6), 2.5) * 0.9 * uOpacity + grain, 0.0, 1.0);
+    fragColor = vec4(pow(ink, vec3(1.0 / 2.2)) * alpha, alpha);
+    return;
+  }
+  float mapped = 1.0 - exp(-peak);
+  vec3 tone = light * (mapped / max(peak, 1e-4));
+  tone = mix(tone, vec3(mapped), smoothstep(0.7, 1.0, mapped) * 0.55);
+  vec3 shown = clamp(tone * uOpacity, 0.0, 1.0);
+  float alpha = max(shown.r, max(shown.g, shown.b));
+  vec3 color = clamp(shown * alpha + grain, 0.0, 1.0);
+  fragColor = vec4(min(color, vec3(alpha)), alpha);
+}`;
+
+const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+const wrapAngle = angle => ((((angle + Math.PI) % TAU) + TAU) % TAU) - Math.PI;
+
+const parseColor = value => {
+  const text = String(value || '').trim();
+  const hex = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(text);
+  if (hex) {
+    const full = hex[1].length === 3 ? hex[1].replace(/./g, digit => digit + digit) : hex[1];
+    return [0, 2, 4].map(index => parseInt(full.slice(index, index + 2), 16) / 255);
+  }
+  const rgb = /^rgba?\(\s*([\d.]+)[\s,]+([\d.]+)[\s,]+([\d.]+)/i.exec(text);
+  if (rgb) return [rgb[1], rgb[2], rgb[3]].map(channel => clamp(parseFloat(channel) / 255, 0, 1));
+  return [1, 1, 1];
+};
+
+const geometryFor = (frame, aspect) => ({
+  source: frame.side ? [aspect * 0.5 + 0.42, 0.3] : [aspect * 0.5 + 0.1, 0.62],
+  heading: frame.side ? 3.42 : -2.48
+});
+
+const compile = (gl, type, source) => {
+  const shader = gl.createShader(type);
+  if (!shader) return null;
+  gl.shaderSource(shader, source);
+  gl.compileShader(shader);
+  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+    console.error(gl.getShaderInfoLog(shader));
+    gl.deleteShader(shader);
+    return null;
+  }
+  return shader;
+};
+
+const link = gl => {
+  const vertex = compile(gl, gl.VERTEX_SHADER, VERTEX);
+  const fragment = compile(gl, gl.FRAGMENT_SHADER, FRAGMENT);
+  const program = vertex && fragment ? gl.createProgram() : null;
+  if (!vertex || !fragment || !program) {
+    if (vertex) gl.deleteShader(vertex);
+    if (fragment) gl.deleteShader(fragment);
+    return null;
+  }
+  gl.attachShader(program, vertex);
+  gl.attachShader(program, fragment);
+  gl.linkProgram(program);
+  gl.deleteShader(vertex);
+  gl.deleteShader(fragment);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    console.error(gl.getProgramInfoLog(program));
+    gl.deleteProgram(program);
+    return null;
+  }
+  const uniforms = {};
+  const count = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
+  for (let index = 0; index < count; index++) {
+    const info = gl.getActiveUniform(program, index);
+    if (info) uniforms[info.name] = gl.getUniformLocation(program, info.name);
+  }
+  return { program, uniforms };
+};
+
+const container = document.getElementById('hero-side-rays');
+const canvas = document.getElementById('hero-rays-canvas');
+if (!container || !canvas) return;
+// Keep content usable without spending GPU time on small or low-power devices.
+const staticHero = window.matchMedia('(max-width: 767px), (pointer: coarse), (prefers-reduced-motion: reduce)');
+if (staticHero.matches || navigator.connection?.saveData) {
+  container.dataset.renderMode = 'static';
+  container.style.background = 'radial-gradient(ellipse at top right, rgba(150,200,255,.12), transparent 65%)';
+  return;
+}
+container.dataset.renderMode = 'animated';
+
+// The original example's values, unchanged.
+const rayColor1 = '#FFC46B';
+const rayColor2 = '#96c8ff';
+const blend = 0.6;
+const origin = 'top-right';
+const speed = 2.5;
+const intensity = 2;
+const spread = 2;
+const density = 5;
+const sharpness = 0.5;
+const tilt = 0;
+const falloff = 1.6;
+const glow = 1;
+const saturation = 1;
+const dust = 0;
+const followMouse = true;
+const mouseInfluence = 0.5;
+const intro = true;
+const lightMode = false;
+const opacity = 1;
+const maxDevicePixelRatio = 1;
+  const settings = {
+    colorA: parseColor(rayColor1),
+    colorB: parseColor(rayColor2),
+    blend: clamp(blend, 0, 1),
+    frame: ORIGINS[origin] ?? ORIGINS['top-right'],
+    speed: Math.max(0, speed) * 0.4,
+    intensity: Math.max(0, intensity) * 0.75,
+    spread: clamp(spread, 0.1, 8) * 0.225,
+    density: clamp(density, 1, 40),
+    sharpness: clamp(sharpness, 0, 1),
+    tilt: (clamp(tilt, -180, 180) * Math.PI) / 180,
+    falloff: clamp(falloff, 0.2, 6),
+    glow: Math.max(0, glow) * 1.2,
+    saturation: Math.max(0, saturation),
+    dust: clamp(dust, 0, 1),
+    followMouse,
+    mouseInfluence: clamp(mouseInfluence, 0, 1),
+    intro,
+    light: lightMode,
+    opacity: clamp(opacity, 0, 1),
+    maxRatio: clamp(maxDevicePixelRatio, 0.5, 3)
+  };
+
+const settingsRef = { current: settings };
+let generation = 0;
+let cleanup = null;
+function initialize() {
+    const gl = canvas.getContext('webgl2', {
+      alpha: true,
+      premultipliedAlpha: true,
+      antialias: false,
+      depth: false,
+      stencil: false,
+      powerPreference: 'high-performance'
+    });
+    const shader = gl ? link(gl) : null;
+    if (!gl || !shader) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const vao = gl.createVertexArray();
+    const size = { width: 1, height: 1 };
+    const pointer = { x: 0, y: 0, inside: false };
+    const aim = { value: 0, velocity: 0 };
+    const focus = { angle: 0, strength: 0 };
+    let time = Math.random() * 100;
+    let reveal = settingsRef.current.intro && !reduced && generation === 0 ? 0 : 1;
+    let raf = 0;
+    let last = 0;
+    let lastDraw = -Infinity;
+    let visible = true;
+    let pageVisible = document.visibilityState !== 'hidden';
+    let lost = false;
+
+    const resize = () => {
+      const s = settingsRef.current;
+      const rect = container.getBoundingClientRect();
+      const cssWidth = Math.max(1, rect.width);
+      const cssHeight = Math.max(1, rect.height);
+      const ratio = Math.min(
+        window.devicePixelRatio || 1,
+        s.maxRatio,
+        Math.sqrt(PIXEL_BUDGET / (cssWidth * cssHeight))
+      );
+      const width = Math.max(1, Math.round(cssWidth * ratio));
+      const height = Math.max(1, Math.round(cssHeight * ratio));
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+      }
+      size.width = cssWidth;
+      size.height = cssHeight;
+    };
+
+    const pointerAngle = s => {
+      let x = (pointer.x - size.width / 2) / size.height;
+      let y = (size.height / 2 - pointer.y) / size.height;
+      if (s.frame.flipX) x = -x;
+      if (s.frame.flipY) y = -y;
+      const { source, heading } = geometryFor(s.frame, size.width / size.height);
+      return wrapAngle(Math.atan2(y - source[1], x - source[0]) - heading - s.tilt);
+    };
+
+    const frame = now => {
+      raf = 0;
+      if (lost || !visible || !pageVisible) return;
+      if (now - lastDraw < FRAME_INTERVAL - 1) {
+        raf = requestAnimationFrame(frame);
+        return;
+      }
+      lastDraw = now;
+      const s = settingsRef.current;
+      const dt = clamp((now - last) / 1000 || 0, 0, 0.05);
+      last = Math.max(last, now);
+      time += dt * s.speed * (reduced ? 0.3 : 1);
+      if (reveal < 1) reveal = Math.min(1, reveal + dt / 1.6);
+
+      const tracking = s.followMouse && pointer.inside && !reduced;
+      const pointed = tracking ? pointerAngle(s) : 0;
+      const target = tracking ? clamp(pointed, -s.spread, s.spread) * s.mouseInfluence : 0;
+      const focusTarget = tracking ? s.mouseInfluence : 0;
+      const ease = 1 - Math.exp(-dt * 6);
+      if (tracking) focus.angle += (clamp(pointed - aim.value, -s.spread * 1.5, s.spread * 1.5) - focus.angle) * ease;
+      focus.strength += (focusTarget - focus.strength) * ease;
+      const stiffness = 18;
+      const damping = 2 * Math.sqrt(stiffness);
+      aim.velocity += ((target - aim.value) * stiffness - aim.velocity * damping) * dt;
+      aim.value += aim.velocity * dt;
+
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.useProgram(shader.program);
+      gl.bindVertexArray(vao);
+      const u = shader.uniforms;
+      gl.uniform2f(u.uResolution, canvas.width, canvas.height);
+      gl.uniform1f(u.uTime, time);
+      gl.uniform3f(u.uColorA, s.colorA[0], s.colorA[1], s.colorA[2]);
+      gl.uniform3f(u.uColorB, s.colorB[0], s.colorB[1], s.colorB[2]);
+      gl.uniform1f(u.uBlend, s.blend);
+      gl.uniform1f(u.uIntensity, s.intensity);
+      gl.uniform1f(u.uSpread, s.spread);
+      gl.uniform1f(u.uDensity, s.density);
+      gl.uniform1f(u.uSharpness, s.sharpness);
+      gl.uniform1f(u.uFalloff, s.falloff);
+      gl.uniform1f(u.uGlow, s.glow);
+      gl.uniform1f(u.uSaturation, s.saturation);
+      gl.uniform1f(u.uDust, s.dust);
+      gl.uniform1f(u.uOpacity, s.opacity);
+      gl.uniform1f(u.uReveal, 1 - Math.pow(1 - reveal, 3));
+      gl.uniform1f(u.uLight, s.light ? 1 : 0);
+      gl.uniform3f(u.uFrame, s.frame.flipX, s.frame.flipY, s.frame.side);
+      gl.uniform1f(u.uAim, s.tilt + aim.value);
+      gl.uniform3f(u.uFocus, focus.angle, Math.max(0.06, s.spread * 0.25), focus.strength * 1.4);
+      gl.uniform1f(u.uSway, reduced ? 0 : 1);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+      const settling =
+        Math.abs(target - aim.value) > 1e-4 ||
+        Math.abs(aim.velocity) > 1e-4 ||
+        Math.abs(focusTarget - focus.strength) > 1e-3;
+      const busy = (s.speed > 0 && !reduced) || reveal < 1 || settling;
+      if (busy && visible && pageVisible) raf = requestAnimationFrame(frame);
+    };
+
+    const wake = () => {
+      if (raf || lost || !visible || !pageVisible) return;
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    };
+
+    const onPointerMove = event => {
+      const rect = container.getBoundingClientRect();
+      pointer.x = event.clientX - rect.left;
+      pointer.y = event.clientY - rect.top;
+      pointer.inside =
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom;
+      wake();
+    };
+    const onLeave = () => {
+      pointer.inside = false;
+      wake();
+    };
+    const onPointerUp = event => {
+      if (event.pointerType !== 'mouse') onLeave();
+    };
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('pointerup', onPointerUp, { passive: true });
+    window.addEventListener('pointercancel', onPointerUp, { passive: true });
+    document.documentElement.addEventListener('pointerleave', onLeave);
+
+    const onLost = event => {
+      event.preventDefault();
+      lost = true;
+      cancelAnimationFrame(raf);
+      raf = 0;
+    };
+    const onRestored = () => {
+      if (cleanup) cleanup();
+      generation++;
+      cleanup = initialize();
+    };
+    canvas.addEventListener('webglcontextlost', onLost);
+    canvas.addEventListener('webglcontextrestored', onRestored);
+
+    const resizeObserver = new ResizeObserver(() => {
+      resize();
+      wake();
+    });
+    resizeObserver.observe(container);
+
+    const intersection = new IntersectionObserver(entries => {
+      visible = entries.some(entry => entry.isIntersecting);
+      wake();
+    });
+    intersection.observe(container);
+
+    const onVisibility = () => {
+      pageVisible = document.visibilityState !== 'hidden';
+      wake();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
+    resize();
+    wake();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      resizeObserver.disconnect();
+      intersection.disconnect();
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
+      document.documentElement.removeEventListener('pointerleave', onLeave);
+      document.removeEventListener('visibilitychange', onVisibility);
+      canvas.removeEventListener('webglcontextlost', onLost);
+      canvas.removeEventListener('webglcontextrestored', onRestored);
+      if (!gl.isContextLost()) {
+        gl.deleteVertexArray(vao);
+        gl.deleteProgram(shader.program);
+      }
+    };
+}
+// Yield primary content painting before compiling shaders.
+let disposed = false;
+const initializeWhenIdle = () => { if (!disposed) cleanup = initialize(); };
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  if ('requestIdleCallback' in window) requestIdleCallback(initializeWhenIdle, { timeout: 1500 });
+  else setTimeout(initializeWhenIdle, 0);
+}));
+window.addEventListener('pagehide', () => { disposed = true; if (cleanup) cleanup(); }, { once: true });
+})();
+
+</script>
+<script id="laird-case-variations-script">
+(()=>{
+ const root=document.querySelector('[data-case-variant]');if(!root)return;
+ const visibility = new IntersectionObserver(entries => {
+   root.classList.toggle('is-visible', entries.some(entry => entry.isIntersecting));
+ });
+ visibility.observe(root);
+ const items=[{"id": "01", "label": "Lead follow-up", "eyebrow": "CAPTURE & ROUTE", "quote": "A new inquiry comes in. The right details get captured, the right person gets notified, and the next step is already in motion.", "description": "Turn incoming inquiries into clear, consistent next steps.", "short": "Capture requests. Route the details. Keep work moving.", "role": "Lead capture & routing", "nodes": ["New inquiry", "Capture & qualify", "Next action ready"], "tags": ["Inbox", "Automated handoff", "Assigned"]}, {"id": "02", "label": "Internal knowledge", "eyebrow": "FIND & ANSWER", "quote": "Instead of searching through folders and documents, your team asks a question and gets an answer grounded in the information you already trust.", "description": "Help your people find answers in the knowledge you already have.", "short": "Find reliable answers without digging through files.", "role": "Knowledge assistant", "nodes": ["Team question", "Search your knowledge", "Grounded answer"], "tags": ["Ask", "Your documents", "Respond"]}, {"id": "03", "label": "Connected operations", "eyebrow": "CONNECT & SYNC", "quote": "Updates flow between the tools your business already uses, so your team is not stuck re-entering information or chasing routine status updates.", "description": "Let your existing tools talk to each other, without extra busywork.", "short": "Keep systems in sync and eliminate duplicate updates.", "role": "Workflow integration", "nodes": ["Update made", "Systems connected", "Team stays in sync"], "tags": ["Tool A", "Automatic sync", "Tool B"]}];
+ let active=0,pending=0;
+ const variant=root.dataset.caseVariant;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const select=(number)=>{
+  const i=(number+items.length)%items.length; if(i===active)return;
+  active=i;
+  const item=items[i];
+  root.querySelectorAll('[data-lc-index]').forEach(btn=>{
+    const idx=Number(btn.dataset.lcIndex);
+    if(variant==='deck'){
+      const offset=(idx-active+items.length)%items.length;
+      btn.classList.remove('is-active','is-next','is-prev');
+      btn.classList.add(offset===0?'is-active':offset===1?'is-next':'is-prev');
+      btn.setAttribute('aria-pressed',offset===0?'true':'false');
+    }else{btn.classList.toggle('is-active',idx===active);btn.setAttribute('aria-pressed',idx===active?'true':'false')}
+  });
+  const counter=root.querySelector('[data-lc-count]');if(counter)counter.textContent=item.id+' / 03';
+  if(variant==='deck')return;
+  const content=root.querySelector('[data-lc-content]');
+  if(pending)clearTimeout(pending);
+  if(content)content.classList.add('is-changing');
+  const update=()=>{
+    const eyebrow=root.querySelector('[data-lc-eyebrow]');if(eyebrow)eyebrow.textContent=item.id+' / '+item.eyebrow;
+    const quote=root.querySelector('[data-lc-quote]');if(quote)quote.textContent=item.quote;
+    const number=root.querySelector('[data-lc-number]');if(number)number.textContent=item.id+'.';
+    const role=root.querySelector('[data-lc-role]');if(role)role.textContent=item.role;
+    const desc=root.querySelector('[data-lc-description]');if(desc)desc.textContent=item.description;
+    root.querySelectorAll('[data-lc-node]').forEach(el=>el.textContent=item.nodes[Number(el.dataset.lcNode)]);
+    root.querySelectorAll('[data-lc-tag]').forEach(el=>el.textContent=item.tags[Number(el.dataset.lcTag)]);
+    if(content)content.classList.remove('is-changing');
+  };
+  if(reduced)update();else pending=setTimeout(update,190);
+ };
+ root.querySelectorAll('[data-lc-index]').forEach(btn=>btn.addEventListener('click',()=>select(Number(btn.dataset.lcIndex))));
+ root.querySelectorAll('.lc-next').forEach(btn=>btn.addEventListener('click',()=>select(active+1)));
+ root.querySelectorAll('.lc-prev').forEach(btn=>btn.addEventListener('click',()=>select(active-1)));
+})();
+</script>
+<script data-purpose="laird-savings-estimator">
+(function(){
+ const WORKWEEKS = 48;
+ const KEYS = ['tasks','minutes','rate','percent'];
+ const fmtMoney = value => '$' + Math.round(value).toLocaleString('en-US');
+ const fmtHours = value => value.toFixed(1);
+ function init(section){
+  if(!section || section.dataset.savingsReady==='true')return;
+  section.dataset.savingsReady='true';
+  let chartMode='value';
+  const inputs=Array.from(section.querySelectorAll('[data-field]'));
+  const defaults={tasks:120,minutes:8,rate:35,percent:60};
+  const state={...defaults};
+  function paint(){
+   const before=state.tasks*state.minutes/60;
+   const weekly=before*state.percent/100;
+   const after=before-weekly;
+   const hours=weekly*WORKWEEKS;
+   const annual=hours*state.rate;
+   const formatted={annual:fmtMoney(annual),weekly:fmtHours(weekly),annualHours:Math.round(hours).toLocaleString('en-US'),before:fmtHours(before)+'h',after:fmtHours(after)+'h',percentText:state.percent+'%'};
+   for(const [key,value] of Object.entries(formatted))section.querySelectorAll(`[data-out="${key}"]`).forEach(el=>el.textContent=value);
+   section.querySelectorAll('[data-fill="remaining"]').forEach(el=>el.style.width=(100-state.percent)+'%');
+   section.querySelectorAll('[data-fill="recovered"]').forEach(el=>el.style.width=state.percent+'%');
+   section.querySelectorAll('[data-ring]').forEach(el=>el.style.background=`conic-gradient(#799a80 0% ${state.percent}%,#bdcdbf ${state.percent}% 100%)`);
+   section.querySelectorAll('[data-preset]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.preset)===state.percent)));
+   const chart=section.querySelector('[data-projection]');
+   if(chart){
+     const max=chartMode==='value'?annual:hours;
+     const label=(n)=>chartMode==='value'?fmtMoney(n):Math.round(n).toLocaleString('en-US')+'h';
+     const pointList=Array.from({length:13},(_,i)=>`${i*50},${142-i*(130/12)}`);
+     chart.querySelector('[data-chart-line]').setAttribute('points',pointList.join(' '));
+     chart.querySelector('[data-chart-area]').setAttribute('points',`0,142 ${pointList.join(' ')} 600,142`);
+     chart.querySelector('[data-chart-end]').setAttribute('cx','600');
+     chart.querySelector('[data-chart-end]').setAttribute('cy','12');
+     chart.setAttribute('aria-label',`Cumulative estimated ${chartMode==='value'?'staff-time value':'hours recovered'} over 12 months, reaching ${label(max)}.`);
+     section.querySelector('[data-chart-max]').textContent=label(max);
+     section.querySelector('[data-chart-half]').textContent=label(max/2);
+     section.querySelector('[data-chart-title]').textContent=chartMode==='value'?'Cumulative time value':'Cumulative hours reclaimed';
+   }
+  }
+  function sync(){
+    inputs.forEach(el=>{
+       const key=el.dataset.field;
+       if(Number(el.value)!==state[key])el.value=state[key];
+       if(el.type==='range')el.style.setProperty('--pct',((state[key]-Number(el.min))/(Number(el.max)-Number(el.min))*100)+'%');
+    });
+    paint();
+  }
+  inputs.forEach(input=>{
+    input.addEventListener('input',()=>{
+      const raw=Number(input.value);
+      if(!Number.isFinite(raw)||input.value==='')return;
+      const key=input.dataset.field;
+      const min=Number(input.min),max=Number(input.max);
+      state[key]=Math.max(min,Math.min(max,raw));
+      sync();
+    });
+    input.addEventListener('change',()=>sync());
+  });
+  section.querySelectorAll('[data-preset]').forEach(btn=>btn.addEventListener('click',()=>{state.percent=Number(btn.dataset.preset);sync();}));
+  section.querySelectorAll('[data-chart-mode]').forEach(btn=>btn.addEventListener('click',()=>{
+     chartMode=btn.dataset.chartMode;
+     section.querySelectorAll('[data-chart-mode]').forEach(el=>el.setAttribute('aria-pressed',String(el===btn)));
+     paint();
+  }));
+  section.querySelectorAll('[data-discuss]').forEach(link=>link.addEventListener('click',()=>{
+    const form=document.getElementById('lead-form');
+    if(!form)return;
+    const interest=form.querySelector('[name="interest"]');
+    if(interest&&interest.value==='Not sure yet')interest.value='AI Opportunity Audit';
+    const msg=form.querySelector('[name="message"]');
+    if(msg&&!msg.value.trim())msg.value=`I'd like to discuss an automation opportunity. Our initial estimate uses ${state.tasks} repetitive tasks/week at ${state.minutes} minutes each, an estimated hourly team cost of $${state.rate}, and ${state.percent}% potential time reduction. It suggests ${fmtHours(weekly())} hours/week of capacity that might be recovered. I'd like to validate these assumptions together.`;
+    function weekly(){return state.tasks*state.minutes/60*state.percent/100;}
+  }));
+  sync();
+ }
+ document.querySelectorAll('.sav-section').forEach(init);
+})();
+</script></body></html>
