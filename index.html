@@ -1881,8 +1881,49 @@ footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
 @media(max-width:767px){#calculator.sav-variant-one,#calculator.sav-variant-two,#calculator.sav-variant-three{padding:64px 0 77px}.sav-wrap{padding:0 21px}.sav-topline{font-size:9px;gap:8px;letter-spacing:.08em}.sav-topline>span:last-child{font-size:9px;text-align:right}.sav-section h2{font-size:clamp(39px,9vw,55px)}.sav-kicker{font-size:10px;margin-bottom:17px}.sav-variant-one .sav-intro,.sav-2-heading,.sav-3-heading{display:block;margin:40px 0 31px}.sav-variant-one .sav-intro p,.sav-2-heading p,.sav-3-heading p{margin-top:23px;max-width:400px}.sav-1-grid,.sav-2-workbench{grid-template-columns:1fr}.sav-1-grid{min-height:0}.sav-1-controls,.sav-1-result,.sav-2-inputpanel,.sav-2-outputpanel{padding:28px 25px 32px}.sav-1-cardtop,.sav-1-resulttop{margin-bottom:30px}.sav-1-result{min-height:440px}.sav-1-big{font-size:clamp(53px,12vw,77px)}.sav-1-bars{padding-top:30px}.sav-1-resultfooter{flex-wrap:nowrap}.sav-2-heroout{margin-top:55px}.sav-2-outputpanel{min-height:460px}.sav-2-hours strong{font-size:clamp(78px,17vw,108px)}.sav-2-presetline{flex-wrap:wrap}.sav-3-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.sav-3-dashboard{grid-template-columns:1fr 1fr}.sav-3-metric-primary{grid-column:1/-1;min-height:300px}.sav-3-chartcard{grid-column:1/-1}.sav-3-metric-small{grid-column:1/-1;min-height:215px}.sav-3-ring{width:81px;height:81px;bottom:28px;right:25px}.sav-3-ring:before{width:65px;height:65px}.sav-3-small-num{margin-top:24px}.sav-3-metric-small p{max-width:210px}.sav-3-primary-inner strong{font-size:clamp(52px,11vw,70px)}.sav-footnote{display:block}.sav-end-note{display:block;margin-top:14px}.sav-3-chartarea{min-height:145px}.sav-3-chartarea svg{height:155px}}
 @media(max-width:430px){.sav-1-barrow{grid-template-columns:72px minmax(0,1fr) 40px;gap:8px}.sav-1-resultfooter{flex-wrap:wrap}.sav-1-resultfooter .sav-cta{width:100%}.sav-3-inputs{gap:7px}.sav-3-input{padding:17px 12px}.sav-3-number input{font-size:28px}.sav-3-charttop{flex-wrap:wrap}.sav-3-switch{margin-top:9px}.sav-3-charttop h3{margin-top:8px}.sav-2-moneypanel strong{font-size:39px}}
 @media(prefers-reduced-motion:reduce){.sav-section *{scroll-behavior:auto!important;transition:none!important}}
+
+/* Accessibility: visible focus on light/dark surfaces, keyboard skip and usable targets. */
+.skip-link{position:fixed;top:8px;left:12px;z-index:100;background:#fff;color:#17251e;padding:12px 18px;border:2px solid #17251e;transform:translateY(-160%)}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,textarea,select):focus-visible{outline:3px solid #174f36!important;outline-offset:3px;box-shadow:0 0 0 6px #fff!important}
+#navbar{background-color:#171b1b}
+section[id],main{scroll-margin-top:100px}
+#main-content:focus{outline:none}
+.sav-3-switch button{min-height:32px;min-width:44px}
+.sav-section input[type=range]{height:24px;background-size:100% 4px;background-repeat:no-repeat;background-position:center}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}.story-frame{transform:none;opacity:1;filter:none}}
+
+/* Muted text must remain readable; reserve pale sage for decoration. */
+.text-laird-muted,.text-neutral-500,#services .text-neutral-400,#contact .text-neutral-400{color:#56645b!important}
+.story-section .story-intro,.story-section .story-step-label,.story-section .story-scroll-hint{color:#526157}
+.story-frame{opacity:1;filter:none}
+.lc-heading em{color:#526b58}
+.lc-intro,.lc-v2-menu>p,.lc-v2-number,.lc-v2-choice-label,.lc-v2-menu-foot,.lc-counter{color:#526157!important}
+.sav-topline,.sav-kicker,.sav-section h2 em,.sav-3-heading p,.sav-3-inputlead,.sav-3-inputlead strong,.sav-3-number span,.sav-3-cap-label,.sav-3-small-num em,.sav-3-metric-small p,.sav-3-charttop>div>span,.sav-3-axis,.sav-3-months,.sav-disclaimer,.sav-end-note{color:#506154!important}
+.sav-3-switch button{color:#506154}
+.sav-3-switch button[aria-pressed=true]{color:#f3f7f1}
+footer .border-white\/5{color:#b9c8be}
+footer .watermark-text{color:#819085;opacity:1;-webkit-text-stroke:0}
+
+.lc-v2-visual-head,.lc-v2-status,.lc-v2-caption p,.lc-v2-node small{color:#506154}
+.lc-v2-node:last-child small{color:#d3dfd4}
+.story-section .workflow-middle{opacity:1}
+.story-section .workflow-node-tag{opacity:.85}
+/* Keep text contrast independent of the animated canvas behind it. */
+#home .hero-copy-wrap{background:rgba(8,11,17,.88);padding:20px;border-radius:8px}
+
+#contact input,#contact textarea,#contact select{border:1px solid #78847c}
+#contact input::placeholder,#contact textarea::placeholder{color:#59665d;opacity:1}
+:where(a,button,input,textarea,select){scroll-margin-block:110px}
+/* Use the compact navigation before desktop links start to crowd. */
+@media(min-width:768px) and (max-width:1099px){
+ #navbar nav[aria-label="Primary navigation"]{display:none}
+ #mobile-menu-toggle{display:flex}
+ #mobile-menu:not(.hidden){display:block}
+}
 </style></head>
 <body class="bg-white text-neutral-900 antialiased selection:bg-[#B5C9BC] selection:text-[#202525]">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <!-- BEGIN: MainHeader -->
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-purpose="site-navigation" id="navbar">
 <div class="max-w-[1240px] mx-auto px-6 h-20 flex items-center justify-between">
@@ -1895,7 +1936,7 @@ footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
 <span class="text-xl font-medium tracking-tight text-white">laird co.</span>
 </a>
 <!-- Desktop Nav Links -->
-<nav class="hidden md:flex items-center space-x-8 text-sm font-light text-white/90"><a class="hover:text-white transition-opacity hover:opacity-80" href="#home">Home</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#about">Our approach</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#services">Services</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#cases">Use cases</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#calculator">Calculator</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#contact">Contact</a></nav>
+<nav aria-label="Primary navigation" class="hidden md:flex items-center space-x-8 text-sm font-light text-white/90"><a class="hover:text-white transition-opacity hover:opacity-80" href="#home">Home</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#about">Our approach</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#services">Services</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#cases">Use cases</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#calculator">Calculator</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#contact">Contact</a></nav>
 <!-- CTA Book a Call Button -->
 <div class="flex items-center">
 <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation" class="md:hidden mr-3 flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white" id="mobile-menu-toggle" type="button"><span aria-hidden="true" class="text-xl">☰</span></button><a class="btn-arrow-hover inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-white text-[#202525] text-xs font-semibold hover:bg-neutral-100 transition-all shadow-sm" href="#contact">
@@ -1905,6 +1946,7 @@ footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
 </div>
 </div>
 <nav aria-label="Mobile navigation" class="hidden md:hidden bg-[#171B1B] px-6 pb-6 pt-2 border-t border-white/10 text-sm text-white/90" id="mobile-menu"><div class="max-w-[1240px] mx-auto grid grid-cols-2 gap-5"><a href="#home">Home</a><a href="#about">Our approach</a><a href="#services">Services</a><a href="#cases">Use cases</a><a href="#calculator">Calculator</a><a href="#contact">Contact</a></div></nav></header>
+<main id="main-content" tabindex="-1">
 <!-- END: MainHeader -->
 <!-- BEGIN: HeroSection -->
 <section class="laird-hero relative w-full bg-neutral-900 overflow-hidden flex flex-col justify-end" data-purpose="hero-banner" id="home">
@@ -2020,7 +2062,7 @@ footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
           <div class="story-eyebrow"><span class="story-dot"></span> A better way to work</div>
           <h2 id="story-title">Technology should give people <em>time back</em>—not create more work.</h2>
           <p class="story-intro">We start with how your business works, then build the right connections. Move through the three steps to see how it comes together.</p>
-          <div class="story-step-list" aria-label="Our process">
+          <div class="story-step-list" role="group" aria-label="Our process">
             <div class="story-step-label is-current" data-step-label="0"><span class="story-step-no">01</span><span>Understand the workflow</span><span class="story-step-marker">↗</span></div>
             <div class="story-step-label" data-step-label="1"><span class="story-step-no">02</span><span>Connect the pieces</span><span class="story-step-marker">↗</span></div>
             <div class="story-step-label" data-step-label="2"><span class="story-step-no">03</span><span>Give time back</span><span class="story-step-marker">↗</span></div>
@@ -2029,7 +2071,7 @@ footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
           <p class="story-progress-caption"><span id="story-current-number">01</span> / 03 <span class="story-scroll-hint">Scroll to explore <span aria-hidden="true">↓</span></span></p>
         </div>
       </div>
-      <div class="story-frames" aria-label="Our approach, step by step">
+      <div class="story-frames" role="group" aria-label="Our approach, step by step">
         <article class="story-frame story-frame-one is-current" data-story-frame="0" aria-label="Step one, understand the workflow">
           <div class="story-frame-head"><span>01 / DISCOVER</span><span class="story-frame-symbol">↗</span></div>
           <div class="story-flow-graphic" aria-hidden="true">
@@ -2071,13 +2113,14 @@ footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
 <div class="lc-v2-workspace"><div class="lc-v2-menu"><p>EXPLORE A WORKFLOW</p><button class="lc-button lc-v2-choice is-active" type="button" data-lc-index="0" aria-pressed="true"><span class="lc-v2-number">01</span><span class="lc-v2-choice-label">Lead follow-up</span><span class="lc-v2-choice-arrow">↗</span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="1" aria-pressed="false"><span class="lc-v2-number">02</span><span class="lc-v2-choice-label">Internal knowledge</span><span class="lc-v2-choice-arrow">↗</span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="2" aria-pressed="false"><span class="lc-v2-number">03</span><span class="lc-v2-choice-label">Connected operations</span><span class="lc-v2-choice-arrow">↗</span></button><div class="lc-v2-menu-foot"><span>Built around the way you work</span><span class="lc-counter" data-lc-count>01 / 03</span></div></div>
 <div class="lc-v2-visual"><div class="lc-v2-visual-head"><span data-lc-eyebrow>01 / CAPTURE &amp; ROUTE</span><span class="lc-v2-status">A BETTER FLOW</span></div><div class="lc-v2-flow" data-lc-content>
 <div class="lc-v2-node"><span class="lc-v2-node-icon">↘</span><strong data-lc-node="0">New inquiry</strong><small data-lc-tag="0">Inbox</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon">⌁</span><strong data-lc-node="1">Capture &amp; qualify</strong><small data-lc-tag="1">Automated handoff</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon">✓</span><strong data-lc-node="2">Next action ready</strong><small data-lc-tag="2">Assigned</small></div>
-</div><div class="lc-v2-caption"><div><h3 data-lc-description>Turn incoming inquiries into clear, consistent next steps.</h3><p data-lc-quote>A new inquiry comes in. The right details get captured, the right person gets notified, and the next step is already in motion.</p></div><button class="lc-next" type="button" aria-label="Next workflow">→</button></div></div></div></div></section>
+</div><div class="lc-v2-caption"><div><h3 data-lc-description aria-live="polite" aria-atomic="true">Turn incoming inquiries into clear, consistent next steps.</h3><p data-lc-quote>A new inquiry comes in. The right details get captured, the right person gets notified, and the next step is already in motion.</p></div><button class="lc-next" type="button" ><span class="sr-only">Next workflow</span><span aria-hidden="true">→</span></button></div></div></div></div></section>
 <!-- BEGIN: SavingsCalculator -->
 <section class="sav-section sav-variant-three" id="calculator" aria-labelledby="sav-heading-three">
   <div class="sav-wrap">
     <div class="sav-topline"><span><i></i> OPERATIONAL OPPORTUNITIES / EST. 2026</span><span>03 — THE IMPACT DASHBOARD</span></div>
     <div class="sav-3-heading"><div><div class="sav-kicker">THE NUMBERS BEHIND A BETTER WORKFLOW</div><h2 id="sav-heading-three">See the <em>opportunity.</em><br>Not just the work.</h2></div><p>Dial in your current process and explore a simple model of how small improvements can add up.</p></div>
     <div class="sav-3-inputs"><div class="sav-3-inputlead"><span>YOUR INPUTS</span><strong>Start here ↗</strong></div><div class="sav-3-input"><label for="sav-tasks-number">Repetitive tasks / week</label><div class="sav-3-number"><input id="sav-tasks-number" aria-label="Repetitive tasks / week" data-field="tasks" type="number" min="10" max="1000" step="5" value="120"><span>tasks</span></div><input type="range" data-field="tasks" aria-label="Adjust repetitive tasks / week" min="10" max="1000" step="5" value="120"></div><div class="sav-3-input"><label for="sav-minutes-number">Minutes per task</label><div class="sav-3-number"><input id="sav-minutes-number" aria-label="Minutes per task" data-field="minutes" type="number" min="1" max="60" step="1" value="8"><span>min</span></div><input type="range" data-field="minutes" aria-label="Adjust minutes per task" min="1" max="60" step="1" value="8"></div><div class="sav-3-input"><label for="sav-rate-number">Hourly team cost</label><div class="sav-3-number"><input id="sav-rate-number" aria-label="Hourly team cost" data-field="rate" type="number" min="15" max="150" step="5" value="35"><span>$ / hr</span></div><input type="range" data-field="rate" aria-label="Adjust hourly team cost" min="15" max="150" step="5" value="35"></div><div class="sav-3-input"><label for="sav-percent-number">Time potentially reduced</label><div class="sav-3-number"><input id="sav-percent-number" aria-label="Time potentially reduced" data-field="percent" type="number" min="10" max="90" step="5" value="60"><span>%</span></div><input type="range" data-field="percent" aria-label="Adjust time potentially reduced" min="10" max="90" step="5" value="60"></div></div>
+    <p class="sr-only" id="calculator-status" role="status" aria-atomic="true"></p>
     <div class="sav-3-dashboard">
       <div class="sav-3-metric-primary"><div class="sav-3-cap"><span>01 / ANNUAL CAPACITY VALUE</span><span>↗</span></div><div class="sav-3-primary-inner"><span>Potential staff-time value / year</span><strong data-out="annual">$16,128</strong><div class="sav-3-explainer">An estimate of productive time made available, not a cash payout.</div></div><div class="sav-3-bottom"><a class="sav-cta" href="#contact" data-discuss>Explore an opportunity <span aria-hidden="true">↗</span></a></div></div>
       <div class="sav-3-metric-small"><span class="sav-3-cap-label">02 / HOURS RECOVERED</span><div class="sav-3-small-num"><strong data-out="annualHours">461</strong><em>h / year</em></div><p>Time your team could redirect to higher-value work.</p><div class="sav-3-ring" data-ring><span data-out="percentText">60%</span></div></div>
@@ -2098,31 +2141,32 @@ footer .watermark-text{-webkit-text-stroke:1.5px rgba(187,205,190,.20)}
 </div>
 <div class="lg:col-span-7 bg-white border border-neutral-200 rounded-2xl p-6 sm:p-9 lg:p-11 shadow-sm">
 <div class="flex items-start justify-between gap-4 mb-8"><div><h3 class="text-xl font-medium tracking-tight text-neutral-900">Start a conversation</h3><p class="text-xs text-neutral-500 mt-2">Share a little about your business and what you need.</p></div><span aria-hidden="true" class="text-[#5B7664] text-xl">↗</span></div>
-<form action="/api/contact" id="lead-form" method="post" novalidate="">
+<form action="/api/contact" id="lead-form" method="post" aria-describedby="lead-instructions" novalidate="">
+<p id="lead-instructions" class="text-xs mb-5">Fields marked * are required. Please don’t include confidential or sensitive information. Your message must contain at least 10 characters.</p>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 <label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">Your name <span aria-hidden="true">*</span></span><input autocomplete="name" class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="120" name="name" placeholder="Your name" required="" type="text"/></label>
 <label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">Work email <span aria-hidden="true">*</span></span><input autocomplete="email" class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="254" name="email" placeholder="you@company.com" required="" type="email"/></label>
 <label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">Company</span><input autocomplete="organization" class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="160" name="company" placeholder="Company name" type="text"/></label>
 <label class="block"><span class="block text-xs font-medium text-neutral-700 mb-2">I'm interested in</span><select class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" id="lead-interest" name="interest"><option value="Not sure yet">Not sure yet</option><option value="AI Opportunity Audit">AI Opportunity Audit</option><option value="Custom Automation Build">Custom Automation Build</option><option value="Ongoing Optimization">Ongoing Optimization</option><option value="Something else">Something else</option></select></label>
 </div>
-<label class="block mt-5"><span class="block text-xs font-medium text-neutral-700 mb-2">What are you looking to improve? <span aria-hidden="true">*</span></span><textarea class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="4000" minlength="10" name="message" placeholder="Tell us about the process, tools, or idea you have in mind..." required="" rows="5"></textarea></label>
+<label class="block mt-5"><span class="block text-xs font-medium text-neutral-700 mb-2">What are you looking to improve? <span aria-hidden="true">*</span></span><textarea class="w-full rounded-lg border-neutral-300 text-sm py-3 px-3 focus:border-[#5B7664] focus:ring-[#5B7664]" maxlength="4000" minlength="10" aria-describedby="lead-instructions" name="message" placeholder="Tell us about the process, tools, or idea you have in mind..." required="" rows="5"></textarea></label>
 <div aria-hidden="true" class="sr-only"><label>Leave this field blank<input autocomplete="off" name="website" tabindex="-1" type="text"/></label></div>
 <div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5"><p class="text-[11px] leading-5 text-neutral-500 max-w-[300px]">Your details will only be used to respond to your inquiry.</p><button class="btn-arrow-hover inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full bg-[#202525] text-white text-xs font-semibold hover:bg-[#363D3B] transition-colors disabled:opacity-60" id="lead-submit" type="submit">Send Inquiry <span class="arrow-icon">↗</span></button></div>
-<p aria-live="polite" class="text-xs mt-5 hidden" id="lead-status" role="status"></p>
+<p aria-live="polite" class="text-xs mt-5" id="lead-status" role="status" aria-atomic="true"></p>
 </form>
 </div>
 </div>
 </div>
-</section><footer class="bg-[#171B1B] text-white pt-20 pb-10 border-t border-[#343B38]" data-purpose="site-footer">
+</section></main><footer class="bg-[#171B1B] text-white pt-20 pb-10 border-t border-[#343B38]" data-purpose="site-footer">
 <div class="max-w-[1240px] mx-auto px-6">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
 <div class="lg:col-span-5 pr-8"><a class="inline-flex items-center gap-2.5 text-2xl tracking-tight font-medium" href="#home"><span class="inline-flex gap-1"><i class="w-2.5 h-5 bg-[#B5C9BC] -skew-x-12 rounded-sm"></i><i class="w-2 h-3.5 bg-white/70 -skew-x-12 rounded-sm"></i></span>laird co.</a><p class="text-sm leading-7 text-white/55 mt-6 max-w-sm">Thoughtful AI strategy and custom automations for businesses ready to spend less time on repetitive work.</p><a class="inline-flex items-center gap-2 mt-7 rounded-full bg-[#F5F6F3] text-[#171B1B] px-5 py-2.5 text-xs font-semibold hover:bg-white transition-colors footer-cta" href="#contact">Start a Conversation ↗</a></div>
-<div class="lg:col-span-2"><h4 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Explore</h4><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#home">Home</a></li><li><a class="hover:text-white" href="#about">Our Approach</a></li><li><a class="hover:text-white" href="#services">Services</a></li><li><a class="hover:text-white" href="#cases">Use Cases</a></li><li><a class="hover:text-white" href="#calculator">Calculator</a></li></ul></div>
-<div class="lg:col-span-3"><h4 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">What we do</h4><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#services">AI Strategy</a></li><li><a class="hover:text-white" href="#services">Custom AI Agents</a></li><li><a class="hover:text-white" href="#services">Workflow Automation</a></li><li><a class="hover:text-white" href="#services">Tool Integrations</a></li><li><a class="hover:text-white" href="#services">Ongoing Support</a></li></ul></div>
-<div class="lg:col-span-2"><h4 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Connect</h4><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#contact">Contact Us</a></li><li><a class="hover:text-white" href="#contact">Request a Consultation</a></li></ul></div>
+<div class="lg:col-span-2"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Explore</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#home">Home</a></li><li><a class="hover:text-white" href="#about">Our Approach</a></li><li><a class="hover:text-white" href="#services">Services</a></li><li><a class="hover:text-white" href="#cases">Use Cases</a></li><li><a class="hover:text-white" href="#calculator">Calculator</a></li></ul></div>
+<div class="lg:col-span-3"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">What we do</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#services">AI Strategy</a></li><li><a class="hover:text-white" href="#services">Custom AI Agents</a></li><li><a class="hover:text-white" href="#services">Workflow Automation</a></li><li><a class="hover:text-white" href="#services">Tool Integrations</a></li><li><a class="hover:text-white" href="#services">Ongoing Support</a></li></ul></div>
+<div class="lg:col-span-2"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Connect</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#contact">Contact Us</a></li><li><a class="hover:text-white" href="#contact">Request a Consultation</a></li></ul></div>
 </div>
-<div class="py-12 select-none overflow-hidden text-center"><h2 class="watermark-text text-5xl sm:text-7xl md:text-8xl lg:text-[114px] font-extrabold tracking-wider uppercase opacity-30 whitespace-nowrap">LAIRD CO.</h2></div>
-<div class="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-white/5 text-[11px] text-white/40"><span>© 2026 Laird Co. All rights reserved.</span><span class="mt-2 sm:mt-0">Thoughtful by design. Useful by nature.</span></div>
+<div class="py-12 select-none overflow-hidden text-center"><div aria-hidden="true" class="watermark-text text-5xl sm:text-7xl md:text-8xl lg:text-[114px] font-extrabold tracking-wider uppercase opacity-30 whitespace-nowrap">LAIRD CO.</div></div>
+<div class="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-white/5 text-[11px] text-white/40"><span>© 2026 Lairdwell consulting LLC. All rights reserved.</span><span class="mt-2 sm:mt-0">Thoughtful by design. Useful by nature.</span></div>
 </div></footer>
 <!-- END: SiteFooter -->
 <!-- BEGIN: InteractiveScripts -->
@@ -2153,8 +2197,18 @@ mobileToggle.addEventListener('click',()=>{
  mobileToggle.setAttribute('aria-expanded',String(willOpen));
  mobileToggle.setAttribute('aria-label',willOpen?'Close navigation':'Open navigation');
 });
+function closeMobileMenu(){
+ mobileMenu.classList.add('hidden');
+ mobileToggle.setAttribute('aria-expanded','false');
+ mobileToggle.setAttribute('aria-label','Open navigation');
+}
+document.getElementById('navbar').addEventListener('keydown',event=>{
+ if(event.key==='Escape'&&mobileToggle.getAttribute('aria-expanded')==='true'){closeMobileMenu();mobileToggle.focus();}
+});
 mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
- mobileMenu.classList.add('hidden'); mobileToggle.setAttribute('aria-expanded','false');
+ closeMobileMenu();
+ const target=document.querySelector(a.getAttribute('href'));
+ if(target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}
 }));
 document.querySelectorAll('a[data-intent]').forEach(link=>link.addEventListener('click',()=>{
  const select=document.getElementById('lead-interest'); select.value=link.dataset.intent;
@@ -2173,8 +2227,9 @@ form.addEventListener('submit',async event=>{
  if(location.protocol==='file:'){
   showStatus('The form needs to be deployed with its Cloudflare Pages Function before it can send inquiries.',true); return;
  }
+ form.setAttribute('aria-busy','true');
  submit.disabled=true; submit.firstChild.textContent='Sending... ';
- status.classList.add('hidden');
+ status.textContent='';
  try {
   const data=Object.fromEntries(new FormData(form).entries());
   const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
@@ -2183,7 +2238,7 @@ form.addEventListener('submit',async event=>{
   showStatus('Thanks for reaching out. Your inquiry has been received.',false);
   form.reset();
  } catch(e){showStatus(e.message||'Could not send your inquiry.',true);}
- finally {submit.disabled=false;submit.firstChild.textContent='Send Inquiry ';}
+ finally {form.removeAttribute('aria-busy');submit.disabled=false;submit.firstChild.textContent='Send Inquiry ';}
 });
 
 // Sticky scrollytelling: bring each panel into alignment as it enters the focal area.
@@ -2740,6 +2795,14 @@ window.addEventListener('pagehide', () => { disposed = true; if (cleanup) cleanu
   section.dataset.savingsReady='true';
   let chartMode='value';
   const inputs=Array.from(section.querySelectorAll('[data-field]'));
+  let announcement;
+  function announce(){
+    clearTimeout(announcement);
+    announcement=setTimeout(()=>{
+      const output=section.querySelector('#calculator-status');
+      if(output)output.textContent=`Estimated annual staff-time value: ${section.querySelector('[data-out="annual"]').textContent}; ${section.querySelector('[data-out="annualHours"]').textContent} hours recovered per year.`;
+    },400);
+  }
   const defaults={tasks:120,minutes:8,rate:35,percent:60};
   const state={...defaults};
   function paint(){
@@ -2785,8 +2848,9 @@ window.addEventListener('pagehide', () => { disposed = true; if (cleanup) cleanu
       const min=Number(input.min),max=Number(input.max);
       state[key]=Math.max(min,Math.min(max,raw));
       sync();
+      announce();
     });
-    input.addEventListener('change',()=>sync());
+    input.addEventListener('change',()=>{sync();announce();});
   });
   section.querySelectorAll('[data-preset]').forEach(btn=>btn.addEventListener('click',()=>{state.percent=Number(btn.dataset.preset);sync();}));
   section.querySelectorAll('[data-chart-mode]').forEach(btn=>btn.addEventListener('click',()=>{
