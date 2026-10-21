@@ -2068,7 +2068,13 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 </style>
 <noscript><style>
 #navbar{position:relative}#mobile-menu-toggle{display:none!important}#mobile-menu{display:block!important;max-height:none}#navbar nav[aria-label="Primary navigation"]{display:none}html{scroll-padding-top:24px}
-</style></noscript></head>
+</style></noscript><style>#services h2{overflow-wrap:anywhere}
+.story-frame,.story-step-label,.story-step-marker,.story-progress>span,.results-bars span{transition:none}
+html.motion-smooth{scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){.story-sticky{position:static!important}}
+@media(max-width:767px){.story-sticky{position:static!important}}</style>
+<link rel="icon" href="data:,">
+</head>
 <body class="bg-white text-neutral-900 antialiased selection:bg-[#B5C9BC] selection:text-[#202525]">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <!-- BEGIN: MainHeader -->
@@ -2102,11 +2108,11 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 <!-- Hero Content Container -->
 <div class="relative z-10 max-w-[1240px] w-full mx-auto px-6 hero-content">
 <div class="hero-copy-wrap max-w-xl">
-<h1 class="text-5xl md:text-[76px] font-light text-white leading-tight tracking-tight letter-tight">Work, made simpler.</h1>
-<p class="mt-4 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-lg">We help businesses reduce repetitive tasks, connect existing systems, and introduce AI tools that support day-to-day operations.</p>
+<h1 data-motion-hero class="text-5xl md:text-[76px] font-light text-white leading-tight tracking-tight letter-tight">Work, made simpler.</h1>
+<p data-hero-follow class="mt-4 text-sm md:text-base text-neutral-300 font-light leading-relaxed max-w-lg">We help businesses reduce repetitive tasks, connect existing systems, and introduce AI tools that support day-to-day operations.</p>
 </div>
 <!-- Right Alignment Eyebrow -->
-<div class="hero-eyebrow">
+<div data-hero-follow class="hero-eyebrow">
 <p class="text-xs md:text-sm text-neutral-300/80 font-light tracking-wide">AI consulting  ·  Custom automation  ·  Support</p>
 </div>
 </div>
@@ -2121,7 +2127,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 <span class="inline-flex items-center text-xs tracking-wide text-laird-muted font-normal">  ●  For teams managing repetitive tasks</span>
 </div>
 <div class="md:col-span-8">
-<h2 class="text-3xl sm:text-4xl lg:text-[46px] font-light text-neutral-900 leading-[1.18] letter-tight">AI consulting, <span class="text-neutral-400">automation, and ongoing&nbsp;support.</span></h2>
+<h2 data-reveal class="text-3xl sm:text-4xl lg:text-[46px] font-light text-neutral-900 leading-[1.18] letter-tight">AI consulting, <span class="text-neutral-400">automation, and ongoing&nbsp;support.</span></h2>
 </div>
 </div>
 <!-- Segmented Billing Switcher -->
@@ -2135,7 +2141,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 <!-- Unified Card Grid with 1px border styling -->
 <div class="border border-neutral-200 rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200 shadow-xs bg-white">
 <!-- CARD 1: Starter Plan -->
-<div class="p-8 lg:p-10 flex flex-col justify-between plan-card" data-purpose="pricing-card">
+<div class="p-8 lg:p-10 flex flex-col justify-between plan-card" data-reveal data-purpose="pricing-card">
 <div>
 <h3 class="text-base font-semibold text-neutral-900">AI Opportunity Audit</h3>
 <p class="mt-3 text-xs leading-relaxed text-neutral-500 font-normal">Identify repetitive tasks, delays, and disconnected systems costing your team time. Get a clear plan for what to improve first.</p>
@@ -2152,7 +2158,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 </div>
 </div>
 <!-- CARD 2: Growth Plan -->
-<div class="p-8 lg:p-10 flex flex-col justify-between plan-card bg-neutral-50/30" data-purpose="pricing-card">
+<div class="p-8 lg:p-10 flex flex-col justify-between plan-card bg-neutral-50/30" data-reveal data-purpose="pricing-card">
 <div>
 <h3 class="text-base font-semibold text-neutral-900">Custom Automation Build</h3>
 <p class="mt-3 text-xs leading-relaxed text-neutral-500 font-normal">We build custom AI agents and automated processes that connect your software, reduce manual work, and support daily operations.</p>
@@ -2169,7 +2175,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 </div>
 </div>
 <!-- CARD 3: Premium Plan -->
-<div class="p-8 lg:p-10 flex flex-col justify-between plan-card" data-purpose="pricing-card">
+<div class="p-8 lg:p-10 flex flex-col justify-between plan-card" data-reveal data-purpose="pricing-card">
 <div>
 <h3 class="text-base font-semibold text-neutral-900">Ongoing Optimization</h3>
 <p class="mt-3 text-xs leading-relaxed text-neutral-500 font-normal">We maintain and refine your automations as needs change, helping your systems remain reliable and useful over time.</p>
@@ -2221,7 +2227,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
       <div class="story-frames" role="group" aria-label="Our approach, step by step">
         <article class="story-frame story-frame-one is-current" data-story-frame="0" id="story-step-1" tabindex="-1" aria-label="Step one, review your processes">
           <div class="story-frame-head"><span>01 / DISCOVER</span><span class="story-frame-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div>
-          <div class="story-flow-graphic" aria-hidden="true">
+          <div data-parallax class="story-flow-graphic" aria-hidden="true">
             <div class="workflow-node workflow-top"><span class="workflow-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M18 6 6 18M6 6v12h12"/></svg></span><span>New request</span><span class="workflow-node-tag">INBOX</span></div>
             <div class="workflow-path"><span></span><span></span><span></span></div>
             <div class="workflow-node workflow-middle"><span class="workflow-symbol">⋯</span><span>Manual handoffs</span><span class="workflow-node-tag">3 STEPS</span></div>
@@ -2232,7 +2238,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
         </article>
         <article class="story-frame story-frame-two" data-story-frame="1" id="story-step-2" tabindex="-1" aria-label="Step two, connect your systems">
           <div class="story-frame-head"><span>02 / CONNECT</span><span class="story-frame-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div>
-          <div class="connection-graphic" aria-hidden="true">
+          <div data-parallax class="connection-graphic" aria-hidden="true">
             <div class="connection-core"><span class="connection-core-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M12 3v18M3 12h18M6 6l12 12M6 18 18 6"/></svg></span><span>CONNECTED<br/>WORKFLOW</span></div>
             <div class="connection-spoke spoke-top"></div><div class="connection-spoke spoke-left"></div><div class="connection-spoke spoke-right"></div>
             <div class="connection-chip chip-top"><span class="chip-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M4 4h16v16H4zM7 8h10M7 12h10M7 16h10"/></svg></span> Documents</div>
@@ -2243,7 +2249,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
         </article>
         <article class="story-frame story-frame-three" data-story-frame="2" id="story-step-3" tabindex="-1" aria-label="Step three, improve daily operations">
           <div class="story-frame-head"><span>03 / IMPROVE</span><span class="story-frame-symbol"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div>
-          <div class="results-graphic" aria-hidden="true">
+          <div data-parallax class="results-graphic" aria-hidden="true">
             <div class="results-shine"></div>
             <div class="results-icon"><svg viewBox="0 0 48 48" width="58" height="58" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="6" width="30" height="36" rx="4"></rect><path d="m16 23 5 5 11-13M16 34h16"></path></svg></div>
             <div class="results-phrase">More time for<br/><em>the work that matters.</em></div>
@@ -2256,7 +2262,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 <!-- END: Coordinated Scrollytelling -->
-<section class="laird-cases-v2" id="cases" aria-labelledby="cases-title" data-case-variant="workflow"><div class="lc-container"><div class="lc-v2-introbar"><div><div class="lc-kicker">Common business tasks</div><h2 class="lc-heading" id="cases-title">Examples of <em>business automation.</em></h2></div><p class="lc-intro">Possible applications for handling inquiries, finding internal answers, and keeping software in sync.</p></div>
+<section class="laird-cases-v2" id="cases" aria-labelledby="cases-title" data-case-variant="workflow"><div class="lc-container"><div data-reveal class="lc-v2-introbar"><div><div class="lc-kicker">Common business tasks</div><h2 class="lc-heading" id="cases-title">Examples of <em>business automation.</em></h2></div><p class="lc-intro">Possible applications for handling inquiries, finding internal answers, and keeping software in sync.</p></div>
 <div class="lc-v2-workspace"><div class="lc-v2-menu"><p>EXPLORE AN EXAMPLE</p><button class="lc-button lc-v2-choice is-active" type="button" data-lc-index="0" aria-pressed="true"><span class="lc-v2-number">01</span><span class="lc-v2-choice-label">Lead follow-up</span><span class="lc-v2-choice-arrow"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="1" aria-pressed="false"><span class="lc-v2-number">02</span><span class="lc-v2-choice-label">Internal knowledge</span><span class="lc-v2-choice-arrow"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><button class="lc-button lc-v2-choice " type="button" data-lc-index="2" aria-pressed="false"><span class="lc-v2-number">03</span><span class="lc-v2-choice-label">Connected operations</span><span class="lc-v2-choice-arrow"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button><div class="lc-v2-menu-foot"><span>Examples for discussion</span><span class="lc-counter" data-lc-count>01 / 03</span></div></div>
 <div class="lc-v2-visual"><div class="lc-v2-visual-head"><span data-lc-eyebrow>01 / CAPTURE &amp; ROUTE</span><span class="lc-v2-status">EXAMPLE</span></div><div class="lc-v2-flow" data-lc-content>
 <div class="lc-v2-node"><span class="lc-v2-node-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 6l12 12M6 18h12V6"/></svg></span><strong data-lc-node="0">New inquiry</strong><small data-lc-tag="0">Inbox</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M2 12h4l3-6 6 12 3-6h4"/></svg></span><strong data-lc-node="1">Capture &amp; qualify</strong><small data-lc-tag="1">Automated handoff</small></div><span class="lc-v2-link" aria-hidden="true"></span><div class="lc-v2-node"><span class="lc-v2-node-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="m5 12 4 4L19 6"/></svg></span><strong data-lc-node="2">Next action ready</strong><small data-lc-tag="2">Assigned</small></div>
@@ -2266,10 +2272,10 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 <noscript><p class="sav-wrap">The calculator requires JavaScript to update. The figures below show the default example.</p></noscript>
   <div class="sav-wrap">
     <div class="sav-topline"><span><i></i> AUTOMATION / TIME &amp; CAPACITY</span><span>03 — THE IMPACT DASHBOARD</span></div>
-    <div class="sav-3-heading"><div><div class="sav-kicker">ESTIMATE TIME RECOVERED THROUGH AUTOMATION</div><h2 id="sav-heading-three">Calculate your <em>potential</em><br>time savings</h2></div><p>Enter a few details about a repetitive task to estimate how much employee time could be recovered through automation.</p></div>
+    <div data-reveal class="sav-3-heading"><div><div class="sav-kicker">ESTIMATE TIME RECOVERED THROUGH AUTOMATION</div><h2 id="sav-heading-three">Calculate your <em>potential</em><br>time savings</h2></div><p>Enter a few details about a repetitive task to estimate how much employee time could be recovered through automation.</p></div>
     <div class="sav-3-inputs"><div class="sav-3-inputlead"><span>YOUR INPUTS</span><strong>Start here ↗</strong></div><div class="sav-3-input"><label for="sav-tasks-number">Repetitive tasks / week</label><div class="sav-3-number"><input id="sav-tasks-number" aria-label="Repetitive tasks / week" data-field="tasks" type="number" min="10" max="1000" step="5" value="120"><span>tasks</span></div><input type="range" data-field="tasks" aria-label="Adjust repetitive tasks / week" min="10" max="1000" step="5" value="120"></div><div class="sav-3-input"><label for="sav-minutes-number">Minutes per task</label><div class="sav-3-number"><input id="sav-minutes-number" aria-label="Minutes per task" data-field="minutes" type="number" min="1" max="60" step="1" value="8"><span>min</span></div><input type="range" data-field="minutes" aria-label="Adjust minutes per task" min="1" max="60" step="1" value="8"></div><div class="sav-3-input"><label for="sav-rate-number">Hourly team cost</label><div class="sav-3-number"><input id="sav-rate-number" aria-label="Hourly team cost" data-field="rate" type="number" min="15" max="150" step="5" value="35"><span>$ / hr</span></div><input type="range" data-field="rate" aria-label="Adjust hourly team cost" min="15" max="150" step="5" value="35"></div><div class="sav-3-input"><label for="sav-percent-number">Time potentially reduced</label><div class="sav-3-number"><input id="sav-percent-number" aria-label="Time potentially reduced" data-field="percent" type="number" min="10" max="90" step="5" value="60"><span>%</span></div><input type="range" data-field="percent" aria-label="Adjust time potentially reduced" min="10" max="90" step="5" value="60"></div></div>
     <p class="sr-only" id="calculator-status" role="status" aria-atomic="true"></p>
-    <div class="sav-3-dashboard">
+    <div data-reveal class="sav-3-dashboard">
       <div class="sav-3-metric-primary"><div class="sav-3-cap"><span>01 / ANNUAL CAPACITY VALUE</span><span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div><div class="sav-3-primary-inner"><span>Potential staff-time value / year</span><strong data-out="annual">$16,128</strong><div class="sav-3-explainer">An estimate of productive time made available, not a cash payout.</div></div><div class="sav-3-bottom"><a class="sav-cta" href="#contact" data-discuss>Discuss your estimate <span aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a></div></div>
       <div class="sav-3-metric-small"><span class="sav-3-cap-label">02 / HOURS RECOVERED</span><div class="sav-3-small-num"><strong data-out="annualHours">461</strong><em>h / year</em></div><p>Time your team could redirect to higher-value work.</p><div class="sav-3-ring" data-ring><span data-out="percentText">60%</span></div></div>
       <div class="sav-3-chartcard"><div class="sav-3-charttop"><div><span>03 / THE YEAR AHEAD</span><h3 data-chart-title>Cumulative time value</h3></div><div class="sav-3-switch" role="group" aria-label="Chart unit"><button type="button" data-chart-mode="value" aria-pressed="true">$ Value</button><button type="button" data-chart-mode="hours" aria-pressed="false">Hours</button></div></div><div class="sav-3-chartarea"><div class="sav-3-axis"><span data-chart-max>$16,128</span><span data-chart-half>$8,064</span><span>$0</span></div><svg data-projection viewBox="0 0 600 155" preserveAspectRatio="none" role="img" aria-label="Cumulative estimated potential staff-time value over 12 months"><defs><linearGradient id="sav3Gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#91A99A" stop-opacity=".32"/><stop offset="100%" stop-color="#91A99A" stop-opacity="0"/></linearGradient></defs><path d="M0 30 H600 M0 77 H600 M0 124 H600" class="sav-3-gridline"></path><polygon fill="url(#sav3Gradient)" data-chart-area points="0,142 600,12 600,142"></polygon><polyline data-chart-line points="0,142 600,12" fill="none" stroke="#6B8874" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></polyline><circle data-chart-end cx="600" cy="12" r="6" fill="#6B8874"></circle></svg></div><div class="sav-3-months"><span>START</span><span>MONTH 3</span><span>MONTH 6</span><span>MONTH 9</span><span>MONTH 12</span></div></div>
@@ -2283,7 +2289,7 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 <div class="lg:col-span-5">
 <div class="flex items-center gap-2 text-xs text-neutral-600 mb-8"><span class="w-1.5 h-1.5 bg-[#5B7664] rounded-full"></span> LET'S TALK</div>
-<h2 class="text-4xl sm:text-5xl lg:text-[57px] font-light leading-[1.1] tracking-tight text-[#202525]">Less busywork.<br/><span class="text-neutral-400">More room to grow.</span></h2>
+<h2 data-reveal class="text-4xl sm:text-5xl lg:text-[57px] font-light leading-[1.1] tracking-tight text-[#202525]">Less busywork.<br/><span class="text-neutral-400">More room to grow.</span></h2>
 <p class="mt-6 text-sm leading-7 text-neutral-600 max-w-md">Have a task that takes too much time, software that doesn't communicate, or an AI idea to explore? Tell us what you want to improve, and we'll help identify a next step.</p>
 <div class="mt-10 pt-6 border-t border-neutral-300/80 max-w-md"><div class="text-xs font-semibold text-[#202525] mb-2">What to include</div><p class="text-xs leading-6 text-neutral-600">Tell us which tasks take up your team's time, what software you use, and what you'd like to accomplish. A few sentences is enough.</p></div>
 </div>
@@ -2395,84 +2401,6 @@ form.addEventListener('submit',async event=>{
  finally {form.removeAttribute('aria-busy');submit.disabled=false;submit.firstChild.textContent='Send Inquiry ';}
 });
 
-// Read card geometry once per frame, then update only the active stage and progress.
-(function setupStoryScroll(){
- const section=document.getElementById('about');
- const cards=Array.from(section.querySelectorAll('[data-story-frame]'));
- const labels=Array.from(section.querySelectorAll('[data-step-label]'));
- const bar=document.getElementById('story-progress-fill');
- const number=document.getElementById('story-current-number');
- const motion=matchMedia('(prefers-reduced-motion: reduce)');
- let raf=0,lastActive=-1,lastProgress=-1;
- let inView=false;
- function update(){
-  raf=0;
-  const rects=cards.map(card=>card.getBoundingClientRect());
-  const focusY=80+Math.max(0,innerHeight-80)*.42;
-  const anchors=rects.map(rect=>rect.top+Math.min(rect.height/2,240));
-  let closest=0;
-  anchors.forEach((anchor,index)=>{if(Math.abs(anchor-focusY)<Math.abs(anchors[closest]-focusY))closest=index;});
-  const distance=anchors.at(-1)-anchors[0];
-  const progress=(1+Math.min(1,Math.max(0,(focusY-anchors[0])/distance))*(cards.length-1))/cards.length;
-  if(closest!==lastActive){
-   cards.forEach((card,index)=>card.classList.toggle('is-current',index===closest));
-   labels.forEach((label,index)=>{
-    label.classList.toggle('is-current',index===closest);
-    if(index===closest)label.setAttribute('aria-current','step');else label.removeAttribute('aria-current');
-   });
-   number.textContent=String(closest+1).padStart(2,'0');
-   lastActive=closest;
-  }
-  if(Math.abs(progress-lastProgress)>.001){bar.style.transform=`scaleX(${progress})`;lastProgress=progress;}
- }
- function schedule(){if(!raf)raf=requestAnimationFrame(update);}
- const visibility=new IntersectionObserver(entries=>{
-  inView=entries.some(entry=>entry.isIntersecting);
-  if(inView)schedule();
- },{rootMargin:'100px 0px'});
- visibility.observe(section);
- window.addEventListener('scroll',()=>{if(inView)schedule();},{passive:true});
- window.addEventListener('resize',schedule,{passive:true});
- const resize=new ResizeObserver(schedule);
- cards.forEach(card=>resize.observe(card));
- labels.forEach((link,index)=>link.addEventListener('click',event=>{
-  event.preventDefault();
-  cards[index].focus({preventScroll:true});
-  cards[index].scrollIntoView({block:'start',behavior:motion.matches?'instant':'smooth'});
-  schedule();
- }));
- motion.addEventListener('change',()=>{
-  // Abort an in-flight smooth jump when motion reduction is enabled.
-  if(motion.matches)window.scrollTo({top:scrollY,behavior:'instant'});
-  schedule();
- });
- window.addEventListener('pageshow',schedule);
- schedule();
-})();
-
-// Reveal once, using only transforms; fast scrolling and reversal never hide content.
-(function setupScrollReveals(){
- if(!('IntersectionObserver' in window)||!Element.prototype.animate)return;
- const motion=matchMedia('(prefers-reduced-motion: reduce)');
- const selector='#services h2, .plan-card, .lc-v2-introbar, .sav-3-heading, .sav-3-dashboard > div, #contact h2';
- const running=new Map(),seen=new WeakSet();
- const observer=new IntersectionObserver(entries=>{
-  for(const entry of entries){
-   if(!entry.isIntersecting){running.get(entry.target)?.finish();continue;}
-   if(seen.has(entry.target))continue;
-   seen.add(entry.target);
-   if(motion.matches)continue;
-   const siblings=Array.from(entry.target.parentElement.children).filter(el=>el.matches(selector));
-   const delay=Math.min(120,Math.max(0,siblings.indexOf(entry.target))*60);
-   const animation=entry.target.animate([{transform:'translateY(12px)'},{transform:'translateY(0)'}],{duration:420,delay,easing:'cubic-bezier(.22,1,.36,1)'});
-   running.set(entry.target,animation);
-   animation.finished.catch(()=>{}).finally(()=>{running.delete(entry.target);observer.unobserve(entry.target);});
-  }
- },{threshold:0,rootMargin:'0px 0px -48px 0px'});
- document.querySelectorAll(selector).forEach(target=>observer.observe(target));
- motion.addEventListener('change',()=>{if(motion.matches)for(const animation of running.values())animation.finish();});
- document.addEventListener('visibilitychange',()=>{if(document.hidden)for(const animation of running.values())animation.finish();});
-})();
 </script>
 <script data-purpose="react-bits-side-rays">
 
@@ -2677,7 +2605,17 @@ const canvas = document.getElementById('hero-rays-canvas');
 if (!container || !canvas) return;
 // Keep content usable without spending GPU time on small or low-power devices.
 const staticHero = window.matchMedia('(max-width: 767px), (pointer: coarse), (prefers-reduced-motion: reduce)');
-if (staticHero.matches || navigator.connection?.saveData) {
+if (staticHero.matches || navigator.connection?.saveData || CSS.supports('-moz-appearance', 'none')) {
+  container.dataset.renderMode = 'static';
+  container.style.background = 'radial-gradient(ellipse at top right, rgba(150,200,255,.12), transparent 65%)';
+  return;
+}
+// Probe a detached canvas: a visible software canvas can stall even before drawing.
+const probe = document.createElement('canvas').getContext('webgl2');
+const debugRenderer = probe?.getExtension('WEBGL_debug_renderer_info');
+const renderer = debugRenderer ? probe.getParameter(debugRenderer.UNMASKED_RENDERER_WEBGL) : '';
+probe?.getExtension('WEBGL_lose_context')?.loseContext();
+if (!probe || /swiftshader|llvmpipe|software rasterizer/i.test(renderer)) {
   container.dataset.renderMode = 'static';
   container.style.background = 'radial-gradient(ellipse at top right, rgba(150,200,255,.12), transparent 65%)';
   return;
@@ -2930,12 +2868,19 @@ function initialize() {
 }
 // Yield primary content painting before compiling shaders.
 let disposed = false;
-const initializeWhenIdle = () => { if (!disposed) cleanup = initialize(); };
+const initializeWhenIdle = () => { if (!disposed && !staticHero.matches && !cleanup) cleanup = initialize(); };
 requestAnimationFrame(() => requestAnimationFrame(() => {
   if ('requestIdleCallback' in window) requestIdleCallback(initializeWhenIdle, { timeout: 1500 });
   else setTimeout(initializeWhenIdle, 0);
 }));
-window.addEventListener('pagehide', () => { disposed = true; if (cleanup) cleanup(); }, { once: true });
+const stop = () => { if (cleanup) cleanup(); cleanup = null; };
+staticHero.addEventListener('change', () => {
+  stop();
+  canvas.style.visibility = staticHero.matches ? 'hidden' : '';
+  initializeWhenIdle();
+});
+window.addEventListener('pagehide', () => { disposed = true; stop(); });
+window.addEventListener('pageshow', event => { if (event.persisted) { disposed = false; initializeWhenIdle(); } });
 })();
 
 </script>
@@ -3105,4 +3050,5 @@ window.addEventListener('pagehide', () => { disposed = true; if (cleanup) cleanu
  }
  document.querySelectorAll('.sav-section').forEach(init);
 })();
-</script></body></html>
+</script><script defer src="/assets/motion.js"></script>
+</body></html>

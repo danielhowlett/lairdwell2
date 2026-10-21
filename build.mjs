@@ -1,5 +1,5 @@
 import { readFile, mkdir, writeFile, cp } from 'node:fs/promises';
-import { transform } from 'esbuild';
+import { transform, build } from 'esbuild';
 let html = await readFile(new URL('./index.html', import.meta.url), 'utf8');
 // Minify embedded code without rewriting HTML, SVG, or shader template strings.
 for (const [tag, loader] of [['style', 'css'], ['script', 'js']]) {
@@ -15,3 +15,5 @@ await writeFile(new URL('./public/index.html', import.meta.url), html);
 await cp(new URL('./assets/', import.meta.url), new URL('./public/assets/', import.meta.url), { recursive: true });
 await writeFile(new URL('./public/_headers', import.meta.url), '/\n  Cache-Control: public, max-age=0, must-revalidate\n/index.html\n  Cache-Control: public, max-age=0, must-revalidate\n/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n');
 console.log(`Built public/index.html (${Buffer.byteLength(html)} bytes)`);
+
+await build({ entryPoints: ['motion/index.js'], bundle: true, minify: true, outfile: 'public/assets/motion.js', target: 'es2020', legalComments: 'eof' });

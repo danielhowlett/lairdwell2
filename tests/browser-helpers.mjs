@@ -12,7 +12,7 @@ export async function serveProduction() {
       const file = resolve(root, '.' + (path === '/' ? '/index.html' : path));
       if (!file.startsWith(root.endsWith(sep) ? root : root + sep)) throw new Error('Outside public');
       const body = await readFile(file);
-      res.writeHead(200, { 'Content-Type': file.endsWith('.woff2') ? 'font/woff2' : file.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/plain' });
+      res.writeHead(200, { 'Content-Type': file.endsWith('.js') ? 'text/javascript' : file.endsWith('.woff2') ? 'font/woff2' : file.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/plain' });
       res.end(body);
     } catch { res.writeHead(404); res.end(); }
   });
@@ -42,7 +42,7 @@ export async function settleScroll(page) {
     const state = window.__scrollSettling ||= { y: -1, stable: 0 };
     state.stable = Math.abs(scrollY - state.y) < .5 ? state.stable + 1 : 0;
     state.y = scrollY;
-    return state.stable >= 8;
+    return state.stable >= 8 && !document.documentElement.classList.contains('lenis-scrolling');
   }, null, { polling: 'raf', timeout: 10000 });
   await page.evaluate(() => { delete window.__scrollSettling; });
 }

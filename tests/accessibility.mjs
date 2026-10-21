@@ -113,9 +113,9 @@ try {
   await motionPage.waitForFunction(()=>!document.documentElement.classList.contains('story-snap-active'));
   await motionPage.goto(url);
   await motionPage.evaluate(()=>window.scrollTo({top:document.querySelector('.plan-card').getBoundingClientRect().top+scrollY-150,behavior:'instant'}));
-  await motionPage.waitForFunction(()=>document.getAnimations().some(a=>a.effect.target.matches('.plan-card')&&a.playState==='running'));
+  await motionPage.waitForFunction(()=>[...document.querySelectorAll('.plan-card')].some(el=>getComputedStyle(el).transform!=='none'));
   await motionPage.emulateMedia({reducedMotion:'reduce'});
-  await motionPage.waitForFunction(()=>!document.getAnimations().some(a=>a.effect?.target.matches('.plan-card')&&a.playState==='running'));
+  await motionPage.waitForFunction(()=>[...document.querySelectorAll('.plan-card')].every(el=>getComputedStyle(el).transform==='none'));
   console.log('PASS desktop motion: smooth card alignment, native scrolling, section exit, reveal animation and live reduced-motion cancellation');
   await motionContext.close();
 } finally {
