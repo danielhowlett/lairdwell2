@@ -34,6 +34,10 @@ try {
     }
     await scan('initial');
     assert.equal(await page.locator('main').count(), 1);
+    assert.match(await page.locator('#navbar').innerText(), /lairdwell/);
+    assert.match(await page.locator('footer').innerText(), /Lairdwell consulting LLC/);
+    const headerFits=await page.locator('#navbar > div:first-child > .flex.items-center:last-child').evaluate(el=>el.getBoundingClientRect().right<=innerWidth);
+    assert.equal(headerFits,true,'Header actions remain inside viewport');
     await page.keyboard.press('Tab');
     assert.equal(await page.locator('.skip-link').evaluate(el => el === document.activeElement), true);
     await page.keyboard.press('Enter');
@@ -68,6 +72,13 @@ try {
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => document.querySelector('[data-lc-count]').textContent === '02 / 03');
     await scan('changed calculator and workflow');
+    for(const step of [2,3,1]){
+      await page.locator(`[data-step-label="${step-1}"]`).focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(index=>document.querySelector(`[data-step-label="${index}"]`).getAttribute('aria-current')==='step',step-1);
+      assert.equal(await page.locator(`#story-step-${step}`).evaluate(el=>el===document.activeElement),true);
+    }
+    assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollSnapType),'none','Reduced motion disables snapping');
     await page.locator('#lead-submit').click();
     assert.equal(await page.locator('[name="name"]').evaluate(el => el === document.activeElement), true);
     await page.locator('[name="name"]').fill('Accessibility test');
@@ -93,6 +104,28 @@ try {
     console.log(`PASS ${name}: axe, keyboard, calculator, mocked form outcomes, reflow and text spacing`);
     await context.close();
   }
+  // Isolate scroll/reveal behavior from GPU variability in the decorative hero.
+  const motionContext=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'no-preference'});
+  const motionPage=await motionContext.newPage();
+  await motionPage.addInitScript(()=>{
+    const native=HTMLCanvasElement.prototype.getContext;
+    HTMLCanvasElement.prototype.getContext=function(type,...args){return type.startsWith('webgl')?null:native.call(this,type,...args)};
+  });
+  await motionPage.goto(url);
+  await motionPage.locator('[data-step-label="1"]').click();
+  await motionPage.waitForFunction(()=>Math.abs(document.querySelector('#story-step-2').getBoundingClientRect().top-116)<5);
+  assert.match(await motionPage.evaluate(()=>getComputedStyle(document.documentElement).scrollSnapType),/^y(?: proximity)?$/);
+  await motionPage.locator('[data-step-label="2"]').click();
+  await motionPage.waitForFunction(()=>document.querySelector('[data-step-label="2"]').getAttribute('aria-current')==='step'&&Math.abs(document.querySelector('#story-step-3').getBoundingClientRect().top-116)<5);
+  await motionPage.evaluate(()=>window.scrollTo({top:document.querySelector('#cases').offsetTop,behavior:'instant'}));
+  await motionPage.waitForFunction(()=>!document.documentElement.classList.contains('story-snap-active'));
+  await motionPage.goto(url);
+  await motionPage.evaluate(()=>window.scrollTo({top:document.querySelector('.plan-card').getBoundingClientRect().top+scrollY-150,behavior:'instant'}));
+  await motionPage.waitForFunction(()=>document.getAnimations().some(a=>a.effect.target.matches('.plan-card')&&a.playState==='running'));
+  await motionPage.emulateMedia({reducedMotion:'reduce'});
+  await motionPage.waitForFunction(()=>!document.getAnimations().some(a=>a.effect?.target.matches('.plan-card')&&a.playState==='running'));
+  console.log('PASS desktop motion: smooth card alignment, proximity snapping, section exit, reveal animation and live reduced-motion cancellation');
+  await motionContext.close();
 } finally {
   await browser?.close();
   await new Promise(resolve => server.close(resolve));

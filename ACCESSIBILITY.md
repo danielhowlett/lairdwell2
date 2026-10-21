@@ -1,6 +1,6 @@
 # Accessibility review
 
-The footer identifies the business as **Lairdwell consulting LLC**. The existing Laird Co. visual brand remains.
+The footer identifies the business as **Lairdwell consulting LLC**. The visible brand, header, footer and page title use Lairdwell.
 
 ## Changes
 
@@ -22,3 +22,6 @@ Desktop/mobile screenshots were inspected for the hero, calculator and form. The
 This is engineering validation, not a WCAG certification or legal guarantee. Remaining review includes a real screen-reader walkthrough (for example NVDA/Chrome and VoiceOver/Safari), actual browser zoom and OS text scaling, forced-colors/high-contrast mode, successful production font loading, and checks on the deployed site with its real contact backend and any later cookie/analytics/privacy UI. A 320px viewport approximates 400% reflow of a 1280px viewport but does not replace real zoom testing. Page-width assertions do not prove that every component is free of clipping. Google Fonts is blocked in this cloud environment, so screenshot/automated checks used fallback fonts.
 
 The form's real `/api/contact` backend is not implemented. Tests mock success and failure and send no real inquiries. A working backend and accurate privacy notice remain launch prerequisites; these checks do not establish security or privacy-law compliance.
+
+
+Story navigation uses keyboard-accessible links with `aria-current="step"`, moves focus to the selected card, and honors reduced motion. Regression checks cover desktop smooth alignment, native proximity snapping, leaving the story section, one-shot reveals, and cancellation when reduced motion is enabled. No scroll events are intercepted to replace native wheel/touch behavior.

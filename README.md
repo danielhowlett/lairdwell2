@@ -1,4 +1,4 @@
-# Laird Co. website
+# Lairdwell website
 
 The editable website is `index.html`. The original `laird-co-site.zip` is retained as an archive; it is not the deployment source.
 
@@ -17,3 +17,8 @@ The calculator uses 48 workweeks and estimates recovered staff-time value, not g
 ## Accessibility checks
 
 Run `npm run test:a11y` for the production build's automated accessibility and keyboard regression checks. It uses Chromium plus axe at desktop, tablet, mobile, and 320px reflow widths, and tests navigation, calculator controls, native validation, and mocked form responses. If Chromium is not installed, run `npx playwright install --with-deps chromium`, or set `CHROMIUM_PATH` to an installed executable. See `ACCESSIBILITY.md` for coverage and remaining manual checks.
+
+
+## Scroll interactions
+
+The three story steps link to their matching cards, with smooth scrolling and desktop proximity snapping at widths of 1100px or more. The current step follows the visible card; page scrolling remains native. Service cards and selected section headings/panels reveal once with a short transform animation. Reduced-motion users receive immediate step navigation with no snapping or reveal animations, including when the preference changes while the page is open.
