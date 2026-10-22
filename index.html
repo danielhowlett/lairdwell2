@@ -1670,7 +1670,11 @@ html{scroll-padding-top:var(--anchor-offset)}button,a,input,textarea,select{outl
 </style><style data-purpose="hero-side-rays">
 /* SideRays is unchanged; a full-hero scrim protects text without a text box. */
 #home.laird-hero{min-height:max(540px,100svh);height:auto;isolation:isolate;background:#080b11}
-#home .side-rays{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+#home .side-rays{position:absolute;inset:0;overflow:hidden;pointer-events:none;background:url(/assets/hero/side-rays-desktop.webp) top right/cover no-repeat}
+#home .side-rays[data-render-mode="animated"]{background-image:none}
+#home .side-rays:not([data-render-mode="animated"]) .side-rays__canvas{visibility:hidden}
+@media(min-width:768px) and (pointer:fine){#home .side-rays[data-render-mode="pending"]{background-image:none}}
+@media(max-width:767px){#home .side-rays{background-image:url(/assets/hero/side-rays-mobile.webp)}#home .side-rays[data-render-mode="animated"]{background-image:none}}
 #home .side-rays__canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
 #home .hero-rays-scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,8,12,.82),rgba(5,8,12,.52) 60%,rgba(5,8,12,.15)),linear-gradient(0deg,rgba(5,8,12,.8),rgba(5,8,12,.24) 55%,transparent)}
 #home .hero-content{display:block;padding-top:calc(var(--header-height) + 64px);padding-bottom:calc(clamp(40px,7svh,88px) + env(safe-area-inset-bottom,0px))}
@@ -2043,6 +2047,8 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 @media(max-width:767px){
  #home h1{font-size:clamp(46px,12vw,64px)}
  .story-frame{min-height:460px;padding:28px 24px}
+ .story-frame-one .story-flow-graphic{height:auto;min-height:0;flex:0 0 auto;margin:20px 0 28px;padding:0 5px}
+ .story-frame-one .workflow-node,.story-frame-one .workflow-path{flex-shrink:0}
  .sav-3-metric-small{min-height:250px}
 
 }
@@ -2446,7 +2452,10 @@ form.addEventListener('submit',async event=>{
    No CSS approximations, React runtime, or dependencies are required. */
 (() => {
 const PIXEL_BUDGET = 900000;
+const MOBILE_PIXEL_BUDGET = 180000;
 const FRAME_INTERVAL = 1000 / 30;
+const MOBILE_FRAME_INTERVAL = 1000 / 24;
+const mobileHero = matchMedia('(max-width: 767px), (pointer: coarse)');
 const TAU = Math.PI * 2;
 
 const ORIGINS = {
@@ -2640,11 +2649,10 @@ const link = gl => {
 const container = document.getElementById('hero-side-rays');
 const canvas = document.getElementById('hero-rays-canvas');
 if (!container || !canvas) return;
-// Keep content usable without spending GPU time on small or low-power devices.
-const staticHero = window.matchMedia('(max-width: 767px), (pointer: coarse), (prefers-reduced-motion: reduce)');
+// Mobile uses the same shader with a smaller framebuffer, rather than losing the rays.
+const staticHero = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (staticHero.matches || navigator.connection?.saveData || CSS.supports('-moz-appearance', 'none')) {
   container.dataset.renderMode = 'static';
-  container.style.background = 'radial-gradient(ellipse at top right, rgba(150,200,255,.12), transparent 65%)';
   return;
 }
 // Probe a detached canvas: a visible software canvas can stall even before drawing.
@@ -2654,10 +2662,9 @@ const renderer = debugRenderer ? probe.getParameter(debugRenderer.UNMASKED_RENDE
 probe?.getExtension('WEBGL_lose_context')?.loseContext();
 if (!probe || /swiftshader|llvmpipe|software rasterizer/i.test(renderer)) {
   container.dataset.renderMode = 'static';
-  container.style.background = 'radial-gradient(ellipse at top right, rgba(150,200,255,.12), transparent 65%)';
   return;
 }
-container.dataset.renderMode = 'animated';
+container.dataset.renderMode = 'pending';
 
 // The original example's values, unchanged.
 const rayColor1 = '#FFC46B';
@@ -2716,7 +2723,7 @@ function initialize() {
       powerPreference: 'high-performance'
     });
     const shader = gl ? link(gl) : null;
-    if (!gl || !shader) return;
+    if (!gl || !shader) { container.dataset.renderMode = 'static'; return; }
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const vao = gl.createVertexArray();
@@ -2725,10 +2732,11 @@ function initialize() {
     const aim = { value: 0, velocity: 0 };
     const focus = { angle: 0, strength: 0 };
     let time = Math.random() * 100;
-    let reveal = settingsRef.current.intro && !reduced && generation === 0 ? 0 : 1;
+    let reveal = settingsRef.current.intro && !reduced && generation === 0 && !mobileHero.matches ? 0 : 1;
     let raf = 0;
     let last = 0;
     let lastDraw = -Infinity;
+    let hasDrawn = false;
     let visible = true;
     let pageVisible = document.visibilityState !== 'hidden';
     let lost = false;
@@ -2741,7 +2749,7 @@ function initialize() {
       const ratio = Math.min(
         window.devicePixelRatio || 1,
         s.maxRatio,
-        Math.sqrt(PIXEL_BUDGET / (cssWidth * cssHeight))
+        Math.sqrt((mobileHero.matches ? MOBILE_PIXEL_BUDGET : PIXEL_BUDGET) / (cssWidth * cssHeight))
       );
       const width = Math.max(1, Math.round(cssWidth * ratio));
       const height = Math.max(1, Math.round(cssHeight * ratio));
@@ -2765,7 +2773,7 @@ function initialize() {
     const frame = now => {
       raf = 0;
       if (lost || !visible || !pageVisible) return;
-      if (now - lastDraw < FRAME_INTERVAL - 1) {
+      if (now - lastDraw < (mobileHero.matches ? MOBILE_FRAME_INTERVAL : FRAME_INTERVAL) - 1) {
         raf = requestAnimationFrame(frame);
         return;
       }
@@ -2776,7 +2784,7 @@ function initialize() {
       time += dt * s.speed * (reduced ? 0.3 : 1);
       if (reveal < 1) reveal = Math.min(1, reveal + dt / 1.6);
 
-      const tracking = s.followMouse && pointer.inside && !reduced;
+      const tracking = s.followMouse && pointer.inside && !reduced && !mobileHero.matches;
       const pointed = tracking ? pointerAngle(s) : 0;
       const target = tracking ? clamp(pointed, -s.spread, s.spread) * s.mouseInfluence : 0;
       const focusTarget = tracking ? s.mouseInfluence : 0;
@@ -2813,6 +2821,7 @@ function initialize() {
       gl.uniform3f(u.uFocus, focus.angle, Math.max(0.06, s.spread * 0.25), focus.strength * 1.4);
       gl.uniform1f(u.uSway, reduced ? 0 : 1);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
+      if (!hasDrawn) { container.dataset.renderMode = 'animated'; hasDrawn = true; }
 
       const settling =
         Math.abs(target - aim.value) > 1e-4 ||
@@ -2854,6 +2863,7 @@ function initialize() {
     const onLost = event => {
       event.preventDefault();
       lost = true;
+      container.dataset.renderMode = 'static';
       cancelAnimationFrame(raf);
       raf = 0;
     };
@@ -2913,7 +2923,7 @@ requestAnimationFrame(() => requestAnimationFrame(() => {
 const stop = () => { if (cleanup) cleanup(); cleanup = null; };
 staticHero.addEventListener('change', () => {
   stop();
-  canvas.style.visibility = staticHero.matches ? 'hidden' : '';
+  container.dataset.renderMode = staticHero.matches ? 'static' : 'pending';
   initializeWhenIdle();
 });
 window.addEventListener('pagehide', () => { disposed = true; stop(); });
