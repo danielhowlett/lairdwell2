@@ -80,13 +80,13 @@ try {
     assert.equal(await page.locator('[name="email"]').evaluate(el => el === document.activeElement), true);
     await page.locator('[name="email"]').fill('test@example.com');
     await page.locator('[name="message"]').fill('Testing the accessible form.');
-    await page.route('**/api/contact', route => route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'Test failure. Please try again.' }) }));
+    await page.route('https://formspree.io/f/xvkzeloo', route => route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: 'Test failure. Please try again.' }) }));
     await page.locator('#lead-submit').click();
     await page.waitForFunction(() => document.querySelector('#lead-status').textContent.includes('Test failure'));
     await scan('form server error');
     assert.equal(await page.locator('[name="message"]').inputValue(), 'Testing the accessible form.');
-    await page.unroute('**/api/contact');
-    await page.route('**/api/contact', route => route.fulfill({ contentType: 'application/json', body: '{"ok":true}' }));
+    await page.unroute('https://formspree.io/f/xvkzeloo');
+    await page.route('https://formspree.io/f/xvkzeloo', route => route.fulfill({ contentType: 'application/json', body: '{"ok":true}' }));
     await page.locator('#lead-submit').click();
     await page.waitForFunction(() => document.querySelector('#lead-status').textContent.includes('received'));
     assert.equal(await page.locator('[name="message"]').inputValue(), '');

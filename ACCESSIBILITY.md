@@ -21,7 +21,7 @@ Desktop/mobile screenshots were inspected for the hero, calculator and form. The
 
 This is engineering validation, not a WCAG certification or legal guarantee. Remaining review includes a real screen-reader walkthrough (for example NVDA/Chrome and VoiceOver/Safari), actual browser zoom and OS text scaling, forced-colors/high-contrast mode, successful production font loading, and checks on the deployed site with its real contact backend and any later cookie/analytics/privacy UI. A 320px viewport approximates 400% reflow of a 1280px viewport but does not replace real zoom testing. Page-width assertions do not prove that every component is free of clipping. Current browser checks load the bundled Inter font; production deployment should still be checked for correct asset paths and caching.
 
-The form's real `/api/contact` backend is not implemented. Tests mock success and failure and send no real inquiries. A working backend and accurate privacy notice remain launch prerequisites; these checks do not establish security or privacy-law compliance.
+The form now uses Formspree (`https://formspree.io/f/xvkzeloo`) with AJAX and native POST fallback. Tests mock success/failure and send no real inquiries. Real delivery/account activation and an accurate privacy notice still need deployment review; these checks do not establish security or privacy-law compliance.
 
 
 Story navigation uses keyboard-accessible links with `aria-current="step"`, moves focus to the selected card, and honors reduced motion. Regression checks cover desktop smooth alignment, unmodified native wheel/touch scrolling, leaving the story section, one-shot reveals, and cancellation when reduced motion is enabled. No scroll events are intercepted to replace native wheel/touch behavior.

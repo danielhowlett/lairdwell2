@@ -7,7 +7,8 @@
     "test:a11y": "npm run build && node tests/accessibility.mjs",
     "test:responsive": "npm run build && node tests/responsive.mjs",
     "test:motion": "npm run build && node tests/motion.mjs",
-    "test:preloader": "npm run build && node tests/preloader.mjs"
+    "test:preloader": "npm run build && node tests/preloader.mjs",
+    "test:contact": "npm run build && node tests/contact.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
