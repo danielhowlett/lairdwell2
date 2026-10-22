@@ -5,3 +5,5 @@ Footer: original 01_Full_Logo/lairdwell-full-dark.svg.
 Favicons and manifest: original 04_Favicons directory.
 Artwork copied unchanged; manifest icon paths made relative to this directory.
 The SVGs preserve the supplied aspect ratio and dark-background brand colors.
+
+Preloader: original 03_Icon_Only/lairdwell-icon-dark.svg, copied unchanged.

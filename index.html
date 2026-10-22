@@ -2083,8 +2083,16 @@ html.motion-smooth{scroll-behavior:auto!important}
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <link rel="manifest" href="/assets/brand/site.webmanifest">
+<style data-purpose="brand-preloader">
+.brand-preloader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:#171b1b;pointer-events:none;animation:preloader-fail-open 0s var(--preloader-max) forwards}
+.brand-preloader-logo{display:block;width:clamp(80px,18vw,120px);height:auto;opacity:0}
+@keyframes preloader-fail-open{to{visibility:hidden;opacity:0}}
+@media(prefers-reduced-motion:reduce){.brand-preloader{display:none}}
+</style>
 </head>
 <body class="bg-white text-neutral-900 antialiased selection:bg-[#B5C9BC] selection:text-[#202525]">
+<template id="brand-preloader-template"><div class="brand-preloader" aria-hidden="true" inert><img class="brand-preloader-logo" src="/assets/brand/lairdwell-icon-dark.svg" alt="" width="418" height="347" decoding="async"></div></template>
+<!-- preloader:bootstrap -->
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <!-- BEGIN: MainHeader -->
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-purpose="site-navigation" id="navbar">

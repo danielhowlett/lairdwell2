@@ -1,6 +1,9 @@
 import { readFile, mkdir, writeFile, cp } from 'node:fs/promises';
 import { transform, build } from 'esbuild';
 let html = await readFile(new URL('./index.html', import.meta.url), 'utf8');
+// Bootstrap the optional intro before first paint; no JS means no overlay exists.
+const intro = await build({ entryPoints: ['preloader/index.js'], bundle: true, minify: true, write: false, target: 'es2020', legalComments: 'eof' });
+html = html.replace('<!-- preloader:bootstrap -->', `<script data-purpose="brand-preloader">${intro.outputFiles[0].text}</script>`);
 // Minify embedded code without rewriting HTML, SVG, or shader template strings.
 for (const [tag, loader] of [['style', 'css'], ['script', 'js']]) {
   const pattern = new RegExp(`(<${tag}\\b[^>]*>)([\\s\\S]*?)(</${tag}>)`, 'gi');

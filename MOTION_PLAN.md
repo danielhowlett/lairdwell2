@@ -21,6 +21,8 @@ GSAP + ScrollTrigger + SplitText and Lenis, bundled locally by esbuild. One owne
 Test desktop Chromium, Firefox, WebKit; 375px mobile; normal, fast and reverse scrolling; JS disabled; reduced motion including live changes; keyboard/anchors; navigation cleanup; console diagnostics; all existing responsive/accessibility checks. Compare desktop/mobile Lighthouse Performance (maximum 5-point drop), Accessibility and CLS (<0.1). Maximum eight build/check/fix iterations. Simplify or cut failing effects.
 
 ## Final results
+
+These results describe the original seven-iteration motion task. The subsequently authorized branding and first-visit intro are documented in [PRELOADER.md](PRELOADER.md), including their current performance measurements.
 Completed in seven iterations. Installed `gsap@3.15.0` (ScrollTrigger and SplitText included) and `lenis@1.3.27`; no other animation engine.
 
 | Section | Delivered |
