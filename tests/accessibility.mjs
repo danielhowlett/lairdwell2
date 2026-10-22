@@ -26,7 +26,8 @@ try {
     }
     await scan('initial');
     assert.equal(await page.locator('main').count(), 1);
-    assert.match(await page.locator('#navbar').innerText(), /lairdwell/);
+    assert.equal(await page.getByRole('link', {name:'Lairdwell Home', exact:true}).first().count(), 1);
+    assert.equal(await page.locator('#navbar img[alt="Lairdwell Consulting"]').evaluate(el=>el.complete&&el.naturalWidth>0), true);
     assert.match(await page.locator('footer').innerText(), /Lairdwell consulting LLC/);
     const headerFits=await page.locator('#navbar > div:first-child > .flex.items-center:last-child').evaluate(el=>el.getBoundingClientRect().right<=innerWidth);
     assert.equal(headerFits,true,'Header actions remain inside viewport');
