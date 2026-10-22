@@ -5,6 +5,7 @@ export const motion = Object.freeze({
   revealStart: 'top 85%', batchInterval: .08, fastScroll: 1800,
   // CSS ease-out curve for the dependency-free intro.
   cssEase: 'cubic-bezier(.215,.61,.355,1)',
+  headerBackdropDuration: .24,
   preloaderReveal: .5, preloaderExit: .3, preloaderScale: .96, preloaderMaxWait: 1.5,
   lerp: .1, anchorDuration: .75, heroFollow: .16,
 });

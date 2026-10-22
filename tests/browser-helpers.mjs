@@ -12,7 +12,7 @@ export async function serveProduction() {
       const file = resolve(root, '.' + (path === '/' ? '/index.html' : path));
       if (!file.startsWith(root.endsWith(sep) ? root : root + sep)) throw new Error('Outside public');
       const body = await readFile(file);
-      res.writeHead(200, { 'Content-Type': file.endsWith('.svg') ? 'image/svg+xml' : file.endsWith('.png') ? 'image/png' : file.endsWith('.webmanifest') ? 'application/manifest+json' : file.endsWith('.ico') ? 'image/x-icon' : file.endsWith('.js') ? 'text/javascript' : file.endsWith('.woff2') ? 'font/woff2' : file.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/plain' });
+      res.writeHead(200, { 'Content-Type': file.endsWith('.webp') ? 'image/webp' : file.endsWith('.svg') ? 'image/svg+xml' : file.endsWith('.png') ? 'image/png' : file.endsWith('.webmanifest') ? 'application/manifest+json' : file.endsWith('.ico') ? 'image/x-icon' : file.endsWith('.js') ? 'text/javascript' : file.endsWith('.woff2') ? 'font/woff2' : file.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/plain' });
       res.end(body);
     } catch { res.writeHead(404); res.end(); }
   });

@@ -31,7 +31,7 @@ try {
    for(const mode of ['reduced','no-js','blocked-storage','deep-link','keyboard','live-reduced','failed-logo','slow-font','pagehide']) {
     const context=await browser.newContext({viewport:{width:375,height:812},reducedMotion:mode==='reduced'?'reduce':'no-preference',javaScriptEnabled:mode!=='no-js'});const p=await context.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
     if(mode==='blocked-storage')await p.addInitScript(()=>{Storage.prototype.getItem=()=>{throw new Error('Storage unavailable')};});
-    if(mode==='failed-logo')await p.route('**/lairdwell-icon-dark.svg',r=>r.abort());
+    if(mode==='failed-logo')await p.route('**/website-kit/lairdwell_icon_dark_*.webp',r=>r.abort());
     const stalled=[];
     if(mode==='slow-font')await p.route('**/*.woff2',r=>{stalled.push(r)});
     await p.goto(site.url+(mode==='deep-link'?'#contact':''),{waitUntil:'domcontentloaded'});

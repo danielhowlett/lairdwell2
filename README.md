@@ -37,3 +37,7 @@ The HTML form action is `https://formspree.io/f/xvkzeloo`. Existing vanilla Java
 Formspree handles delivery and spam filtering; check the form's recipient/activation, any allowed-domain restrictions, account limits and spam settings in its dashboard. Verify one real inquiry from the deployed origin and confirm receipt in Formspree/the recipient inbox. Automated tests mock requests and do not send real inquiries. The small form disclosure identifies Formspree; a full business privacy notice should reflect its processing and the business's actual practices.
 
 Run `npm run test:contact` for mocked success, validation, rate limiting, network failure, duplicate protection, calculator-prefilled payload and native no-JavaScript submission checks across browser engines.
+
+## Current branding and header
+
+The active artwork comes from `Lairdwell_Website_Logo_Kit.zip`. The header stays transparent until the actual hero bottom leaves the viewport, then gains its dark backdrop. See [BRANDING.md](BRANDING.md) for asset choices, lifecycle behavior, modified files and verification, or run `npm run test:header`.

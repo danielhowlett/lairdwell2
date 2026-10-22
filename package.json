@@ -8,7 +8,8 @@
     "test:responsive": "npm run build && node tests/responsive.mjs",
     "test:motion": "npm run build && node tests/motion.mjs",
     "test:preloader": "npm run build && node tests/preloader.mjs",
-    "test:contact": "npm run build && node tests/contact.mjs"
+    "test:contact": "npm run build && node tests/contact.mjs",
+    "test:header": "npm run build && node tests/header.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

@@ -1,5 +1,7 @@
 # Branded first-visit intro
 
+The later website logo kit changes the active emblem to responsive `assets/brand/website-kit/lairdwell_icon_dark_{120,240,360}.webp` candidates; timing and behavior are preserved. See [BRANDING.md](BRANDING.md) for current artwork and verification. Historical Lighthouse numbers below describe the original intro implementation.
+
 The supplied L/W symbol appears on the existing charcoal background, fades/scales from 0.96 to 1 over 0.5 seconds, then the overlay fades away over 0.3 seconds. There is no hold period. The logo reveal and critical readiness run concurrently; readiness checks only parsed homepage markup, the header logo and the hero font. Lazy footer content and the WebGL decoration do not delay dismissal. The optional flying-logo transition was deliberately omitted to preserve the navigation and keep the transition quiet.
 
 The overlay never locks scrolling, receives pointer events, or contains focusable controls. It is inert and decorative for assistive technology; page content stays accessible underneath. Keyboard, pointer, wheel/scroll interaction and pagehide immediately dismiss it. It also dismisses when the tab becomes hidden or reduced motion is enabled. All listeners, animations and the timeout are cleaned up. No new dependency was installed; native Web Animations provides the isolated two-effect intro, with settings imported from the existing shared motion config.

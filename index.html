@@ -1687,7 +1687,6 @@ html{scroll-padding-top:var(--anchor-offset)}button,a,input,textarea,select{outl
 body { background: var(--laird-canvas); color: var(--laird-ink); }
 ::selection { background: rgb(199, 213, 202); color: rgb(23, 27, 27); }
 :focus-visible { outline: rgb(129, 155, 138) solid 2px; outline-offset: 3px; }
-#navbar.bg-\[\#171B1B\]\/90 { background-color: rgba(23, 27, 27, 0.93); }
 #navbar .group:hover span:first-child { background-color: rgb(181, 201, 188); }
 #navbar .btn-arrow-hover:hover .arrow-icon { color: var(--laird-wintergreen-deep); }
 #services, #offerings, #calculator { background: var(--laird-canvas); }
@@ -1944,7 +1943,6 @@ footer .watermark-text { -webkit-text-stroke: 1.5px rgba(187, 205, 190, 0.2); }
 .skip-link{position:fixed;top:8px;left:12px;z-index:100;background:#fff;color:#17251e;padding:12px 18px;border:2px solid #17251e;transform:translateY(-160%)}
 .skip-link:focus{transform:translateY(0)}
 :where(a,button,input,textarea,select):focus-visible{outline:3px solid #174f36!important;outline-offset:3px;box-shadow:0 0 0 6px #fff!important}
-#navbar{background-color:#171b1b}
 section[id],main{scroll-margin-top:0}
 #main-content:focus{outline:none}
 .sav-3-switch button{min-height:32px;min-width:44px}
@@ -2067,21 +2065,29 @@ footer{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 @media(max-width:430px){#navbar .btn-arrow-hover{font-size:11px!important}#navbar .arrow-icon{display:none}}
 </style>
 <noscript><style>
-#navbar{position:relative}#mobile-menu-toggle{display:none!important}#mobile-menu{display:block!important;max-height:none}#navbar nav[aria-label="Primary navigation"]{display:none}html{scroll-padding-top:24px}
+#navbar{position:relative;background-color:#171b1b!important}#mobile-menu-toggle{display:none!important}#mobile-menu{display:block!important;max-height:none}#navbar nav[aria-label="Primary navigation"]{display:none}html{scroll-padding-top:24px}
 </style></noscript><style>#services h2{overflow-wrap:anywhere}
 .story-frame,.story-step-label,.story-step-marker,.story-progress>span,.results-bars span{transition:none}
 html.motion-smooth{scroll-behavior:auto!important}
 @media(prefers-reduced-motion:reduce){.story-sticky{position:static!important}}
 @media(max-width:767px){.story-sticky{position:static!important}}</style>
+<style data-purpose="hero-boundary-header">
+#navbar{background-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;transition:none}
+#navbar.is-header-ready{transition:background-color var(--header-backdrop-duration,0s) var(--header-backdrop-ease,ease-out)}
+#navbar.is-past-hero{background-color:rgba(23,27,27,.96)}
+@media(prefers-reduced-motion:reduce){#navbar.is-header-ready{transition:none}}
+</style>
 <style data-purpose="brand-assets">
-.site-brand{display:block;flex-shrink:0}
-.header-brand-logo{display:block;width:clamp(94px,30vw,156px);height:auto}
+.site-brand{display:flex;align-items:center;flex-shrink:0;width:clamp(94px,30vw,156px);height:44px}
+.site-brand picture{display:block;width:100%}
+.header-brand-logo{display:block;width:100%;height:auto}
+@media(max-width:1099px){.header-brand-logo{width:36px}}
 .footer-brand{display:inline-block;max-width:100%}
 .footer-brand-logo{display:block;width:220px;max-width:100%;height:auto}
 </style>
-<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32x32.png">
-<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/website-kit/icon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/website-kit/icon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/website-kit/icon-180.png">
 <link rel="manifest" href="/assets/brand/site.webmanifest">
 <style data-purpose="brand-preloader">
 .brand-preloader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:#171b1b;pointer-events:none;animation:preloader-fail-open 0s var(--preloader-max) forwards}
@@ -2091,15 +2097,18 @@ html.motion-smooth{scroll-behavior:auto!important}
 </style>
 </head>
 <body class="bg-white text-neutral-900 antialiased selection:bg-[#B5C9BC] selection:text-[#202525]">
-<template id="brand-preloader-template"><div class="brand-preloader" aria-hidden="true" inert><img class="brand-preloader-logo" src="/assets/brand/lairdwell-icon-dark.svg" alt="" width="418" height="347" decoding="async"></div></template>
+<template id="brand-preloader-template"><div class="brand-preloader" aria-hidden="true" inert><img class="brand-preloader-logo" src="/assets/brand/website-kit/lairdwell_icon_dark_240.webp" srcset="/assets/brand/website-kit/lairdwell_icon_dark_120.webp 120w, /assets/brand/website-kit/lairdwell_icon_dark_240.webp 240w, /assets/brand/website-kit/lairdwell_icon_dark_360.webp 360w" sizes="(max-width:444px) 80px, (max-width:666px) 18vw, 120px" alt="" width="240" height="224" decoding="async"></div></template>
 <!-- preloader:bootstrap -->
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <!-- BEGIN: MainHeader -->
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-purpose="site-navigation" id="navbar">
+<header class="fixed top-0 left-0 right-0 z-50" data-purpose="site-navigation" id="navbar">
 <div class="max-w-[1240px] mx-auto px-6 h-20 flex items-center justify-between">
 <!-- Logo Branding -->
 <a aria-label="Lairdwell Home" class="site-brand" href="#home">
-<img class="header-brand-logo" src="/assets/brand/lairdwell-header-dark.svg" alt="Lairdwell Consulting" width="1292" height="352" fetchpriority="high" decoding="async">
+<picture>
+<source media="(max-width:1099px)" srcset="/assets/brand/website-kit/lairdwell_icon_dark_120.webp 120w, /assets/brand/website-kit/lairdwell_icon_dark_240.webp 240w, /assets/brand/website-kit/lairdwell_icon_dark_360.webp 360w" sizes="36px" width="120" height="112" type="image/webp">
+<img class="header-brand-logo" src="/assets/brand/website-kit/lairdwell_primary_dark_480w.png" srcset="/assets/brand/website-kit/lairdwell_primary_dark_480w.png 480w, /assets/brand/website-kit/lairdwell_primary_dark_960w.png 960w" sizes="156px" alt="Lairdwell Consulting" width="480" height="134" fetchpriority="high" decoding="async">
+</picture>
 </a>
 <!-- Desktop Nav Links -->
 <nav aria-label="Primary navigation" class="hidden md:flex items-center space-x-8 text-sm font-light text-white/90"><a class="hover:text-white transition-opacity hover:opacity-80" href="#home">Home</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#about">Our approach</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#services">Services</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#cases">Use cases</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#calculator">Calculator</a><a class="hover:text-white transition-opacity hover:opacity-80" href="#contact">Contact</a></nav>
@@ -2328,7 +2337,7 @@ html.motion-smooth{scroll-behavior:auto!important}
 </section></main><footer class="bg-[#171B1B] text-white pt-20 pb-10 border-t border-[#343B38]" data-purpose="site-footer">
 <div class="max-w-[1240px] mx-auto px-6">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
-<div class="lg:col-span-5 pr-8"><a class="footer-brand" href="#home" aria-label="Lairdwell Home"><img class="footer-brand-logo" src="/assets/brand/lairdwell-full-dark.svg" alt="Lairdwell Consulting" width="1292" height="352" loading="lazy" decoding="async"></a><p class="text-sm leading-7 text-white/55 mt-6 max-w-sm">AI consulting, custom agents, and software integrations to reduce repetitive tasks and manual data entry.</p><a class="inline-flex items-center gap-2 mt-7 rounded-full bg-[#F5F6F3] text-[#171B1B] px-5 py-2.5 text-xs font-semibold hover:bg-white transition-colors footer-cta" href="#contact">Start a Conversation <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
+<div class="lg:col-span-5 pr-8"><a class="footer-brand" href="#home" aria-label="Lairdwell Home"><img class="footer-brand-logo" src="/assets/brand/website-kit/lairdwell_primary_dark_480w.png" srcset="/assets/brand/website-kit/lairdwell_primary_dark_480w.png 480w, /assets/brand/website-kit/lairdwell_primary_dark_960w.png 960w" sizes="220px" alt="Lairdwell Consulting" width="480" height="134" loading="lazy" decoding="async"></a><p class="text-sm leading-7 text-white/55 mt-6 max-w-sm">AI consulting, custom agents, and software integrations to reduce repetitive tasks and manual data entry.</p><a class="inline-flex items-center gap-2 mt-7 rounded-full bg-[#F5F6F3] text-[#171B1B] px-5 py-2.5 text-xs font-semibold hover:bg-white transition-colors footer-cta" href="#contact">Start a Conversation <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
 <div class="lg:col-span-2"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Explore</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#home">Home</a></li><li><a class="hover:text-white" href="#about">Our Approach</a></li><li><a class="hover:text-white" href="#services">Services</a></li><li><a class="hover:text-white" href="#cases">Use Cases</a></li><li><a class="hover:text-white" href="#calculator">Calculator</a></li></ul></div>
 <div class="lg:col-span-3"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">What we do</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#services">AI Consulting</a></li><li><a class="hover:text-white" href="#services">Custom AI Agents</a></li><li><a class="hover:text-white" href="#services">Task Automation</a></li><li><a class="hover:text-white" href="#services">Software Integrations</a></li><li><a class="hover:text-white" href="#services">Ongoing Support</a></li></ul></div>
 <div class="lg:col-span-2"><h3 class="text-xs font-semibold text-white/90 mb-5 tracking-wide">Connect</h3><ul class="space-y-3 text-xs text-white/60"><li><a class="hover:text-white" href="#contact">Contact Us</a></li><li><a class="hover:text-white" href="#contact">Request a Consultation</a></li></ul></div>
@@ -2339,21 +2348,7 @@ html.motion-smooth{scroll-behavior:auto!important}
 <!-- BEGIN: InteractiveScripts -->
 
 
-<script data-purpose="nav-scroll">
-    /**
-     * Adds frosted glass effect to top navbar on scroll
-     */
-    const navbar = document.getElementById('navbar');
-    let navbarScrolled;
-    const updateNavbar = () => {
-      const scrolled = window.scrollY > 30;
-      if (scrolled === navbarScrolled) return;
-      navbarScrolled = scrolled;
-      for (const name of ['bg-[#171B1B]/90', 'backdrop-blur-md', 'shadow-md']) navbar.classList.toggle(name, scrolled);
-    };
-    window.addEventListener('scroll', updateNavbar, { passive: true });
-    updateNavbar();
-  </script>
+<!-- header:bootstrap -->
 <!-- END: InteractiveScripts -->
 <script>
 const mobileToggle=document.getElementById('mobile-menu-toggle');
