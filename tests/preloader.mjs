@@ -17,8 +17,9 @@ try {
     await page.goto(site.url,{waitUntil:'domcontentloaded'});
     const overlay=page.locator('body > .brand-preloader');await overlay.waitFor({state:'attached'});
     await page.waitForFunction(()=>{const img=document.querySelector('.brand-preloader-logo');return img?.complete&&img.naturalWidth>0&&+getComputedStyle(img).opacity>.1;});
-    const geometry=await overlay.evaluate(el=>{const r=el.getBoundingClientRect(),i=el.querySelector('img').getBoundingClientRect();return{dx:Math.abs((i.left+i.right)/2-innerWidth/2),dy:Math.abs((i.top+i.bottom)/2-innerHeight/2),width:r.width,height:r.height,pointer:getComputedStyle(el).pointerEvents,inert:el.inert,hidden:el.getAttribute('aria-hidden')};});
+    const geometry=await overlay.evaluate(el=>{const image=el.querySelector('img'),r=el.getBoundingClientRect(),i=image.getBoundingClientRect();return{dx:Math.abs((i.left+i.right)/2-innerWidth/2),dy:Math.abs((i.top+i.bottom)/2-innerHeight/2),width:r.width,height:r.height,pointer:getComputedStyle(el).pointerEvents,inert:el.inert,hidden:el.getAttribute('aria-hidden'),background:getComputedStyle(el).backgroundColor,logo:new URL(image.currentSrc).pathname,blend:getComputedStyle(image).mixBlendMode};});
     assert.ok(geometry.dx<1&&geometry.dy<1);assert.equal(geometry.width,width);assert.equal(geometry.height,height);assert.equal(geometry.pointer,'none');assert.equal(geometry.inert,true);assert.equal(geometry.hidden,'true');
+    assert.equal(geometry.background,'rgb(0, 0, 0)');assert.equal(geometry.logo,'/assets/brand/bull/lairdwell-bull.png');assert.equal(geometry.blend,'screen');
     // Capture the running intro without changing its timing.
     await page.screenshot({path:`${artifacts}/${name}-${width}-intro.png`});
     await overlay.waitFor({state:'detached',timeout:2200});
@@ -31,7 +32,7 @@ try {
    for(const mode of ['reduced','no-js','blocked-storage','deep-link','keyboard','live-reduced','failed-logo','slow-font','pagehide']) {
     const context=await browser.newContext({viewport:{width:375,height:812},reducedMotion:mode==='reduced'?'reduce':'no-preference',javaScriptEnabled:mode!=='no-js'});const p=await context.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
     if(mode==='blocked-storage')await p.addInitScript(()=>{Storage.prototype.getItem=()=>{throw new Error('Storage unavailable')};});
-    if(mode==='failed-logo')await p.route('**/website-kit/lairdwell_icon_dark_*.webp',r=>r.abort());
+    if(mode==='failed-logo')await p.route('**/assets/brand/bull/lairdwell-bull.png',r=>r.abort());
     const stalled=[];
     if(mode==='slow-font')await p.route('**/*.woff2',r=>{stalled.push(r)});
     await p.goto(site.url+(mode==='deep-link'?'#contact':''),{waitUntil:'domcontentloaded'});

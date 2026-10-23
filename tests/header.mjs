@@ -17,7 +17,7 @@ try{
      await page.waitForFunction(expected=>document.querySelector('#navbar').classList.contains('is-past-hero')===expected,past);
      const state=await page.locator('#navbar').evaluate(el=>{const s=getComputedStyle(el);return{bg:s.backgroundColor,blur:s.backdropFilter,shadow:s.boxShadow,position:s.position,top:el.getBoundingClientRect().top,height:el.getBoundingClientRect().height}});
      assert.equal(state.position,'fixed');assert.equal(state.top,0);assert.equal(state.height,80);assert.equal(state.blur,'none');assert.equal(state.shadow,'none');
-     if(past)assert.equal(state.bg,'rgba(23, 27, 27, 0.96)');else assert.equal(state.bg,'rgba(0, 0, 0, 0)');
+    if(past)assert.equal(state.bg,'rgb(23, 27, 27)');else assert.equal(state.bg,'rgba(0, 0, 0, 0)');
     };
     for(const [top,past]of[[0,false],[40,false],[edge/2,false],[edge-2,false],[edge,true],[edge+2,true],[edge+200,true],[edge-2,false],[0,false]]){
      await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),top);await assertState(past);
@@ -37,7 +37,7 @@ try{
     await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await assertState(false);
     await page.waitForFunction(()=>{const img=document.querySelector('#navbar img');return img.complete&&img.naturalWidth>0});
     const asset=await page.locator('#navbar img').evaluate(async e=>{const original=new Image();original.src=e.currentSrc;await original.decode();return{src:e.currentSrc,ratio:e.getBoundingClientRect().width/e.getBoundingClientRect().height,native:original.naturalWidth/original.naturalHeight}});
-    assert.ok(asset.src.includes('/website-kit/'));assert.ok(Math.abs(asset.ratio-asset.native)<.01,'Unstretched art');assert.ok(asset.src.includes(width<1100?'icon_dark_':'primary_dark_'));
+    assert.ok(asset.src.includes('/assets/brand/bull/lairdwell-bull.png'));assert.ok(Math.abs(asset.ratio-asset.native)<.01,'Unstretched art');
     await page.screenshot({path:`${artifacts}/${name}-${width}-hero-header.png`});
     if(width<1100){
      await page.locator('#mobile-menu-toggle').click();assert.equal(await page.locator('#mobile-menu-toggle').getAttribute('aria-expanded'),'true');await page.keyboard.press('Escape');assert.equal(await page.locator('#mobile-menu-toggle').getAttribute('aria-expanded'),'false');
@@ -52,12 +52,12 @@ try{
    const normalErrors=[];p.on('pageerror',e=>normalErrors.push(e.message));p.on('console',m=>{if(['error','warning'].includes(m.type()))normalErrors.push(m.text())});
    await p.goto(site.url+'#contact');
    await p.waitForFunction(()=>document.querySelector('#navbar').classList.contains('is-past-hero'));
-   assert.equal(await p.locator('#navbar').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(23, 27, 27, 0.96)','Initial deep-link backdrop is immediate');
+    assert.equal(await p.locator('#navbar').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(23, 27, 27)','Initial deep-link backdrop is immediate');
    await p.goto(site.url);await p.evaluate(()=>document.fonts.ready);
    for(const delta of[200,500,700,-500,-900]){await p.mouse.wheel(0,delta);await p.waitForTimeout(40);}await settleScroll(p);
    await p.evaluate(()=>scrollTo({top:document.querySelector('#home').getBoundingClientRect().bottom+scrollY+10,behavior:'instant'}));
    await p.waitForFunction(()=>document.querySelector('#navbar').classList.contains('is-past-hero'));
-   await p.waitForTimeout(300);assert.equal(await p.locator('#navbar').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(23, 27, 27, 0.96)');
+    await p.waitForTimeout(300);assert.equal(await p.locator('#navbar').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(23, 27, 27)');
    await p.emulateMedia({reducedMotion:'reduce'});assert.equal(await p.locator('#navbar').evaluate(e=>getComputedStyle(e).transitionDuration),'0s');assert.deepEqual(normalErrors,[]);await context.close();
   }finally{await browser.close()}
  }

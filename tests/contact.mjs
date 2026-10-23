@@ -25,6 +25,9 @@ try{
     return reply(200,{ok:true});
    });
    await page.goto(site.url);
+    const phone=page.locator('#contact a[href="tel:+16157016955"]');
+    assert.equal(await phone.textContent(),'(615) 701-6955');
+    assert.equal(await page.locator('footer a[href="tel:+16157016955"]').count(),1);
    const form=page.locator('#lead-form'),button=page.locator('#lead-submit');
    assert.equal(await form.getAttribute('action'),endpoint);
    assert.equal(await form.getAttribute('method'),'post');
